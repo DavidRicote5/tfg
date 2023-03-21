@@ -1,4 +1,4 @@
-package org.agaray.spring.pap2023.controllers;
+package org.getfit.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;

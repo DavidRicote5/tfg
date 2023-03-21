@@ -1,4 +1,4 @@
-package org.agaray.spring.pap2023.exception;
+package org.getfit.exception;
 
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;

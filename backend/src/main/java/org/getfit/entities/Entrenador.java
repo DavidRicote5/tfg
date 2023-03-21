@@ -1,6 +1,7 @@
 package org.getfit.entities;
 
-import jakarta.persistence.Column;
+import java.util.Collection;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,15 +19,30 @@ import lombok.NonNull;
 @Builder
 
 @Entity
-public class Cliente {
+public class Entrenador {
+
+	/*
+	 * =============================================================================
+	 */
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(unique = true)
 	@NonNull
 	private String nombre;
+	private String correo;
+	private String certificaciones;
+	private String especializacion;
+	private int añosExperiencia;
 
+	/*
+	 * =============================================================================
+	 */
+
+	@OneToMany(mappedBy = "entrenador")
+	private Collection<Usuario> usuarios;
+
+	@OneToMany(mappedBy = "entrenador")
+	private Collection<Rutina> rutinas;
 }
-

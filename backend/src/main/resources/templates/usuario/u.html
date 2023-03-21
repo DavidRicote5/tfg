@@ -1,0 +1,19 @@
+
+<div class="container">
+<h1>Actualizar usuario</h1>
+
+<form action="/usuario/u" method="post">
+Nombre
+<input type="text" name="nombre" required="required" th:value="${usuario.nombre}"/>
+<br/>
+
+<input type="hidden" name="idUsuario" th:value="${usuario.id}"/>
+
+<input type="submit"/>
+<br/>
+</form>
+
+<form action="/usuario/r">
+<input type="submit" value="Cancelar"/>
+</form>
+</div>
