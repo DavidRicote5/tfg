@@ -1,0 +1,19 @@
+
+<div class="container">
+<h1>Actualizar rutina</h1>
+
+<form action="/rutina/u" method="post">
+Nombre
+<input type="text" name="nombre" required="required" th:value="${rutina.nombre}"/>
+<br/>
+
+<input type="hidden" name="idRutina" th:value="${rutina.id}"/>
+
+<input type="submit"/>
+<br/>
+</form>
+
+<form action="/rutina/r">
+<input type="submit" value="Cancelar"/>
+</form>
+</div>

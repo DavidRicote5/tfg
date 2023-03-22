@@ -1,0 +1,49 @@
+
+<div class="container">
+<h1>Lista de rutinas</h1>
+
+<form action="/usuario/c">
+<input type="submit" value="Nuevo rutina"/>
+</form>
+
+
+<form action="/">
+
+<input type="submit" value="Menú principal"/>
+</form>
+
+<table class="table table-striped table-hover">
+<tr>
+<th>Acción</th>
+<th>Nombre</th>
+</tr>
+
+<tr th:each=" rutina : ${ rutinas }">
+<td>
+<div class="row">
+<div class="col">
+<form action="/rutina/u">
+<input type="hidden" th:value="${ rutina.id }" name="id"/>
+<button onclick="submit()">
+<img src="/img/lapiz.png" width="20" height="20"/>
+</button>
+</form>
+</div>
+
+<div class="col">
+<form action="/rutina/d" method="post">
+<input type="hidden" th:value="${ rutina.id }" name="id"/>
+<button onclick="submit()">
+<img src="/img/basura.png" width="20" height="20"/>
+</button>
+</form>
+</div>
+</div>
+</td>
+
+<td th:text="${ rutina.nombre }"/>
+
+
+</tr>
+</table>
+</div>

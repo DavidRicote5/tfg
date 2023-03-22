@@ -1,0 +1,55 @@
+package org.getfit.controllers;
+
+import org.getfit.exception.DangerException;
+import org.agaray.spring.pap2023.helpers.PRG;
+import org.agaray.spring.pap2023.services.PersonaService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import jakarta.servlet.http.HttpSession;
+
+@Controller
+public class AuthController {
+	
+	
+	@Autowired
+	PersonaService personaService;
+
+	
+	@GetMapping("/login")
+	public String login(
+			ModelMap m
+			) {
+		m.put("view", "home/login");
+		return "_t/frame";
+	}
+	
+	@PostMapping("/login")
+	public String loginPost(
+			@RequestParam("loginname") String loginname,
+			@RequestParam("password") String password,
+			HttpSession s
+			) throws DangerException {
+		try {
+			s.setAttribute("usuario", personaService.autenticarUsuario(loginname, password));
+		}
+		catch (Exception e) {
+			PRG.error(e.getMessage(),"/");
+		}
+		return "redirect:/";
+	}
+	
+	@GetMapping("/logout")
+	public String logout(
+			HttpSession s
+			) {
+		if (s.getAttribute("usuario")!=null) {
+			s.removeAttribute("usuario");
+		}
+		return "redirect:/";
+	}
+}

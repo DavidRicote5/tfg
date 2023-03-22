@@ -1,0 +1,5 @@
+package org.getfit.repositories;
+
+public interface RutinaRepository {
+
+}
