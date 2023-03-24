@@ -17,7 +17,11 @@ public class PlanService {
 		return planRepository.findAll();
 	}
 
-	public void savePlan(String nombre, String descripcion, int duracion, int precio) throws Exception {
+	public void savePlan(
+			String nombre,
+			String descripcion,
+			int duracion,
+			int precio) throws Exception {
 		Plan plan = Plan.builder().nombre(nombre).descripcion(descripcion).duracion(duracion).precio(precio).build();
 		try {
 			planRepository.saveAndFlush(plan);
@@ -30,9 +34,18 @@ public class PlanService {
 		return planRepository.findById(id).get();
 	}
 
-	public void updatePlan(Long id, String nombre) throws Exception {
+	public void updatePlan(
+			Long id,
+			String nombre,
+			String descripcion,
+			int duracion,
+			int precio) throws Exception {
 		Plan plan = planRepository.findById(id).get();
 		plan.setNombre(nombre);
+		plan.setDescripcion(descripcion);
+		plan.setDuracion(duracion);
+		plan.setPrecio(precio);
+		
 		try {
 			planRepository.saveAndFlush(plan);
 		} catch (Exception e) {

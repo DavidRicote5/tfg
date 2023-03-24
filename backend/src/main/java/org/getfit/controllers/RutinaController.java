@@ -4,6 +4,7 @@ import java.util.List;
 import org.getfit.entities.Rutina;
 import org.getfit.exception.DangerException;
 import org.getfit.helpers.PRG;
+import org.getfit.services.EjercicioService;
 import org.getfit.services.EntrenadorService;
 import org.getfit.services.RutinaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,11 +23,15 @@ public class RutinaController {
 	private RutinaService rutinaService;
 	
 	@Autowired
+	private EjercicioService ejercicioService;
+	
+	@Autowired
 	private EntrenadorService entrenadorService;
 
 	@GetMapping("c")
 	public String cGet(ModelMap m) {
 		
+		m.put("ejercicios", ejercicioService.getEjercicios());
 		m.put("entrenadores", entrenadorService.getEntrenadores());
 		m.put("view", "rutina/c");
 		return "_t/frame";
@@ -37,10 +42,12 @@ public class RutinaController {
 			@RequestParam("descripcion") String descripcion,
 			@RequestParam("dificultad") String dificultad,
 			@RequestParam("duracion") int duracion,
+			@RequestParam(required=false, name="idEjercicios[]") Long[] idEjercicios,
 			@RequestParam(required=false, name="idEntrenador") Long idEntrenador
 			) throws DangerException {
-		try {
-			rutinaService.saveRutina(nombre,descripcion,dificultad,duracion,idEntrenador);
+		
+		try {	
+			rutinaService.saveRutina(nombre,descripcion,dificultad,duracion,idEntrenador,idEjercicios);
 		} catch (Exception e) {
 			PRG.error(e.getMessage(), "/rutina/r");
 		}
@@ -58,6 +65,8 @@ public class RutinaController {
 	@GetMapping("u")
 	public String uGet(@RequestParam("id") Long idRutina, ModelMap m) {
 		Rutina rutina = rutinaService.getRutinaById(idRutina);
+		
+		m.put("ejercicios", ejercicioService.getEjercicios());
 		m.put("entrenadores", entrenadorService.getEntrenadores());
 		m.put("rutina", rutina);
 		m.put("view", "rutina/u");
@@ -68,11 +77,12 @@ public class RutinaController {
 	@PostMapping("u")
 	public String uPost(@RequestParam("idRutina") Long idRutina,
 			@RequestParam("nombre") String nombre,
-			@RequestParam(required=false, name="idEntrenador") Long idEntrenador
+			@RequestParam("idEjercicios[]") Long[] idEjercicios
 			) throws DangerException {
 		String retorno = "redirect:/rutina/r";
+		
 		try {
-			rutinaService.updateRutina(idRutina, nombre);
+			rutinaService.updateRutina(idRutina, nombre,idEjercicios);
 		} catch (Exception e) {
 			PRG.error(e.getMessage(), "/rutina/r");
 		}
@@ -80,7 +90,7 @@ public class RutinaController {
 	}
 
 	@PostMapping("d")
-	public String d(@RequestParam("id") Long id) {
+	public String d(@RequestParam("idRutina") Long id) {
 		rutinaService.deleteRutina(id);
 		return "redirect:/rutina/r";
 	}

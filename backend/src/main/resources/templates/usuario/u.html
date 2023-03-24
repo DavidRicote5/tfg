@@ -1,19 +1,43 @@
-
 <div class="container">
-<h1>Actualizar usuario</h1>
+	<h1>Actualizar Usuario</h1>
 
-<form action="/usuario/u" method="post">
-Nombre
-<input type="text" name="nombre" required="required" th:value="${usuario.nombre}"/>
-<br/>
+	<form action="/usuario/u" method="post">
 
-<input type="hidden" name="idUsuario" th:value="${usuario.id}"/>
+		Nombre
+		<input type="text" name="nombre" required="required" th:value="${usuario.nombre}" />
+		<br />
 
-<input type="submit"/>
-<br/>
-</form>
+		Entrenador
+		<select name="idEntrenador">
+			<th:block th:each=" entrenador : ${entrenadores} ">
+				<option th:value="${entrenador.id}" th:text="${entrenador.nombre}" th:selected="${entrenador.id == usuario.entrenador.id}"/>
+			</th:block>
+		</select>
+		<br />
 
-<form action="/usuario/r">
-<input type="submit" value="Cancelar"/>
-</form>
+		Plan
+		<select name="idPlan">
+			<th:block th:each=" plan : ${planes} ">
+				<option th:value="${plan.id}" th:text="${plan.nombre}" th:selected="${plan.id == usuario.plan.id}"/>
+			</th:block>
+		</select>
+		<br />
+		
+		Rutinas
+		<select name="idRutina">
+			<th:block th:each=" rutina : ${rutinas} ">
+				<option th:value="${rutina.id}" th:text="${rutina.nombre}" th:selected="${rutina.id == usuario.rutina.id}"/>
+			</th:block>
+		</select>
+		<br />
+		
+		<input type="hidden" name="idUsuario" th:value="${usuario.id}" />
+
+		<input type="submit" />
+		<br />
+	</form>
+
+	<form action="/usuario/r">
+		<input type="submit" value="Cancelar" />
+	</form>
 </div>

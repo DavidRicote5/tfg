@@ -5,7 +5,6 @@ import org.getfit.entities.Ejercicio;
 import org.getfit.exception.DangerException;
 import org.getfit.helpers.PRG;
 import org.getfit.services.EjercicioService;
-import org.getfit.services.RutinaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -20,13 +19,9 @@ public class EjercicioController {
 
 	@Autowired
 	private EjercicioService ejercicioService;
-	
-	@Autowired
-	private RutinaService rutinaService;
 
 	@GetMapping("c")
 	public String cGet(ModelMap m) {
-		m.put("rutinas", rutinaService.getRutinas());
 		m.put("view", "ejercicio/c");
 		return "_t/frame";
 	}
@@ -35,11 +30,10 @@ public class EjercicioController {
 	public String cPost(@RequestParam("nombre") String nombre,
 			@RequestParam("descripcion") String descripcion,
 			@RequestParam("grupoMuscular") String grupoMuscular,
-			@RequestParam("equipoNecesario") String equipoNecesario,
-			@RequestParam(required=false, name="idRutina") Long idRutina
+			@RequestParam("equipoNecesario") String equipoNecesario
 			) throws DangerException {
 		try {
-			ejercicioService.saveEjercicio(nombre,descripcion,grupoMuscular,equipoNecesario,idRutina);
+			ejercicioService.saveEjercicio(nombre,descripcion,grupoMuscular,equipoNecesario);
 		} catch (Exception e) {
 			PRG.error(e.getMessage(), "/ejercicio/r");
 		}
@@ -57,7 +51,6 @@ public class EjercicioController {
 	@GetMapping("u")
 	public String uGet(@RequestParam("id") Long idEjercicio, ModelMap m) {
 		Ejercicio ejercicio = ejercicioService.getEjercicioById(idEjercicio);
-		m.put("rutinas", rutinaService.getRutinas());
 		m.put("ejercicio", ejercicio);
 		m.put("view", "ejercicio/u");
 
@@ -66,8 +59,7 @@ public class EjercicioController {
 
 	@PostMapping("u")
 	public String uPost(@RequestParam("idEjercicio") Long idEjercicio,
-			@RequestParam("nombre") String nombre,
-			@RequestParam(required=false, name="idRutina") Long idRutina
+			@RequestParam("nombre") String nombre
 			) throws DangerException {
 		String retorno = "redirect:/ejercicio/r";
 		try {

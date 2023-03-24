@@ -1,21 +1,82 @@
-
 <div class="container">
-<h1>Crear usuario</h1>
-<form action="/usuario/c" method="post">
-	
-Username
-<input type="text" name="username" required="required" autofocus="autofocus"/>
-<br/>
+	<h1>Crear usuario</h1>
 
-Nombre
-<input type="text" name="nombre" required="required" autofocus="autofocus"/>
-<br/>
+	<form action="/usuario/c" method="post" enctype="multipart/form-data">
+		
+		<!--este script permite a los usuarios seleccionar una imagen y
+		 mostrarla en una página web sin necesidad de enviarla a un servidor.-->
+		<script>
+   		 $(window).on("load",(function(){
+   		 $(function() {
+   		 $('#id-foto').change(function(e) {addImage(e);});
+   		 function addImage(e){
+   			var file = e.target.files[0],
+   			imageType = /image.*/;
+   			if (!file.type.match(imageType)) return;
+   			var reader = new FileReader();
+   			reader.onload = fileOnload;
+   			reader.readAsDataURL(file);
+   		}
+   		function fileOnload(e) {
+   		var result=e.target.result;
+   		$('#id-out-foto').attr("src",result);
+   		}});}));
+		</script>
 
-<input type="submit"/>
-<br/>
-</form>
+		
+		Foto
+		<input id="id-foto" type="file" name="foto"/>
+		<br/>
 
-<form action="/usuario/r">
-<input type="submit" value="Cancelar"/>
-</form>
+		<img class="offset-1 col-2" id="id-out-foto"
+			width="3%" height="3%"
+			src="/assets/img/fotos/foto-0.png"
+			alt="NO FOTO"/>
+		<br/>
+
+		Nombre:
+		<input type="text" name="nombre" required="required" autofocus="autofocus" />
+		<br />
+
+		Loginame:
+		<input type="text" name="loginname" required="required" />
+		<br />
+		
+		Contraseña:
+		<input type="password" name="password" required="required" />
+		<br />
+		
+		Correo:
+		<input type="email" name="correo" required="required" />
+		<br />
+		
+		Fecha de nacimiento:
+		<input type="date" name="fechaNac" required="required">
+		<br/>
+		
+		Genero:
+		<select name="genero">
+			<option th:value="Hombre" th:text="Hombre" />
+			<option th:value="Mujer" th:text="Mujer" />
+			<option th:value="Prefiero no decirlo" th:text="Prefiero no decirlo" />
+		</select>
+		<br />
+
+		Altura (CM):
+		<input type="number" name="altura" required="required" maxlength="3">
+		<br />
+		
+		Peso (KG):
+		<input type="number" name="peso" required="required" maxlength="3">
+		<br />
+		
+
+		<input type="submit" />
+		<br />
+	</form>
+
+	<form action="/usuario/r">
+
+		<input type="submit" value="Cancelar" />
+	</form>
 </div>

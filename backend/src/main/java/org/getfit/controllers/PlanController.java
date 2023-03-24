@@ -42,8 +42,8 @@ public class PlanController {
 
 	@GetMapping("r")
 	public String rGet(ModelMap m) {
-		List<Plan> plans = planService.getPlanes();
-		m.put("plans", plans);
+		List<Plan> planes = planService.getPlanes();
+		m.put("planes", planes);
 		m.put("view", "plan/r");
 		return "_t/frame";
 	}
@@ -59,11 +59,15 @@ public class PlanController {
 	}
 
 	@PostMapping("u")
-	public String uPost(@RequestParam("idPlan") Long idPlan,
-			@RequestParam("nombre") String nombre) throws DangerException {
+	public String uPost(
+			@RequestParam("idPlan") Long idPlan,
+			@RequestParam("nombre") String nombre,
+			@RequestParam("descripcion") String descripcion,
+			@RequestParam("duracion") int duracion,
+			@RequestParam("precio") int precio) throws DangerException {
 		String retorno = "redirect:/plan/r";
 		try {
-			planService.updatePlan(idPlan, nombre);
+			planService.updatePlan(idPlan, nombre,descripcion,duracion,precio);
 		} catch (Exception e) {
 			PRG.error(e.getMessage(), "/plan/r");
 		}

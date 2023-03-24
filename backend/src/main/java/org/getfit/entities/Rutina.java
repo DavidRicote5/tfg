@@ -49,7 +49,7 @@ public class Rutina {
 	@ManyToOne
 	private Entrenador entrenador;
 
-	@OneToMany(mappedBy = "rutina")
+	@ManyToMany
 	private Collection<Ejercicio> ejercicios;
 
 }

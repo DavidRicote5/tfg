@@ -17,7 +17,9 @@ public class EntrenadorService {
 	}
 
 	public void saveEntrenador(String nombre, String correo, String certificaciones, String especializaciones, int añosExperiencia) throws Exception {
+		
 		Entrenador entrenador = Entrenador.builder().nombre(nombre).correo(correo).certificaciones(certificaciones).añosExperiencia(añosExperiencia).build();
+		
 		try {
 			entrenadorRepository.saveAndFlush(entrenador);
 		} catch (Exception e) {
@@ -29,9 +31,18 @@ public class EntrenadorService {
 		return entrenadorRepository.findById(id).get();
 	}
 
-	public void updateEntrenador(Long id, String nombre) throws Exception {
+	public void updateEntrenador(
+			Long id,
+			String nombre,
+			String certificaciones,
+			String especializaciones,
+			int añosExperiencia) throws Exception {
 		Entrenador entrenador = entrenadorRepository.findById(id).get();
 		entrenador.setNombre(nombre);
+		entrenador.setCertificaciones(certificaciones);
+		entrenador.setEspecializacion(especializaciones);
+		entrenador.setAñosExperiencia(añosExperiencia);
+		
 		try {
 			entrenadorRepository.saveAndFlush(entrenador);
 		} catch (Exception e) {

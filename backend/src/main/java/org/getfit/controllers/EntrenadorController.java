@@ -33,6 +33,7 @@ public class EntrenadorController {
 			@RequestParam("especializacion") String especializacion,
 			@RequestParam("añosExperiencia") int añosExperiencia
 			) throws DangerException {
+		
 		try {
 			entrenadorService.saveEntrenador(nombre,correo,certificaciones,especializacion,añosExperiencia);
 		} catch (Exception e) {
@@ -43,14 +44,15 @@ public class EntrenadorController {
 
 	@GetMapping("r")
 	public String rGet(ModelMap m) {
-		List<Entrenador> entrenadors = entrenadorService.getEntrenadores();
-		m.put("entrenadors", entrenadors);
+		List<Entrenador> entrenadores = entrenadorService.getEntrenadores();
+		m.put("entrenadores", entrenadores);
 		m.put("view", "entrenador/r");
 		return "_t/frame";
 	}
 
 	@GetMapping("u")
 	public String uGet(@RequestParam("id") Long idEntrenador, ModelMap m) {
+		
 		Entrenador entrenador = entrenadorService.getEntrenadorById(idEntrenador);
 
 		m.put("entrenador", entrenador);
@@ -61,10 +63,14 @@ public class EntrenadorController {
 
 	@PostMapping("u")
 	public String uPost(@RequestParam("idEntrenador") Long idEntrenador,
-			@RequestParam("nombre") String nombre) throws DangerException {
+			@RequestParam("nombre") String nombre,
+			@RequestParam("certificaciones") String certificaciones,
+			@RequestParam("especializaciones") String especializaciones,
+			@RequestParam("añosExperiencia") int añosExperiencia) throws DangerException {
 		String retorno = "redirect:/entrenador/r";
+		
 		try {
-			entrenadorService.updateEntrenador(idEntrenador, nombre);
+			entrenadorService.updateEntrenador(idEntrenador, nombre,certificaciones,especializaciones,añosExperiencia);
 		} catch (Exception e) {
 			PRG.error(e.getMessage(), "/entrenador/r");
 		}
