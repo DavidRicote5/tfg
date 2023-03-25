@@ -1,0 +1,18 @@
+<div class="container">
+<h1>Actualizar entrenador</h1>
+
+<form action="/entrenador/u" method="post">
+Nombre
+<input type="text" name="nombre" required="required" th:value="${entrenador.nombre}"/>
+<br/>
+
+<input type="hidden" name="idEntrenador" th:value="${entrenador.id}"/>
+
+<input type="submit"/>
+<br/>
+</form>
+
+<form action="/entrenador/r">
+<input type="submit" value="Cancelar"/>
+</form>
+</div>

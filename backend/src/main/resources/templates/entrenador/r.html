@@ -1,0 +1,57 @@
+<div class="container">
+	<h1>Lista de entrenadores</h1>
+
+	<form action="/entrenador/c">
+		<input type="submit" value="Nuevo entrenador" />
+	</form>
+
+
+	<form action="/">
+
+		<input type="submit" value="Menú principal" />
+	</form>
+
+	<table class="table table-striped table-hover">
+		<tr>
+			<th>Acción</th>
+			<th>Nombre</th>
+			<th>Correo</th>
+            <th>Certificaciones</th>
+            <th>Especialización</th>
+            <th>Años de experiencia</th>
+		</tr>
+
+		<tr th:each=" entrenador : ${ entrenadores }">
+			<td>
+				<div class="row">
+					<div class="col">
+						<form action="/entrenador/u">
+							<input type="hidden" th:value="${ entrenador.id }" name="id" />
+							<button onclick="submit()">
+								<img src="/img/lapiz.png" width="20" height="20" />
+							</button>
+						</form>
+					</div>
+
+					<div class="col">
+						<form action="/entrenador/d" method="post">
+							<input type="hidden" th:value="${ entrenador.id }" name="id" />
+							<button onclick="submit()">
+								<img src="/img/basura.png" width="20" height="20" />
+							</button>
+						</form>
+					</div>
+				</div>
+			</td>
+
+			<td th:text="${ entrenador.nombre }" />
+			<td th:text="${ entrenador.correo }" />
+			<td th:text="${ entrenador.certificaciones }" />
+			<td th:text="${ entrenador.especializacion }" />
+			<td th:text="${ entrenador.aniosExperiencia }" />
+			
+
+
+		</tr>
+	</table>
+</div>
