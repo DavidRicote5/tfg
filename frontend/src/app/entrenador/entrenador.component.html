@@ -1,0 +1,21 @@
+<h2>Lista de entrenadores</h2>
+<table class="table table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>Nombre</th>
+            <th>Correo</th>
+            <th>Certificaciones</th>
+            <th>Especialización</th>
+            <th>Años de experiencia</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let entrenador of entrenadores">
+            <td>{{entrenador.nombre}}</td>
+            <td>{{entrenador.correo}}</td>
+            <td>{{entrenador.certificaciones}}</td>
+            <td>{{entrenador.especializacion}}</td>
+            <td>{{entrenador.aniosExperiencia}}</td>
+        </tr>
+    </tbody>
+</table>
