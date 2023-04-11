@@ -4,7 +4,6 @@ import java.util.List;
 import org.getfit.entities.Entrenador;
 import org.getfit.exception.DangerException;
 import org.getfit.helpers.PRG;
-import org.getfit.services.EjercicioService;
 import org.getfit.services.EntrenadorService;
 import org.getfit.services.RutinaService;
 import org.springframework.beans.factory.annotation.Autowired;

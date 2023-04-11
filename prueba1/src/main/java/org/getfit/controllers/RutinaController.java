@@ -5,7 +5,6 @@ import org.getfit.entities.Rutina;
 import org.getfit.exception.DangerException;
 import org.getfit.helpers.PRG;
 import org.getfit.services.EjercicioService;
-import org.getfit.services.EntrenadorService;
 import org.getfit.services.RutinaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

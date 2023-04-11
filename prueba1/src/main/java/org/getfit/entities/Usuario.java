@@ -1,12 +1,15 @@
 package org.getfit.entities;
 
 import java.time.LocalDate;
+import java.util.Collection;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -36,6 +39,18 @@ public class Usuario {
 	private String genero;
 	private int altura;
 	private int peso;
+	
+	
+	@ManyToOne
+	private Plan plan;
+	
+	@ManyToOne
+	private Entrenador entrenador;
+	
+	@ManyToMany
+	private Collection<Rutina> rutinas;
+	
+
 
 }
 

@@ -5,10 +5,8 @@ import java.util.Collection;
 import java.util.List;
 
 import org.getfit.entities.Ejercicio;
-import org.getfit.entities.Entrenador;
 import org.getfit.entities.Rutina;
 import org.getfit.repositories.EjercicioRepository;
-import org.getfit.repositories.EntrenadorRepository;
 import org.getfit.repositories.RutinaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

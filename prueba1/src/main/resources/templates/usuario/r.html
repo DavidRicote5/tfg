@@ -21,6 +21,11 @@
 			<th>Genero</th>
 			<th>Altura</th>
 			<th>Peso</th>
+			<th>Plan</th>
+			<th>Entrenador</th>
+			<th>Rutinas</th>
+			
+			
 		</tr>
 
 		<tr th:each=" usuario : ${ usuarios }">
@@ -59,6 +64,14 @@
 			<td th:text="${ usuario.altura}"/>
 			
 			<td th:text="${ usuario.peso}"/>
+			
+			<td th:text="${ usuario.plan?.nombre}"/>
+			
+			<td th:text="${ usuario.entrenador?.nombre}"/>
+			
+			<td>
+				<th:block th:each="rutina : ${usuario.rutinas}" th:text="|${rutina.nombre} - |" />
+			</td>
 
 
 		</tr>
