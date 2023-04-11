@@ -1,0 +1,33 @@
+<div class="container">
+	<h1>Crear ejercicio</h1>
+	<form action="/ejercicio/c" method="post">
+		Nombre
+		<input type="text" name="nombre" required="required" autofocus="autofocus" />
+		<br />
+
+		Descripcion
+		<input type="text" name="descripcion" required="required" autofocus="autofocus" />
+		<br />
+
+		Grupo Muscular
+		<select name="grupomuscular">
+			<option value="Pectoral">Pectoral</option>
+			<option value="Dorsal">Dorsal</option>
+		</select>
+		<br />
+
+		Equipo Necesario
+		<select name="equiponecesario">
+			<option value="Mancuerna">Mancuerna</option>
+			<option value="Maquina">Maquina</option>
+		</select>
+		<br />
+
+		<input type="submit" />
+		<br />
+	</form>
+
+	<form action="/ejercicio/r">
+		<input type="submit" value="Cancelar" />
+	</form>
+</div>
