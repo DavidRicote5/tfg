@@ -1,0 +1,27 @@
+<div class="container">
+	<h1>Crear plan</h1>
+	<form action="/plan/c" method="post">
+		Nombre:
+		<input type="text" name="nombre" required="required" autofocus="autofocus" />
+		<br />
+
+		Descripcion:
+		<input type="text" name="descripcion" required="required" autofocus="autofocus" />
+		<br />
+
+		Duracion (dias):
+		<input type="number" name="duracion" required="required" autofocus="autofocus" min="0" max="365"/>
+		<br />
+
+		Precio (€):
+		<input type="number" name="precio" required="required" autofocus="autofocus" min="0"/>
+		<br />
+		
+		<input type="submit" />
+		<br />
+	</form>
+
+	<form action="/plan/r">
+		<input type="submit" value="Cancelar" />
+	</form>
+</div>
