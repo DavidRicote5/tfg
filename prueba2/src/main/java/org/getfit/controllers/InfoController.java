@@ -11,10 +11,7 @@ import jakarta.servlet.http.HttpSession;
 public class InfoController {
 
 	@GetMapping("/info")
-	public String info(
-			HttpSession s,
-			ModelMap m
-			) {
+	public String info(HttpSession s, ModelMap m) {
 		String mensaje = s.getAttribute("_mensaje") != null ? (String) s.getAttribute("_mensaje")
 				: "Pulsa para volver a home";
 		String severity = s.getAttribute("_severity") != null ? (String) s.getAttribute("_severity") : "info";

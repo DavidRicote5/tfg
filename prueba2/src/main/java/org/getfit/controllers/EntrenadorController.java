@@ -20,7 +20,7 @@ public class EntrenadorController {
 
 	@Autowired
 	private EntrenadorService entrenadorService;
-	
+
 	@Autowired
 	private RutinaService rutinaService;
 
@@ -32,15 +32,12 @@ public class EntrenadorController {
 	}
 
 	@PostMapping("c")
-	public String cPost(
-			@RequestParam("nombre") String nombre,
-			@RequestParam("correo") String correo,
+	public String cPost(@RequestParam("nombre") String nombre, @RequestParam("correo") String correo,
 			@RequestParam("especializacion") String especializacion,
 			@RequestParam("anosexperiencia") int anosexperiencia,
-			@RequestParam(required=false, name="idRutinas[]") Long[] idRutinas
-			) throws DangerException {
+			@RequestParam(required = false, name = "idRutinas[]") Long[] idRutinas) throws DangerException {
 		try {
-			entrenadorService.saveEntrenador(nombre,correo,especializacion,anosexperiencia,idRutinas);
+			entrenadorService.saveEntrenador(nombre, correo, especializacion, anosexperiencia, idRutinas);
 		} catch (Exception e) {
 			PRG.error(e.getMessage(), "/entrenador/r");
 		}
@@ -67,17 +64,14 @@ public class EntrenadorController {
 	}
 
 	@PostMapping("u")
-	public String uPost(
-			@RequestParam("idEntrenador") Long idEntrenador,
-			@RequestParam("nombre") String nombre,
-			@RequestParam("correo") String correo,
-			@RequestParam("especializacion") String especializacion,
-			@RequestParam("anosexperiencia") int anosexperiencia,
-			@RequestParam("idRutinas[]") Long[] idRutinas
-			) throws DangerException {
+	public String uPost(@RequestParam("idEntrenador") Long idEntrenador, @RequestParam("nombre") String nombre,
+			@RequestParam("correo") String correo, @RequestParam("especializacion") String especializacion,
+			@RequestParam("anosexperiencia") int anosexperiencia, @RequestParam("idRutinas[]") Long[] idRutinas)
+			throws DangerException {
 		String retorno = "redirect:/entrenador/r";
 		try {
-			entrenadorService.updateEntrenador(idEntrenador, nombre,correo,especializacion,anosexperiencia,idRutinas);
+			entrenadorService.updateEntrenador(idEntrenador, nombre, correo, especializacion, anosexperiencia,
+					idRutinas);
 		} catch (Exception e) {
 			PRG.error(e.getMessage(), "/entrenador/r");
 		}

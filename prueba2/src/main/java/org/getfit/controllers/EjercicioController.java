@@ -27,14 +27,11 @@ public class EjercicioController {
 	}
 
 	@PostMapping("c")
-	public String cPost(
-			@RequestParam("nombre") String nombre,
-			@RequestParam("descripcion") String descripcion,
+	public String cPost(@RequestParam("nombre") String nombre, @RequestParam("descripcion") String descripcion,
 			@RequestParam("grupomuscular") String grupomuscular,
-			@RequestParam("equiponecesario") String equiponecesario
-			) throws DangerException {
+			@RequestParam("equiponecesario") String equiponecesario) throws DangerException {
 		try {
-			ejercicioService.saveEjercicio(nombre,descripcion,grupomuscular,equiponecesario);
+			ejercicioService.saveEjercicio(nombre, descripcion, grupomuscular, equiponecesario);
 		} catch (Exception e) {
 			PRG.error(e.getMessage(), "/ejercicio/r");
 		}
@@ -60,16 +57,12 @@ public class EjercicioController {
 	}
 
 	@PostMapping("u")
-	public String uPost(
-			@RequestParam("idEjercicio") Long idEjercicio,
-			@RequestParam("nombre") String nombre,
-			@RequestParam("descripcion") String descripcion,
-			@RequestParam("grupomuscular") String grupomuscular,
-			@RequestParam("equiponecesario") String equiponecesario
-			) throws DangerException {
+	public String uPost(@RequestParam("idEjercicio") Long idEjercicio, @RequestParam("nombre") String nombre,
+			@RequestParam("descripcion") String descripcion, @RequestParam("grupomuscular") String grupomuscular,
+			@RequestParam("equiponecesario") String equiponecesario) throws DangerException {
 		String retorno = "redirect:/ejercicio/r";
 		try {
-			ejercicioService.updateEjercicio(idEjercicio, nombre,descripcion,grupomuscular,equiponecesario);
+			ejercicioService.updateEjercicio(idEjercicio, nombre, descripcion, grupomuscular, equiponecesario);
 		} catch (Exception e) {
 			PRG.error(e.getMessage(), "/ejercicio/r");
 		}
@@ -83,4 +76,3 @@ public class EjercicioController {
 	}
 
 }
-

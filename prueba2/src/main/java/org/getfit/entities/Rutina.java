@@ -22,6 +22,9 @@ import lombok.NonNull;
 @Entity
 public class Rutina {
 
+	
+	/*======= ATRIBUTOS DE LA CLASE ========*/
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -29,24 +32,25 @@ public class Rutina {
 	@Column(unique = true)
 	@NonNull
 	private String nombre;
-	
+
 	private String descripcion;
 	private String dificultad;
 	private int duracion;
 
-	/*
-	 * =============================================================================
-	 */
-	
+	/*======= RELACIONES ========*/
+
+	//Lado Muchos a Muchos con ejercicios
 	@ManyToMany
 	private Collection<Ejercicio> ejercicios;
+
 	
+	//Lado Muchos a Muchos con entrenadores (mappedBy)
 	@ManyToMany(mappedBy = "rutinas")
 	private Collection<Entrenador> entrenadors;
+
 	
+	//Lado Muchos a Muchos con usuarios (mappedBy)
 	@ManyToMany(mappedBy = "rutinas")
 	private Collection<Usuario> usuarios;
-	
 
 }
-

@@ -27,14 +27,10 @@ public class PlanController {
 	}
 
 	@PostMapping("c")
-	public String cPost(
-			@RequestParam("nombre") String nombre,
-			@RequestParam("descripcion") String descripcion,
-			@RequestParam("duracion") int duracion,
-			@RequestParam("precio") int precio
-			) throws DangerException {
+	public String cPost(@RequestParam("nombre") String nombre, @RequestParam("descripcion") String descripcion,
+			@RequestParam("duracion") int duracion, @RequestParam("precio") int precio) throws DangerException {
 		try {
-			planService.savePlan(nombre,descripcion,duracion,precio);
+			planService.savePlan(nombre, descripcion, duracion, precio);
 		} catch (Exception e) {
 			PRG.error(e.getMessage(), "/plan/r");
 		}
@@ -60,16 +56,12 @@ public class PlanController {
 	}
 
 	@PostMapping("u")
-	public String uPost(
-			@RequestParam("idPlan") Long idPlan,
-			@RequestParam("nombre") String nombre,
-			@RequestParam("descripcion") String descripcion,
-			@RequestParam("duracion") int duracion,
-			@RequestParam("precio") int precio
-			) throws DangerException {
+	public String uPost(@RequestParam("idPlan") Long idPlan, @RequestParam("nombre") String nombre,
+			@RequestParam("descripcion") String descripcion, @RequestParam("duracion") int duracion,
+			@RequestParam("precio") int precio) throws DangerException {
 		String retorno = "redirect:/plan/r";
 		try {
-			planService.updatePlan(idPlan, nombre,descripcion,duracion,precio);
+			planService.updatePlan(idPlan, nombre, descripcion, duracion, precio);
 		} catch (Exception e) {
 			PRG.error(e.getMessage(), "/plan/r");
 		}
@@ -83,4 +75,3 @@ public class PlanController {
 	}
 
 }
-

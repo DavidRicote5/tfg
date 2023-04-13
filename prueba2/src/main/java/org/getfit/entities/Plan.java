@@ -22,6 +22,9 @@ import lombok.NonNull;
 @Entity
 public class Plan {
 
+	
+	/*======= ATRIBUTOS DE LA CLASE ========*/
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -29,14 +32,16 @@ public class Plan {
 	@Column(unique = true)
 	@NonNull
 	private String nombre;
-	
+
 	private String descripcion;
 	private int duracion;
 	private int precio;
+
 	
+	/*======= RELACIONES ========*/
 	
+	//Lado Uno a Muchos con usuarios 
 	@OneToMany(mappedBy = "plan")
 	private Collection<Usuario> usuarios;
 
 }
-

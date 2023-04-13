@@ -23,6 +23,8 @@ import lombok.NonNull;
 @Entity
 public class Ejercicio {
 
+	/*======= ATRIBUTOS DE LA CLASE ========*/
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -30,14 +32,15 @@ public class Ejercicio {
 	@Column(unique = true)
 	@NonNull
 	private String nombre;
-	
+
 	private String descripcion;
 	private String grupomuscular;
 	private String equiponecesario;
 
 	
+	/*======= RELACIONES ========*/
 	
+	//Lado Muchos a Muchos con rutina (mappedBy)
 	@ManyToMany(mappedBy = "ejercicios")
 	private Collection<Rutina> rutinas;
 }
-

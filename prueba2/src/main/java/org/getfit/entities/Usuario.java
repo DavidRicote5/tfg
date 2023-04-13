@@ -24,6 +24,9 @@ import lombok.NonNull;
 @Entity
 public class Usuario {
 
+	
+	/*======= ATRIBUTOS DE LA CLASE ========*/
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -31,7 +34,7 @@ public class Usuario {
 	@Column(unique = true)
 	@NonNull
 	private String loginname;
-	
+
 	private String nombre;
 	private String contraseña;
 	private String correo;
@@ -39,19 +42,24 @@ public class Usuario {
 	private String genero;
 	private int altura;
 	private int peso;
+
 	
+	/*======= RELACIONES ========*/
 	
+	//Lado Muchos a Uno con plan
 	@ManyToOne
 	private Plan plan;
-	
+
+	//Lado Muchos a Uno con entrenador
 	@ManyToOne
 	private Entrenador entrenador;
-	
+
+	//Lado Muchos a Muchos con rutinas
 	@ManyToMany
 	private Collection<Rutina> rutinas;
-	
+
+	//Lado Muchos a Uno con rol
 	@ManyToOne
 	private Rol rol;
 
 }
-

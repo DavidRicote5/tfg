@@ -26,17 +26,15 @@ public class UsuarioController {
 
 	@Autowired
 	private UsuarioService usuarioService;
-	
+
 	@Autowired
 	private PlanService planService;
-	
+
 	@Autowired
 	private EntrenadorService entrenadorService;
-	
+
 	@Autowired
 	private RutinaService rutinaService;
-	
-
 
 	@GetMapping("c")
 	public String cGet(ModelMap m) {
@@ -45,19 +43,14 @@ public class UsuarioController {
 	}
 
 	@PostMapping("c")
-	public String cPost(
-			@RequestParam("loginname") String loginname,
-			@RequestParam("nombre") String nombre,
-			@RequestParam("contraseña") String contraseña,
-			@RequestParam("correo") String correo,
-			@RequestParam("fechaNac") LocalDate fechaNac,
-			@RequestParam("genero") String genero,
-			@RequestParam("altura") int altura,
-			@RequestParam("peso") int peso
+	public String cPost(@RequestParam("loginname") String loginname, @RequestParam("nombre") String nombre,
+			@RequestParam("contraseña") String contraseña, @RequestParam("correo") String correo,
+			@RequestParam("fechaNac") LocalDate fechaNac, @RequestParam("genero") String genero,
+			@RequestParam("altura") int altura, @RequestParam("peso") int peso
 
-			) throws DangerException {
+	) throws DangerException {
 		try {
-			usuarioService.saveUsuario(loginname,nombre,contraseña,correo,fechaNac,genero,altura,peso);
+			usuarioService.saveUsuario(loginname, nombre, contraseña, correo, fechaNac, genero, altura, peso);
 		} catch (Exception e) {
 			PRG.error(e.getMessage(), "/usuario/r");
 		}
@@ -77,7 +70,7 @@ public class UsuarioController {
 		Usuario usuario = usuarioService.getUsuarioById(idUsuario);
 		List<Plan> planes = planService.getPlanes();
 		List<Entrenador> entrenadors = entrenadorService.getEntrenadors();
-		
+
 		m.put("rutinas", rutinaService.getRutinas());
 		m.put("entrenadors", entrenadors);
 		m.put("planes", planes);
@@ -88,22 +81,18 @@ public class UsuarioController {
 	}
 
 	@PostMapping("u")
-	public String uPost(
-			@RequestParam("idUsuario") Long idUsuario,
-			@RequestParam("altura") int altura,
-			@RequestParam("peso") int peso,
-			@RequestParam("idPlan") Long idPlan,
-			@RequestParam("idEntrenador") Long idEntrenador,
-			@RequestParam("idRutinas[]") Long[] idRutinas
+	public String uPost(@RequestParam("idUsuario") Long idUsuario, @RequestParam("altura") int altura,
+			@RequestParam("peso") int peso, @RequestParam("idPlan") Long idPlan,
+			@RequestParam("idEntrenador") Long idEntrenador, @RequestParam("idRutinas[]") Long[] idRutinas
 
-			) throws DangerException {
+	) throws DangerException {
 		String retorno = "redirect:/usuario/r";
 		try {
-			
+
 			Plan plan = planService.getPlanById(idPlan);
 			Entrenador entrenador = entrenadorService.getEntrenadorById(idEntrenador);
-			
-			usuarioService.updateUsuario(idUsuario,altura,peso,plan,entrenador,idRutinas);
+
+			usuarioService.updateUsuario(idUsuario, altura, peso, plan, entrenador, idRutinas);
 		} catch (Exception e) {
 			PRG.error(e.getMessage(), "/usuario/r");
 		}
