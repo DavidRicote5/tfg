@@ -15,4 +15,8 @@ export class AppService {
   obtenerEntrenadores():Observable<Entrenador[]>{
     return this.httpClient.get<Entrenador[]>(this.baseURL+"/entrenador/r");
   }
+
+  registrarEntrenadores(entrenador: Entrenador):Observable<Object>{
+    return this.httpClient.post(this.baseURL+"/entrenador/c", entrenador);
+  }
 }

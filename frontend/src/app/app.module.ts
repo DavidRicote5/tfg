@@ -15,6 +15,7 @@ import { EjercicioComponent } from './ejercicio/ejercicio.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HttpClientModule } from '@angular/common/http';
+import { RegistrarEntrenadorComponent } from './registrar-entrenador/registrar-entrenador.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { HttpClientModule } from '@angular/common/http';
     RutinaComponent,
     EjercicioComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    RegistrarEntrenadorComponent
   ],
   imports: [
     BrowserModule,

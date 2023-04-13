@@ -9,12 +9,14 @@ import { EjercicioComponent } from './ejercicio/ejercicio.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { RegistrarEntrenadorComponent } from './registrar-entrenador/registrar-entrenador.component';
 
 const appRoutes: Routes = [
     {path: "", component: HomeComponent},
     {path: "usuarios", component: UsuarioComponent},
     {path: "planes", component: PlanComponent},
     {path: "entrenadores", component: EntrenadorComponent},
+    {path: "registrar-entrenadores", component: RegistrarEntrenadorComponent},
     {path: "rutinas", component: RutinaComponent},
     {path: "ejercicios", component: EjercicioComponent},
     {path: "login", component: LoginComponent},
