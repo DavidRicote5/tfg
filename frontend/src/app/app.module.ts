@@ -16,6 +16,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RegistrarEntrenadorComponent } from './registrar-entrenador/registrar-entrenador.component';
+import { ActualizarEntrenadorComponent } from './actualizar-entrenador/actualizar-entrenador.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { RegistrarEntrenadorComponent } from './registrar-entrenador/registrar-e
     EjercicioComponent,
     LoginComponent,
     RegisterComponent,
-    RegistrarEntrenadorComponent
+    RegistrarEntrenadorComponent,
+    ActualizarEntrenadorComponent
   ],
   imports: [
     BrowserModule,

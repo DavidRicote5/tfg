@@ -16,6 +16,10 @@
             <td>{{entrenador.certificaciones}}</td>
             <td>{{entrenador.especializacion}}</td>
             <td>{{entrenador.aniosExperiencia}}</td>
+            <td>
+                <button (click)="actualizarEntrenador(entrenador.id)" class="btn btn-info">Editar Entrenador</button>
+                <button (click)="eliminarEntrenador(entrenador.id)" class="btn btn-info">Eliminar Entrenador</button>
+            </td>
         </tr>
     </tbody>
     <button class="btn btn-primary" [routerLink]="['/registrar-entrenadores']">Registrar Entrenador</button>

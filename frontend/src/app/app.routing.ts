@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { RegistrarEntrenadorComponent } from './registrar-entrenador/registrar-entrenador.component';
+import { ActualizarEntrenadorComponent } from './actualizar-entrenador/actualizar-entrenador.component';
 
 const appRoutes: Routes = [
     {path: "", component: HomeComponent},
@@ -17,6 +18,7 @@ const appRoutes: Routes = [
     {path: "planes", component: PlanComponent},
     {path: "entrenadores", component: EntrenadorComponent},
     {path: "registrar-entrenadores", component: RegistrarEntrenadorComponent},
+    {path: "actualizar-entrenadores/:id", component:ActualizarEntrenadorComponent},
     {path: "rutinas", component: RutinaComponent},
     {path: "ejercicios", component: EjercicioComponent},
     {path: "login", component: LoginComponent},
