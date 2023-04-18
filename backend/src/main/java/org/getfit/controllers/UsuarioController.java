@@ -65,7 +65,7 @@ public class UsuarioController {
 	public String cPost(
 			@RequestParam("loginname") String loginname,
 			@RequestParam("nombre") String nombre,
-			@RequestParam("contraseña") String contraseña,
+			@RequestParam("password") String contraseña,
 			@RequestParam("correo") String correo,
 			@DateTimeFormat(iso = DateTimeFormat.ISO.DATE) //NECESARIO PARA EL FORMATO DE LA FECHANAC
 			@RequestParam("fechaNac") LocalDate fechaNac,

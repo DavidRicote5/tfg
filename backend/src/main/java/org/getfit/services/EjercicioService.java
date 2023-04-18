@@ -19,7 +19,7 @@ public class EjercicioService {
 	}
 
 	public void saveEjercicio(String nombre,String descripcion,String grupoMuscular,String equipoNecesario) throws Exception {
-		Ejercicio ejercicio = Ejercicio.builder().nombre(nombre).build();
+		Ejercicio ejercicio = Ejercicio.builder().nombre(nombre).descripcion(descripcion).grupoMuscular(grupoMuscular).equipoNecesario(equipoNecesario).build();
 		
 		try {
 			ejercicioRepository.saveAndFlush(ejercicio);

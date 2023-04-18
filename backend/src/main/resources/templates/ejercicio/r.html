@@ -15,6 +15,9 @@
 		<tr>
 			<th>Acción</th>
 			<th>Nombre</th>
+			<th>Descripcion</th>
+			<th>Grupo Muscular</th>
+			<th>Equipo necesario</th>
 		</tr>
 
 		<tr th:each=" ejercicio : ${ ejercicios }">
@@ -41,6 +44,9 @@
 			</td>
 
 			<td th:text="${ ejercicio.nombre }" />
+			<td th:text="${ ejercicio.descripcion }" />
+			<td th:text="${ ejercicio.grupoMuscular }" />
+			<td th:text="${ ejercicio.equipoNecesario }" />
 
 
 		</tr>
