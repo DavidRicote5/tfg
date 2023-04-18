@@ -2,6 +2,7 @@ package org.getfit.entities;
 
 import java.util.Collection;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -21,25 +22,25 @@ import lombok.NonNull;
 @Entity
 public class Plan {
 
-	/*
-	 * =============================================================================
-	 */
-
+	
+	/*======= ATRIBUTOS DE LA CLASE ========*/
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+	@Column(unique = true)
 	@NonNull
 	private String nombre;
+
 	private String descripcion;
 	private int duracion;
 	private int precio;
 
-	/*
-	 * =============================================================================
-	 */
-
-	// RELACIONES
+	
+	/*======= RELACIONES ========*/
+	
+	//Lado Uno a Muchos con usuarios 
 	@OneToMany(mappedBy = "plan")
 	private Collection<Usuario> usuarios;
 

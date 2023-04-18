@@ -15,6 +15,12 @@
 		<tr>
 			<th>Acción</th>
 			<th>Nombre</th>
+			<th>Descripcion</th>
+			<th>Dificultad</th>
+			<th>Duracion (h)</th>
+			<th>Ejercicios</th>
+			
+			
 		</tr>
 
 		<tr th:each=" rutina : ${ rutinas }">
@@ -41,6 +47,14 @@
 			</td>
 
 			<td th:text="${ rutina.nombre }" />
+			<td th:text="${ rutina.descripcion }" />
+			<td th:text="${ rutina.dificultad }" />
+			<td th:text="|${ rutina.duracion }h|" />
+			
+			<td>
+				<th:block th:each="ejercicio : ${rutina.ejercicios}" th:text="|${ejercicio.nombre} - |" />
+			</td>
+			
 
 
 		</tr>

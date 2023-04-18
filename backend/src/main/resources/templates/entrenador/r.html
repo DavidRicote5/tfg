@@ -1,5 +1,5 @@
 <div class="container">
-	<h1>Lista de entrenadores</h1>
+	<h1>Lista de entrenadors</h1>
 
 	<form action="/entrenador/c">
 		<input type="submit" value="Nuevo entrenador" />
@@ -16,12 +16,14 @@
 			<th>Acción</th>
 			<th>Nombre</th>
 			<th>Correo</th>
-            <th>Certificaciones</th>
-            <th>Especialización</th>
-            <th>Años de experiencia</th>
+			<th>Especializacion</th>
+			<th>Años Experiencia</th>
+			<th>Rutinas</th>
+			
+			
 		</tr>
 
-		<tr th:each=" entrenador : ${ entrenadores }">
+		<tr th:each=" entrenador : ${ entrenadors }">
 			<td>
 				<div class="row">
 					<div class="col">
@@ -45,11 +47,16 @@
 			</td>
 
 			<td th:text="${ entrenador.nombre }" />
-			<td th:text="${ entrenador.correo }" />
-			<td th:text="${ entrenador.certificaciones }" />
-			<td th:text="${ entrenador.especializacion }" />
-			<td th:text="${ entrenador.aniosExperiencia }" />
 			
+			<td th:text="${ entrenador.correo }" />
+			
+			<td th:text="${ entrenador.especializacion }" />
+			
+			<td th:text="${ entrenador.anosexperiencia }" />
+			
+			<td>
+				<th:block th:each="rutina : ${entrenador.rutinas}" th:text="|${rutina.nombre}|" />
+			</td>
 
 
 		</tr>

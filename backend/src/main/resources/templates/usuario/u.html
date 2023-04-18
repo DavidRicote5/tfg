@@ -1,36 +1,40 @@
 <div class="container">
-	<h1>Actualizar Usuario</h1>
+	<h1>Actualizar usuario</h1>
 
 	<form action="/usuario/u" method="post">
 
-		Nombre
-		<input type="text" name="nombre" required="required" th:value="${usuario.nombre}" />
+		Altura
+		<input type="number" name="altura" required="required" autofocus="autofocus" min="0" max="250"/>
 		<br />
-
-		Entrenador
-		<select name="idEntrenador">
-			<th:block th:each=" entrenador : ${entrenadores} ">
-				<option th:value="${entrenador.id}" th:text="${entrenador.nombre}" th:selected="${entrenador.id == usuario.entrenador.id}"/>
+		
+		Peso
+		<input type="number" name="peso" required="required" autofocus="autofocus" min="0" max="300"/>
+		<br />
+		
+		Plan
+		<select name="idPlan">
+			<th:block th:each="plan : ${planes}">
+				<option th:value="${plan.id}" th:text="${plan.nombre}" />
 			</th:block>
 		</select>
 		<br />
-
-		Plan
-		<select name="idPlan">
-			<th:block th:each=" plan : ${planes} ">
-				<option th:value="${plan.id}" th:text="${plan.nombre}" th:selected="${plan.id == usuario.plan.id}"/>
+		
+		Entrenador
+		<select name="idEntrenador">
+			<th:block th:each="entrenador : ${entrenadors}">
+				<option th:value="${entrenador.id}" th:text="${entrenador.nombre}" />
 			</th:block>
 		</select>
 		<br />
 		
 		Rutinas
-		<select name="idRutina">
-			<th:block th:each=" rutina : ${rutinas} ">
-				<option th:value="${rutina.id}" th:text="${rutina.nombre}" th:selected="${rutina.id == usuario.rutina.id}"/>
+		<select name="idRutinas[]" multiple>
+			<th:block th:each="rutina : ${rutinas}">
+				<option th:value="${rutina.id}" th:text="${rutina.nombre}" />
 			</th:block>
 		</select>
 		<br />
-		
+
 		<input type="hidden" name="idUsuario" th:value="${usuario.id}" />
 
 		<input type="submit" />

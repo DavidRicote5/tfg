@@ -11,7 +11,6 @@ public class PlanService {
 
 	@Autowired
 	private PlanRepository planRepository;
-	
 
 	public List<Plan> getPlanes() {
 		return planRepository.findAll();
@@ -21,7 +20,8 @@ public class PlanService {
 			String nombre,
 			String descripcion,
 			int duracion,
-			int precio) throws Exception {
+			int precio
+			) throws Exception {
 		Plan plan = Plan.builder().nombre(nombre).descripcion(descripcion).duracion(duracion).precio(precio).build();
 		try {
 			planRepository.saveAndFlush(plan);
@@ -39,8 +39,10 @@ public class PlanService {
 			String nombre,
 			String descripcion,
 			int duracion,
-			int precio) throws Exception {
+			int precio
+			) throws Exception {
 		Plan plan = planRepository.findById(id).get();
+		
 		plan.setNombre(nombre);
 		plan.setDescripcion(descripcion);
 		plan.setDuracion(duracion);

@@ -15,6 +15,9 @@
 		<tr>
 			<th>Acción</th>
 			<th>Nombre</th>
+			<th>Descripcion</th>
+			<th>Duracion (dias)</th>
+			<th>Precio</th>
 		</tr>
 
 		<tr th:each=" plan : ${ planes }">
@@ -41,6 +44,9 @@
 			</td>
 
 			<td th:text="${ plan.nombre }" />
+			<td th:text="${ plan.descripcion }" />
+			<td th:text="${ plan.duracion }" />
+			<td th:text="|${ plan.precio }€|" />
 
 
 		</tr>

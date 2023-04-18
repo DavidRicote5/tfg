@@ -1,16 +1,44 @@
-
 <div class="container">
-<h1>Crear rutina</h1>
-<form action="/rutina/c" method="post">
-Nombre
-<input type="text" name="nombre" required="required" autofocus="autofocus"/>
-<br/>
+	<h1>Crear rutina</h1>
+	<form action="/rutina/c" method="post">
+		Nombre
+		<input type="text" name="nombre" required="required" autofocus="autofocus" />
+		<br />
 
-<input type="submit"/>
-<br/>
-</form>
+		Descripcion
+		<input type="text" name="descripcion" required="required" autofocus="autofocus" />
+		<br />
 
-<form action="/rutina/r">
-<input type="submit" value="Cancelar"/>
-</form>
+		Dificultad
+		<select name="dificultad">
+			<option value="Dificil">Dificil</option>
+			<option value="Media">Media</option>
+			<option value="Facil">Facil</option>
+		</select>
+		<br />
+
+		Duracion (h)
+		<input type="number" name="duracion" required="required" autofocus="autofocus" min="0" max="8"/>
+		<br />
+
+		Ejercicios
+		<select name="idEjercicios[]" multiple>
+			<th:block th:each="ejercicio : ${ejercicios}">
+				<option th:value="${ejercicio.id}" th:text="${ejercicio.nombre}" />
+			</th:block>
+		</select>
+		<br />
+		
+		
+
+		<input type="submit" />
+		<br />
+		
+		
+		
+	</form>
+
+	<form action="/rutina/r">
+		<input type="submit" value="Cancelar" />
+	</form>
 </div>

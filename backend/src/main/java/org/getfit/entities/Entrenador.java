@@ -2,11 +2,12 @@ package org.getfit.entities;
 
 import java.util.Collection;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.ManyToMany;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -21,28 +22,25 @@ import lombok.NonNull;
 @Entity
 public class Entrenador {
 
-	/*
-	 * =============================================================================
-	 */
-
+	
+	/*======= ATRIBUTOS DE LA CLASE ========*/
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+	@Column(unique = false)
 	@NonNull
 	private String nombre;
+
 	private String correo;
-	private String certificaciones;
 	private String especializacion;
-	private int aniosExperiencia;
+	private int anosexperiencia;
 
-	/*
-	 * =============================================================================
-	 */
-
-	@OneToMany(mappedBy = "entrenador")
-	private Collection<Usuario> usuarios;
-
-	@OneToMany(mappedBy = "entrenador")
+	
+	/*======= RELACIONES ========*/
+	
+	//Lado Muchos a Muchos con rutina
+	@ManyToMany
 	private Collection<Rutina> rutinas;
 }

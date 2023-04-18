@@ -1,19 +1,18 @@
-
 <div class="container">
-<h1>Actualizar ejercicio</h1>
+	<h1>Actualizar ejercicio</h1>
 
-<form action="/ejercicio/u" method="post">
-Nombre
-<input type="text" name="nombre" required="required" th:value="${ejercicio.nombre}"/>
-<br/>
+	<form action="/ejercicio/u" method="post">
+		Nombre
+		<input type="text" name="nombre" required="required" th:value="${ejercicio.nombre}" />
+		<br />
 
-<input type="hidden" name="idEjercicio" th:value="${ejercicio.id}"/>
+		<input type="hidden" name="idEjercicio" th:value="${ejercicio.id}" />
 
-<input type="submit"/>
-<br/>
-</form>
+		<input type="submit" />
+		<br />
+	</form>
 
-<form action="/ejercicio/r">
-<input type="submit" value="Cancelar"/>
-</form>
+	<form action="/ejercicio/r">
+		<input type="submit" value="Cancelar" />
+	</form>
 </div>

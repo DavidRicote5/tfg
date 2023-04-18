@@ -1,19 +1,30 @@
-
 <div class="container">
-<h1>Actualizar plan</h1>
+	<h1>Actualizar plan</h1>
 
-<form action="/plan/u" method="post">
-Nombre
-<input type="text" name="nombre" required="required" th:value="${plan.nombre}"/>
-<br/>
+	<form action="/plan/u" method="post">
+		Nombre:
+		<input type="text" name="nombre" required="required" autofocus="autofocus" />
+		<br />
 
-<input type="hidden" name="idPlan" th:value="${plan.id}"/>
+		Descripcion:
+		<input type="text" name="descripcion" required="required" autofocus="autofocus" />
+		<br />
 
-<input type="submit"/>
-<br/>
-</form>
+		Duracion (dias):
+		<input type="number" name="duracion" required="required" autofocus="autofocus" min="0" max="365"/>
+		<br />
 
-<form action="/plan/r">
-<input type="submit" value="Cancelar"/>
-</form>
+		Precio (€):
+		<input type="number" name="precio" required="required" autofocus="autofocus" min="0"/>
+		<br />
+
+		<input type="hidden" name="idPlan" th:value="${plan.id}" />
+
+		<input type="submit" />
+		<br />
+	</form>
+
+	<form action="/plan/r">
+		<input type="submit" value="Cancelar" />
+	</form>
 </div>

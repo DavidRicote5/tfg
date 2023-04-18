@@ -5,13 +5,9 @@ import java.util.List;
 import java.util.Map;
 
 import org.getfit.entities.Entrenador;
-import org.getfit.exception.DangerException;
-import org.getfit.helpers.PRG;
 import org.getfit.repositories.EntrenadorRepository;
-import org.getfit.services.EntrenadorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -21,17 +17,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/entrenador")
 @CrossOrigin(origins = "http://localhost:4200")
 public class EntrenadorController {
-
-	@Autowired
-	private EntrenadorService entrenadorService;
-	
 	@Autowired
 	private EntrenadorRepository entrenadorRepository;
 
@@ -96,9 +87,8 @@ public class EntrenadorController {
 		Entrenador entrenador = entrenadorRepository.findById(id).get();
 		
 		entrenador.setNombre(detallesEntrenador.getNombre());
-		entrenador.setAniosExperiencia(detallesEntrenador.getAniosExperiencia());
-		entrenador.setCertificaciones(detallesEntrenador.getCertificaciones());
 		entrenador.setCorreo(detallesEntrenador.getCorreo());
+		entrenador.setAnosexperiencia(detallesEntrenador.getAnosexperiencia());
 		entrenador.setEspecializacion(detallesEntrenador.getEspecializacion());
 		
 		Entrenador entrenadorActualizado = entrenadorRepository.save(entrenador);
@@ -136,4 +126,3 @@ public class EntrenadorController {
 	}*/
 
 }
-
