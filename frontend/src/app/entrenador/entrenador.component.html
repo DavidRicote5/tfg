@@ -4,7 +4,6 @@
         <tr>
             <th>Nombre</th>
             <th>Correo</th>
-            <th>Certificaciones</th>
             <th>Especialización</th>
             <th>Años de experiencia</th>
         </tr>
@@ -13,9 +12,8 @@
         <tr *ngFor="let entrenador of entrenadores">
             <td>{{entrenador.nombre}}</td>
             <td>{{entrenador.correo}}</td>
-            <td>{{entrenador.certificaciones}}</td>
             <td>{{entrenador.especializacion}}</td>
-            <td>{{entrenador.aniosExperiencia}}</td>
+            <td>{{entrenador.anosexperiencia}}</td>
             <td>
                 <button (click)="actualizarEntrenador(entrenador.id)" class="btn btn-info">Editar Entrenador</button>
                 <button (click)="eliminarEntrenador(entrenador.id)" class="btn btn-info">Eliminar Entrenador</button>
