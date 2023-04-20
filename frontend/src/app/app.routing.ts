@@ -1,16 +1,17 @@
 import {ModuleWithProviders} from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { UsuarioComponent } from './usuario/usuario.component';
-import { PlanComponent } from './plan/plan.component';
-import { EntrenadorComponent } from './entrenador/entrenador.component';
-import { RutinaComponent } from './rutina/rutina.component';
-import { EjercicioComponent } from './ejercicio/ejercicio.component';
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
-import { RegistrarEntrenadorComponent } from './registrar-entrenador/registrar-entrenador.component';
-import { ActualizarEntrenadorComponent } from './actualizar-entrenador/actualizar-entrenador.component';
+import { UsuarioComponent } from './pages/usuario/usuario.component';
+import { PlanComponent } from './pages/plan/plan.component';
+import { EntrenadorComponent } from './pages/entrenador/entrenador.component';
+import { RutinaComponent } from './pages/rutina/rutina.component';
+import { EjercicioComponent } from './pages/ejercicio/ejercicio.component';
+import { HomeComponent } from './pages/home/home.component';
+import { LoginComponent } from './pages/login/login.component';
+import { RegisterComponent } from './pages/register/register.component';
+import { RegistrarEntrenadorComponent } from './pages/registrar-entrenador/registrar-entrenador.component';
+import { ActualizarEntrenadorComponent } from './pages/actualizar-entrenador/actualizar-entrenador.component';
+import { QuienesSomosComponent } from './pages/quienes-somos/quienes-somos.component';
 
 const appRoutes: Routes = [
     {path: "", component: HomeComponent},
@@ -23,6 +24,7 @@ const appRoutes: Routes = [
     {path: "ejercicios", component: EjercicioComponent},
     {path: "login", component: LoginComponent},
     {path: "register", component: RegisterComponent},
+    {path: "quienes-somos", component: QuienesSomosComponent},
     {path: '**', component: HomeComponent}
 ];
 
