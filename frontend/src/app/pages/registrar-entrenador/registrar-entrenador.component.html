@@ -1,0 +1,22 @@
+<div class="col-md-6 offset-md-3">
+    <h3 class="text-center">Registrar Entrenadores</h3>
+    <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label class="col-md-2 control-label">Nombre: </label>
+            <input type="text" class="form-control" id="nombre" [(ngModel)]="entrenador.nombre" name="nombre">
+        </div>
+        <div class="form-group">
+            <label class="col-md-2 control-label">Correo: </label>
+            <input type="text" class="form-control" id="correo" [(ngModel)]="entrenador.correo" name="correo">
+        </div>
+        <div class="form-group">
+            <label class="col-md-2 control-label">Especialización: </label>
+            <input type="text" class="form-control" id="especializacion" [(ngModel)]="entrenador.especializacion" name="especializacion">
+        </div>
+        <div class="form-group">
+            <label class="col-md-2 control-label">Años de experiencia: </label>
+            <input type="text" class="form-control" id="anosexperiencia" [(ngModel)]="entrenador.anosexperiencia" name="anosexperiencia">
+        </div><br>
+        <button class="btn btn-success">Guardar</button>
+    </form>
+</div>

@@ -6,14 +6,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { routing, appRoutingProviders } from './app.routing';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { UsuarioComponent } from './usuario/usuario.component';
-import { PlanComponent } from './plan/plan.component';
-import { EntrenadorComponent } from './entrenador/entrenador.component';
-import { RutinaComponent } from './rutina/rutina.component';
-import { EjercicioComponent } from './ejercicio/ejercicio.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
+import { HomeComponent } from './pages/home/home.component';
+import { UsuarioComponent } from './pages/usuario/usuario.component';
+import { PlanComponent } from './pages/plan/plan.component';
+import { EntrenadorComponent } from './pages/entrenador/entrenador.component';
+import { RutinaComponent } from './pages/rutina/rutina.component';
+import { EjercicioComponent } from './pages/ejercicio/ejercicio.component';
+import { LoginComponent } from './pages/login/login.component';
+import { RegisterComponent } from './pages/register/register.component';
+import { HttpClientModule } from '@angular/common/http';
+import { RegistrarEntrenadorComponent } from './pages/registrar-entrenador/registrar-entrenador.component';
+import { ActualizarEntrenadorComponent } from './pages/actualizar-entrenador/actualizar-entrenador.component';
+import { MenuHorizontalComponent } from './pages/menu-horizontal/menu-horizontal.component';
+import { QuienesSomosComponent } from './pages/quienes-somos/quienes-somos.component';
+import { FooterComponent } from './pages/footer/footer.component';
 
 
 @NgModule({
@@ -26,13 +32,19 @@ import { RegisterComponent } from './register/register.component';
     RutinaComponent,
     EjercicioComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    RegistrarEntrenadorComponent,
+    ActualizarEntrenadorComponent,
+    MenuHorizontalComponent,
+    QuienesSomosComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    routing
+    routing,
+    HttpClientModule
   ],
   providers: [appRoutingProviders],
   bootstrap: [AppComponent]
