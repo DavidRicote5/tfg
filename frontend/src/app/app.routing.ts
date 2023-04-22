@@ -12,6 +12,12 @@ import { RegisterComponent } from './pages/register/register.component';
 import { RegistrarEntrenadorComponent } from './pages/registrar-entrenador/registrar-entrenador.component';
 import { ActualizarEntrenadorComponent } from './pages/actualizar-entrenador/actualizar-entrenador.component';
 import { QuienesSomosComponent } from './pages/quienes-somos/quienes-somos.component';
+import { AdminHomeComponent } from './pages/admin/admin-home/admin-home.component';
+import { AdminUsuariosComponent } from './pages/admin/admin-usuarios/admin-usuarios.component';
+import { AdminEntrenadoresComponent } from './pages/admin/admin-entrenadores/admin-entrenadores.component';
+import { AdminPlanesComponent } from './pages/admin/admin-planes/admin-planes.component';
+import { AdminRutinasComponent } from './pages/admin/admin-rutinas/admin-rutinas.component';
+import { AdminEjerciciosComponent } from './pages/admin/admin-ejercicios/admin-ejercicios.component';
 
 const appRoutes: Routes = [
     {path: "", component: HomeComponent},
@@ -25,6 +31,12 @@ const appRoutes: Routes = [
     {path: "login", component: LoginComponent},
     {path: "register", component: RegisterComponent},
     {path: "quienes-somos", component: QuienesSomosComponent},
+    {path: "admin", component: AdminHomeComponent},
+    {path: "adminUsuarios", component: AdminUsuariosComponent},
+    {path: "adminEntrenadores", component: AdminEntrenadoresComponent},
+    {path: "adminPlanes", component: AdminPlanesComponent},
+    {path: "adminRutinas", component: AdminRutinasComponent},
+    {path: "adminEjercicios", component: AdminEjerciciosComponent},
     {path: '**', component: HomeComponent}
 ];
 

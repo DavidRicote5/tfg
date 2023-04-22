@@ -20,6 +20,13 @@ import { ActualizarEntrenadorComponent } from './pages/actualizar-entrenador/act
 import { MenuHorizontalComponent } from './pages/menu-horizontal/menu-horizontal.component';
 import { QuienesSomosComponent } from './pages/quienes-somos/quienes-somos.component';
 import { FooterComponent } from './pages/footer/footer.component';
+import { AdminHomeComponent } from './pages/admin/admin-home/admin-home.component';
+import { AdminUsuariosComponent } from './pages/admin/admin-usuarios/admin-usuarios.component';
+import { AdminEntrenadoresComponent } from './pages/admin/admin-entrenadores/admin-entrenadores.component';
+import { AdminPlanesComponent } from './pages/admin/admin-planes/admin-planes.component';
+import { AdminRutinasComponent } from './pages/admin/admin-rutinas/admin-rutinas.component';
+import { AdminEjerciciosComponent } from './pages/admin/admin-ejercicios/admin-ejercicios.component';
+
 
 
 @NgModule({
@@ -37,7 +44,14 @@ import { FooterComponent } from './pages/footer/footer.component';
     ActualizarEntrenadorComponent,
     MenuHorizontalComponent,
     QuienesSomosComponent,
-    FooterComponent
+    FooterComponent,
+    AdminHomeComponent,
+    AdminUsuariosComponent,
+    AdminEntrenadoresComponent,
+    AdminPlanesComponent,
+    AdminRutinasComponent,
+    AdminEjerciciosComponent,
+    
   ],
   imports: [
     BrowserModule,
