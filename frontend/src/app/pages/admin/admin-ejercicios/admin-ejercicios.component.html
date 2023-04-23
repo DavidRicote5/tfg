@@ -1,0 +1,80 @@
+<body>
+    <div class="container-fluid">
+        <div class="row">
+    
+            <!-- Barra lateral -->
+            <div class="col-md-3 col-lg-2 sidebar vh-100">
+                <div class="d-flex flex-column p-3 text-white bg-dark" style="height: 100%;">
+                    <a [routerLink]="['/admin']" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                        <span class="fs-4">Dashboard</span>
+                      </a>
+                    <hr>
+                    <ul class="nav nav-pills flex-column mb-auto">
+                        <li class="nav-item">
+                            <a [routerLink]="['/admin']" class="nav-link text-white">
+                                <i class="bi bi-home"></i>
+                                Inicio
+                            </a>
+                        </li>
+                        <li>
+                            <a [routerLink]="['/adminUsuarios']" class="nav-link text-white">
+                                <i class="bi bi-speedometer2"></i>
+                                Usuarios
+                            </a>
+                        </li>
+                        <li>
+                            <a [routerLink]="['/adminEntrenadores']" class="nav-link text-white">
+                                <i class="bi bi-speedometer2"></i>
+                                Entrenadores
+                            </a>
+                        </li>
+                        <li>
+                            <a [routerLink]="['/adminPlanes']" class="nav-link text-white">
+                                <i class="bi bi-table"></i>
+                                Planes
+                            </a>
+                        </li>
+                        <li>
+                            <a [routerLink]="['/adminRutinas']" class="nav-link text-white">
+                                <i class="bi bi-people"></i>
+                                Rutinas
+                            </a>
+                        </li>
+                        <li>
+                            <a [routerLink]="['/adminEjercicios']" class="nav-link active">
+                                <i class="bi bi-people"></i>
+                                Ejercicios
+                            </a>
+                        </li>
+                        <hr>
+                        <li>
+                            <a [routerLink]="['/']" class="nav-link text-white">
+                                <i class="bi bi-people"></i>
+                                Home
+                            </a>
+                        </li>
+    
+                    </ul>
+                    <hr>
+                    <div class="dropdown">
+                        <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="https://github.com/mdo.png" alt="hugenerd" width="32" height="32" class="rounded-circle me-2">
+                            <strong>Usuario</strong>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+                            <li><a class="dropdown-item" href="#">Perfil</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Contenido principal -->
+            <div class="col-md-9 col-lg-10 bg-dark">
+                <h1>Bienvenido al contenido principal</h1>
+                <p>Este es el contenido principal de mi página.</p>
+            </div>
+        </div>
+    </div>
+    </body>
