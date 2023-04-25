@@ -4,11 +4,12 @@ import { AppService } from 'src/app/app.service';
 import { Ejercicio } from 'src/app/models/Ejercicio';
 
 @Component({
-  selector: 'app-admin-ejercicios',
-  templateUrl: './admin-ejercicios.component.html',
-  styleUrls: ['./admin-ejercicios.component.css']
+  selector: 'app-ejercicio',
+  templateUrl: './ejercicio.component.html',
+  styleUrls: ['./ejercicio.component.css']
 })
-export class AdminEjerciciosComponent {
+export class EjercicioComponent {
+
   ejercicios: Ejercicio[];
 
   constructor(private appService: AppService,private router:Router){}
@@ -17,7 +18,7 @@ export class AdminEjerciciosComponent {
     this.obtenerEjercicios();
   }
 
-  actualizarEjercicio(id:number){
+  actualizarEjercicios(id:number){
     this.router.navigate(['actualizar-ejercicios',id]);
   }
 
@@ -33,4 +34,5 @@ export class AdminEjerciciosComponent {
       this.ejercicios = dato;
     });
   }
+  
 }

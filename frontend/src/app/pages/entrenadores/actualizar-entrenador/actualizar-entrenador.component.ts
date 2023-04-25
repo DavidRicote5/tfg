@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Entrenador } from '../../models/Entrenador';
+import { Entrenador } from '../../../models/Entrenador';
 import { AppService } from 'src/app/app.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -21,7 +21,7 @@ export class ActualizarEntrenadorComponent {
   }
 
   irAlaListaDeEntrenadores(){
-    this.router.navigate(['/entrenadores']);
+    this.router.navigate(['/adminEntrenadores']);
   }
 
   onSubmit(){

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AppService } from 'src/app/app.service';
-import { Entrenador } from '../../models/Entrenador';
+import { Entrenador } from '../../../models/Entrenador';
 import { Router } from '@angular/router';
 
 @Component({

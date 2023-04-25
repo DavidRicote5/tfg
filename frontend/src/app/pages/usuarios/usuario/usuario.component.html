@@ -1,0 +1,30 @@
+<h2>Lista de usuarios</h2>
+<table class="table table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>Loginname</th>
+            <th>Nombre</th>
+            <th>Contraseña</th>
+            <th>Correo</th>
+            <th>Genero</th>
+            <th>Altura</th>
+            <th>Peso</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let usuario of usuarios">
+            <td>{{usuario.loginname}}</td>
+            <td>{{usuario.nombre}}</td>
+            <td>{{usuario.password}}</td>
+            <td>{{usuario.correo}}</td>
+            <td>{{usuario.genero}}</td>
+            <td>{{usuario.altura}}</td>
+            <td>{{usuario.peso}}</td>
+            <td>
+                <button (click)="actualizarUsuario(usuario.id)" class="btn btn-info">Editar Usuario</button>
+                <button (click)="eliminarUsuario(usuario.id)" class="btn btn-info">Eliminar Usuario</button>
+            </td>
+        </tr>
+    </tbody>
+    <button class="btn btn-primary" [routerLink]="['/registrar-usuarios']">Registrar Usuario</button>
+</table>

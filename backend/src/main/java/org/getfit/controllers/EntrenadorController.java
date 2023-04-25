@@ -33,7 +33,7 @@ public class EntrenadorController {
 	}
 	
 	@PostMapping("/c")
-	public Entrenador guardarEmpleado(@RequestBody Entrenador entrenador) {
+	public Entrenador guardarEntrenador(@RequestBody Entrenador entrenador) {
 		return entrenadorRepository.save(entrenador);
 	}
 	/*@PostMapping("c")
@@ -83,7 +83,7 @@ public class EntrenadorController {
 	
 	
 	@PutMapping("/u/{id}")
-	public ResponseEntity<Entrenador> actulizarEntrenador(@PathVariable Long id, @RequestBody Entrenador detallesEntrenador){
+	public ResponseEntity<Entrenador> actualizarEntrenador(@PathVariable Long id, @RequestBody Entrenador detallesEntrenador){
 		Entrenador entrenador = entrenadorRepository.findById(id).get();
 		
 		entrenador.setNombre(detallesEntrenador.getNombre());

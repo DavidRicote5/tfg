@@ -2,6 +2,7 @@ package org.getfit.entities;
 
 import java.time.LocalDate;
 import java.util.Collection;
+import java.util.Date;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -36,9 +37,9 @@ public class Usuario {
 	private String loginname;
 
 	private String nombre;
-	private String contraseña;
+	private String password;
 	private String correo;
-	private LocalDate fechaNac;
+	private Date fechaNac;
 	private String genero;
 	private int altura;
 	private int peso;

@@ -2,6 +2,7 @@ package org.getfit.services;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import org.getfit.entities.Entrenador;
 import org.getfit.entities.Plan;
@@ -38,13 +39,13 @@ public class UsuarioService {
 	}
 
 	// CREAR USUARIO ADMINISTRADOR
-	public Usuario saveAdmin(String loginname, String nombre, String contraseña, String correo) throws Exception {
+	public Usuario saveAdmin(String loginname, String nombre, String password, String correo) throws Exception {
 
 		// Crea el usuario con todos sus atributos
 		Usuario usuario = Usuario.builder()
 				.loginname(loginname)
 				.nombre(nombre)
-				.contraseña(new BCryptPasswordEncoder().encode(contraseña))
+				.password(new BCryptPasswordEncoder().encode(password))
 				.correo(correo)
 				.build();
 
@@ -66,9 +67,9 @@ public class UsuarioService {
 	public void saveUsuario(
 			String loginname,
 			String nombre,
-			String contraseña,
+			String password,
 			String correo,
-			LocalDate fechaNac,
+			Date fechaNac,
 			String genero,
 			int altura,
 			int peso
@@ -78,7 +79,7 @@ public class UsuarioService {
 		Usuario usuario = Usuario.builder()
 				.loginname(loginname)
 				.nombre(nombre)
-				.contraseña(new BCryptPasswordEncoder().encode(contraseña))
+				.password(new BCryptPasswordEncoder().encode(password))
 				.correo(correo)
 				.fechaNac(fechaNac)
 				.genero(genero)
@@ -151,7 +152,7 @@ public class UsuarioService {
 	
 	
 	//METODO PARA AUTENTICAR UN JUGADOR
-	public Usuario autenticarUsuario(String loginname, String contraseña) throws Exception {
+	public Usuario autenticarUsuario(String loginname, String password) throws Exception {
 		Usuario usuario = null;
 		
 		// Verificar que el usuario existe
@@ -163,9 +164,9 @@ public class UsuarioService {
 			throw new Exception("El usuario "+loginname+" no existe");
 		}
 		
-		// Verificar que la contraseña coincide
-		if (!  (new BCryptPasswordEncoder()).matches(contraseña,usuario.getContraseña()) ) {
-			throw new Exception("La contraseña es incorrecta");
+		// Verificar que la password coincide
+		if (!  (new BCryptPasswordEncoder()).matches(password,usuario.getPassword()) ) {
+			throw new Exception("La password es incorrecta");
 		}
 		
 		return usuario;

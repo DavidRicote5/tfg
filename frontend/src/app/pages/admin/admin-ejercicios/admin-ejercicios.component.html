@@ -72,9 +72,34 @@
     
             <!-- Contenido principal -->
             <div class="col-md-9 col-lg-10 bg-dark">
-                <h1>Bienvenido al contenido principal</h1>
-                <p>Este es el contenido principal de mi página.</p>
-            </div>
+                <h2 class="text-light">Lista de ejercicios</h2>
+                <div class="table-responsive">
+                  <table class="table table-striped table-hover">
+                    <thead>
+                      <tr>
+                        <th class="text-light">Nombre</th>
+                        <th class="text-light">Descripción</th>
+                        <th class="text-light">Grupo Muscular</th>
+                        <th class="text-light">Equipo Necesario</th>
+                        <th class="text-light">Acciones</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let ejercicio of ejercicios" class="cursor-pointer text-white">
+                        <td>{{ejercicio.nombre}}</td>
+                        <td>{{ejercicio.descripcion}}</td>
+                        <td>{{ejercicio.grupomuscular}}</td>
+                        <td>{{ejercicio.equiponecesario}}</td>
+                        <td>
+                          <button class="btn btn-sm btn-info" (click)="actualizarEjercicio(ejercicio.id)">Editar</button>
+                          <button class="btn btn-sm btn-danger" (click)="eliminarEjercicio(ejercicio.id)">Eliminar</button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <button class="btn btn-primary" [routerLink]="['/registrar-ejercicios']">Registrar Ejercicio</button>
+              </div>
         </div>
     </div>
-    </body>
+</body>
