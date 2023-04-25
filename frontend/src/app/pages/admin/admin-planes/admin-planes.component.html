@@ -72,9 +72,35 @@
     
             <!-- Contenido principal -->
             <div class="col-md-9 col-lg-10 bg-dark">
-                <h1>Bienvenido al contenido principal</h1>
-                <p>Este es el contenido principal de mi página.</p>
-            </div>
+                <h2 class="text-light">Lista de Planes</h2>
+                <div class="table-responsive">
+                  <table class="table table-striped table-hover">
+                    <thead>
+                      <tr>
+                        <th class="text-light">Nombre</th>
+                        <th class="text-light">Descripcion</th>
+                        <th class="text-light">Duracion</th>
+                        <th class="text-light">Precio</th>
+                        <th class="text-light">Acciones</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let plan of planes" class="cursor-pointer text-white">
+                        <td>{{plan.nombre}}</td>
+                        <td>{{plan.descripcion}}</td>
+                        <td>{{plan.duracion}}</td>
+                        <td>{{plan.precio}}</td>
+                        <td>
+                          <button class="btn btn-sm btn-info" (click)="actualizarPlan(plan.id)">Editar</button>
+                          |
+                          <button class="btn btn-sm btn-danger" (click)="eliminarPlan(plan.id)">Eliminar</button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <button class="btn btn-primary" [routerLink]="['/registrar-entrenadores']">Registrar Plan</button>
+              </div>
         </div>
     </div>
     </body>

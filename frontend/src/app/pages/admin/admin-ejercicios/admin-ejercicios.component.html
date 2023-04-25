@@ -72,7 +72,7 @@
     
             <!-- Contenido principal -->
             <div class="col-md-9 col-lg-10 bg-dark">
-                <h2 class="text-light">Lista de ejercicios</h2>
+                <h2 class="text-light">Lista de Ejercicios</h2>
                 <div class="table-responsive">
                   <table class="table table-striped table-hover">
                     <thead>
@@ -92,6 +92,7 @@
                         <td>{{ejercicio.equiponecesario}}</td>
                         <td>
                           <button class="btn btn-sm btn-info" (click)="actualizarEjercicio(ejercicio.id)">Editar</button>
+                          |
                           <button class="btn btn-sm btn-danger" (click)="eliminarEjercicio(ejercicio.id)">Eliminar</button>
                         </td>
                       </tr>

@@ -1,15 +1,25 @@
 package org.getfit.controllers;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import org.getfit.entities.Entrenador;
 import org.getfit.entities.Plan;
 import org.getfit.exception.DangerException;
 import org.getfit.helpers.PRG;
+import org.getfit.repositories.PlanRepository;
 import org.getfit.services.PlanService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -18,14 +28,53 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class PlanController {
 
 	@Autowired
-	private PlanService planService;
+	private PlanRepository planRepository;
 
 	@GetMapping("c")
 	public String cGet(ModelMap m) {
 		m.put("view", "plan/c");
 		return "_t/frame";
 	}
-
+	
+	@PostMapping("/c")
+	public Plan guardarPlan(@RequestBody Plan plan) {
+		return planRepository.save(plan);
+	}
+	
+	@GetMapping("/r")
+	public List<Plan> planes(){
+		return planRepository.findAll();
+	}
+	
+	@GetMapping("/u/{id}")
+	public ResponseEntity<Plan> obtenerPlanPorId(@PathVariable Long id){
+		Plan plan = planRepository.findById(id).get();
+		return ResponseEntity.ok(plan);
+	}
+	
+	@PutMapping("/u/{id}")
+	public ResponseEntity<Plan> actualizarPlan(@PathVariable Long id, @RequestBody Plan detallesPlan){
+		Plan plan = planRepository.findById(id).get();
+		
+		plan.setNombre(detallesPlan.getNombre());
+		plan.setDescripcion(detallesPlan.getDescripcion());
+		plan.setDuracion(detallesPlan.getDuracion());
+		plan.setPrecio(detallesPlan.getPrecio());
+		
+		Plan planActualizado = planRepository.save(plan);
+		return ResponseEntity.ok(planActualizado);
+	}
+	
+	@DeleteMapping("/d/{id}")
+	public ResponseEntity<Map<String,Boolean>> eliminarPlan(@PathVariable Long id){
+		Plan plan = planRepository.findById(id).get();
+		planRepository.delete(plan);
+		Map<String, Boolean> respuesta = new HashMap<>();
+		respuesta.put("eliminar",Boolean.TRUE);
+		return ResponseEntity.ok(respuesta);
+    }
+	
+/*
 	@PostMapping("c")
 	public String cPost(@RequestParam("nombre") String nombre, @RequestParam("descripcion") String descripcion,
 			@RequestParam("duracion") int duracion, @RequestParam("precio") int precio) throws DangerException {
@@ -73,5 +122,5 @@ public class PlanController {
 		planService.deletePlan(id);
 		return "redirect:/plan/r";
 	}
-
+*/
 }

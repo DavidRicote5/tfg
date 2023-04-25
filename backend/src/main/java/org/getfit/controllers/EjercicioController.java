@@ -34,8 +34,7 @@ public class EjercicioController {
 	@Autowired
 	private EjercicioRepository ejercicioRepository;
 	
-	@Autowired
-	private EjercicioService ejercicioService;
+
 
 	@GetMapping("c")
 	public String cGet(ModelMap m) {

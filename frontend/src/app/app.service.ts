@@ -5,6 +5,7 @@ import { Entrenador } from './models/Entrenador';
 import { Usuario } from './models/Usuario';
 import { Rutina } from './models/Rutina';
 import { Ejercicio } from './models/Ejercicio';
+import { Plan } from './models/Plan';
 
 @Injectable({
   providedIn: 'root'
@@ -98,4 +99,25 @@ export class AppService {
   eliminarEjercicio(id: number): Observable<Object>{
     return this.httpClient.delete(this.baseURL+"/ejercicio/d/"+id);
   }
+
+    //PLANES
+    obtenerPlanes():Observable<Plan[]>{
+      return this.httpClient.get<Plan[]>(this.baseURL+"/plan/r");
+    }
+  
+    registrarPlanes(plan: Plan):Observable<Object>{
+      return this.httpClient.post(this.baseURL+"/plan/c", plan);
+    }
+  
+    actualizarPlan(id: number, plan: Plan): Observable<Object>{
+      return this.httpClient.put(this.baseURL+"/plan/u/"+id, plan);
+    }
+  
+    obtenerPlanPorId(id: number):Observable<Plan>{
+      return this.httpClient.get<Plan>(this.baseURL+"/plan/u/"+id);
+    }
+  
+    eliminarPlan(id: number): Observable<Object>{
+      return this.httpClient.delete(this.baseURL+"/plan/d/"+id);
+    }
 }
