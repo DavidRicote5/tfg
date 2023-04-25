@@ -21,7 +21,7 @@ export class ActualizarEntrenadorComponent {
   }
 
   irAlaListaDeEntrenadores(){
-    this.router.navigate(['/adminEntrenadors']);
+    this.router.navigate(['/adminEntrenadores']);
   }
 
   onSubmit(){

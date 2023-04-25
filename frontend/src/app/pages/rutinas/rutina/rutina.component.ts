@@ -4,11 +4,12 @@ import { Rutina } from 'src/app/models/Rutina';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-admin-rutinas',
-  templateUrl: './admin-rutinas.component.html',
-  styleUrls: ['./admin-rutinas.component.css']
+  selector: 'app-rutina',
+  templateUrl: './rutina.component.html',
+  styleUrls: ['./rutina.component.css']
 })
-export class AdminRutinasComponent {
+export class RutinaComponent {
+
   rutinas: Rutina[];
 
   constructor(private appService: AppService,private router:Router){}
@@ -33,4 +34,5 @@ export class AdminRutinasComponent {
       this.rutinas = dato;
     });
   }
+
 }

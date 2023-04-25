@@ -8,10 +8,10 @@ import { routing, appRoutingProviders } from './app.routing';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { UsuarioComponent } from './pages/usuarios/usuario/usuario.component';
-import { PlanComponent } from './pages/plan/plan.component';
+import { PlanComponent } from './pages/planes/plan/plan.component';
 import { EntrenadorComponent } from './pages/entrenadores/entrenador/entrenador.component';
-import { RutinaComponent } from './pages/rutina/rutina.component';
-import { EjercicioComponent } from './pages/ejercicio/ejercicio.component';
+import { RutinaComponent } from './pages/rutinas/rutina/rutina.component';
+import { EjercicioComponent } from './pages/ejercicios/ejercicio/ejercicio.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -28,6 +28,12 @@ import { AdminRutinasComponent } from './pages/admin/admin-rutinas/admin-rutinas
 import { AdminEjerciciosComponent } from './pages/admin/admin-ejercicios/admin-ejercicios.component';
 import { RegistrarUsuarioComponent } from './pages/usuarios/registrar-usuario/registrar-usuario.component';
 import { ActualizarUsuarioComponent } from './pages/usuarios/actualizar-usuario/actualizar-usuario.component';
+import { RegistrarRutinaComponent } from './pages/rutinas/registrar-rutina/registrar-rutina.component';
+import { ActualizarRutinaComponent } from './pages/rutinas/actualizar-rutina/actualizar-rutina.component';
+import { RegistrarPlanComponent } from './pages/planes/registrar-plan/registrar-plan.component';
+import { ActualizarPlanComponent } from './pages/planes/actualizar-plan/actualizar-plan.component';
+import { RegistrarEjercicioComponent } from './pages/ejercicios/registrar-ejercicio/registrar-ejercicio.component';
+import { ActualizarEjercicioComponent } from './pages/ejercicios/actualizar-ejercicio/actualizar-ejercicio.component';
 
 
 
@@ -56,7 +62,12 @@ import { ActualizarUsuarioComponent } from './pages/usuarios/actualizar-usuario/
     AdminEjerciciosComponent,
     RegistrarUsuarioComponent,
     ActualizarUsuarioComponent,
-    
+    RegistrarRutinaComponent,
+    ActualizarRutinaComponent,
+    RegistrarPlanComponent,
+    ActualizarPlanComponent,
+    RegistrarEjercicioComponent,
+    ActualizarEjercicioComponent,
     
   ],
   imports: [

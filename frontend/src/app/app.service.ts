@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Entrenador } from './models/Entrenador';
 import { Usuario } from './models/Usuario';
+import { Rutina } from './models/Rutina';
+import { Ejercicio } from './models/Ejercicio';
 
 @Injectable({
   providedIn: 'root'
@@ -53,5 +55,47 @@ export class AppService {
 
   eliminarUsuario(id: number): Observable<Object>{
     return this.httpClient.delete(this.baseURL+"/usuario/d/"+id);
+  }
+
+  //RUTINAS
+  obtenerRutinas():Observable<Rutina[]>{
+    return this.httpClient.get<Rutina[]>(this.baseURL+"/rutina/r");
+  }
+
+  registrarRutinas(rutina: Rutina):Observable<Object>{
+    return this.httpClient.post(this.baseURL+"/rutina/c", rutina);
+  }
+
+  actualizarRutina(id: number, rutina: Rutina): Observable<Object>{
+    return this.httpClient.put(this.baseURL+"/rutina/u/"+id, rutina);
+  }
+
+  obtenerRutinaPorId(id: number):Observable<Rutina>{
+    return this.httpClient.get<Rutina>(this.baseURL+"/rutina/u/"+id);
+  }
+
+  eliminarRutina(id: number): Observable<Object>{
+    return this.httpClient.delete(this.baseURL+"/rutina/d/"+id);
+  }
+
+  //EJERCICIOS
+  obtenerEjercicios():Observable<Ejercicio[]>{
+    return this.httpClient.get<Ejercicio[]>(this.baseURL+"/ejercicio/r");
+  }
+
+  registrarEjercicios(ejercicio: Ejercicio):Observable<Object>{
+    return this.httpClient.post(this.baseURL+"/ejercicio/c", ejercicio);
+  }
+
+  actualizarEjercicio(id: number, ejercicio: Ejercicio): Observable<Object>{
+    return this.httpClient.put(this.baseURL+"/ejercicio/u/"+id, ejercicio);
+  }
+
+  obtenerEjercicioPorId(id: number):Observable<Ejercicio>{
+    return this.httpClient.get<Ejercicio>(this.baseURL+"/ejercicio/u/"+id);
+  }
+
+  eliminarEjercicio(id: number): Observable<Object>{
+    return this.httpClient.delete(this.baseURL+"/ejercicio/d/"+id);
   }
 }
