@@ -8,13 +8,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class HomeController {
 
 	@GetMapping("/")
-	public String home(
-			ModelMap m
-			)
-	{
+	public String home(ModelMap m) {
 		m.put("view", "home/home");
 		return "_t/frame";
 	}
 
-	
 }

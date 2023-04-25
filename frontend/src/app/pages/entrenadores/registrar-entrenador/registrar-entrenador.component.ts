@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AppService } from 'src/app/app.service';
-import { Entrenador } from '../../models/Entrenador';
+import { Entrenador } from '../../../models/Entrenador';
 
 @Component({
   selector: 'app-registrar-entrenador',
@@ -25,7 +25,7 @@ export class RegistrarEntrenadorComponent implements OnInit {
   }
 
   irListaEntrenadores(){
-    this.router.navigate(['/entrenadores']);
+    this.router.navigate(['/adminEntrenadores']);
   }
   onSubmit(){
     this.guardarEntrenador();

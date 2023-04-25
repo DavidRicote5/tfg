@@ -1,7 +1,6 @@
 package org.getfit.services;
 
 import java.util.List;
-
 import org.getfit.entities.Ejercicio;
 import org.getfit.repositories.EjercicioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,15 +11,18 @@ public class EjercicioService {
 
 	@Autowired
 	private EjercicioRepository ejercicioRepository;
-	
 
 	public List<Ejercicio> getEjercicios() {
 		return ejercicioRepository.findAll();
 	}
 
-	public void saveEjercicio(String nombre,String descripcion,String grupoMuscular,String equipoNecesario) throws Exception {
-		Ejercicio ejercicio = Ejercicio.builder().nombre(nombre).build();
-		
+	public void saveEjercicio(
+			String nombre,
+			String descripcion,
+			String grupomuscular,
+			String equiponecesario
+			) throws Exception {
+		Ejercicio ejercicio = Ejercicio.builder().nombre(nombre).descripcion(descripcion).grupomuscular(grupomuscular).equiponecesario(equiponecesario).build();
 		try {
 			ejercicioRepository.saveAndFlush(ejercicio);
 		} catch (Exception e) {
@@ -32,9 +34,20 @@ public class EjercicioService {
 		return ejercicioRepository.findById(id).get();
 	}
 
-	public void updateEjercicio(Long id, String nombre) throws Exception {
+	public void updateEjercicio(
+			Long id,
+			String nombre,
+			String descripcion,
+			String grupomuscular,
+			String equiponecesario
+			) throws Exception {
 		Ejercicio ejercicio = ejercicioRepository.findById(id).get();
+		
 		ejercicio.setNombre(nombre);
+		ejercicio.setDescripcion(descripcion);
+		ejercicio.setGrupomuscular(grupomuscular);
+		ejercicio.setEquiponecesario(equiponecesario);
+		
 		try {
 			ejercicioRepository.saveAndFlush(ejercicio);
 		} catch (Exception e) {

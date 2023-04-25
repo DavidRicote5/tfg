@@ -2,34 +2,38 @@
 	<h1>Lista de usuarios</h1>
 
 	<form action="/usuario/c">
-		<input type="submit" value="Nuevo Usuario" />
+		<input type="submit" value="Nuevo usuario" />
 	</form>
 
 
 	<form action="/">
+
 		<input type="submit" value="Menú principal" />
 	</form>
 
 	<table class="table table-striped table-hover">
 		<tr>
 			<th>Acción</th>
-			<th>Foto</th>
-			<th>Nombre (Loginname)</th>
-			<th>Fecha de nacimiento</th>
+			<th>Loginname</th>
+			<th>Nombre</th>
+			<th>Correo</th>
+			<th>Fecha Nacimiento</th>
 			<th>Genero</th>
-			<th>Entrenador</th>
-			<th>Plan</th>
 			<th>Altura</th>
 			<th>Peso</th>
+			<th>Plan</th>
+			<th>Entrenador</th>
+			<th>Rutinas</th>
+			
+			
 		</tr>
 
-		<!--BOTONES DE EDITAR Y ELIMINAR-->
 		<tr th:each=" usuario : ${ usuarios }">
 			<td>
 				<div class="row">
 					<div class="col">
 						<form action="/usuario/u">
-							<input type="hidden" th:value="${usuario.id}" name="id" />
+							<input type="hidden" th:value="${ usuario.id }" name="id" />
 							<button onclick="submit()">
 								<img src="/img/lapiz.png" width="20" height="20" />
 							</button>
@@ -38,7 +42,7 @@
 
 					<div class="col">
 						<form action="/usuario/d" method="post">
-							<input type="hidden" th:value="${usuario.id}" name="id" />
+							<input type="hidden" th:value="${ usuario.id }" name="id" />
 							<button onclick="submit()">
 								<img src="/img/basura.png" width="20" height="20" />
 							</button>
@@ -46,30 +50,29 @@
 					</div>
 				</div>
 			</td>
-			
-			<!--FOTO-->
-			<td> <img th:src=" ${usuario.extension == null || usuario.extension.isEmpty() ? '/img/silueta.jpg' : uriIMG + 'user-' + usuario.id + '.' + usuario.extension }  " width="30" height="30"/> </td>
 
-			<!--NOMBRE && LOGINNAME-->
-			<td th:text="|${usuario.nombre} (${usuario.loginname})|" />
+			<td th:text="${ usuario.loginname }" />
 
-			<!--FECHA NACIMIENTO-->
-			<td th:text="|${usuario.fnac?.getDayOfMonth()} de ${usuario.fnac?.getMonth()} de ${usuario.fnac?.getYear()}|"> </td>
+			<td th:text="${ usuario.nombre }" />
 			
-			<!--GENERO-->
-			<td th:text="|${usuario.genero}|" />
+			<td th:text="${ usuario.correo }" />
 			
-			<!--ENTRENADOR-->
-			<td th:text="${ persona.entrenador==null ? 'Sin entrenador' : persona.entrenador.nombre }"/>
+			<td th:text="${ usuario.fechaNac }" />
 			
-			<!--PLAN-->
-			<td th:text="${ persona.plan==null ? 'Sin plan' : persona.plan.nombre }"/>
+			<td th:text="${ usuario.genero}"/>
 			
-			<!--ALTURA-->
-			<td th:text="|${usuario.altura}CM|" />
+			<td th:text="${ usuario.altura}"/>
 			
-			<!--PESO-->
-			<td th:text="|${usuario.peso}KG|" />
+			<td th:text="${ usuario.peso}"/>
+			
+			<td th:text="${ usuario.plan?.nombre}"/>
+			
+			<td th:text="${ usuario.entrenador?.nombre}"/>
+			
+			<td>
+				<th:block th:each="rutina : ${usuario.rutinas}" th:text="|${rutina.nombre} - |" />
+			</td>
+
 
 		</tr>
 	</table>

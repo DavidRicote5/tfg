@@ -4,11 +4,12 @@ import { Usuario } from '../../../models/Usuario';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-admin-usuarios',
-  templateUrl: './admin-usuarios.component.html',
-  styleUrls: ['./admin-usuarios.component.css']
+  selector: 'app-usuario',
+  templateUrl: './usuario.component.html',
+  styleUrls: ['./usuario.component.css']
 })
-export class AdminUsuariosComponent {
+export class UsuarioComponent {
+
   usuarios: Usuario[];
 
   constructor(private appService: AppService,private router:Router){}

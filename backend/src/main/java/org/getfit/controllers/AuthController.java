@@ -16,43 +16,34 @@ import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class AuthController {
-	
-	
+
 	@Autowired
 	UsuarioService usuarioService;
 
-	//REDIRIGE HACIA LA VISTA DE LOGIN
+	// REDIRIGE HACIA LA VISTA DE LOGIN
 	@GetMapping("/login")
-	public String login(
-			ModelMap m
-			) {
+	public String login(ModelMap m) {
 		m.put("view", "home/login");
 		return "_t/frame";
 	}
-	
-	//OBTIENE LOS DATOS QUE SE PASAN EN EL LOGIN
+
+	// OBTIENE LOS DATOS QUE SE PASAN EN EL LOGIN
 	@PostMapping("/login")
-	public String loginPost(
-			@RequestParam("loginname") String loginname,
-			@RequestParam("contraseña") String contraseña,
-			HttpSession s
-			) throws DangerException {
-		
+	public String loginPost(@RequestParam("loginname") String loginname, @RequestParam("contraseña") String contraseña,
+			HttpSession s) throws DangerException {
+
 		try {
 			s.setAttribute("usuario", usuarioService.autenticarUsuario(loginname, contraseña));
-		}
-		catch (Exception e) {
-			PRG.error(e.getMessage(),"/");
+		} catch (Exception e) {
+			PRG.error(e.getMessage(), "/");
 		}
 		return "redirect:/";
 	}
-	
-	//REFIRIGE HACIA EL HOME Y DESLOGUEA AL USUARIO
+
+	// REFIRIGE HACIA EL HOME Y DESLOGUEA AL USUARIO
 	@GetMapping("/logout")
-	public String logout(
-			HttpSession s
-			) {
-		if (s.getAttribute("usuario")!=null) {
+	public String logout(HttpSession s) {
+		if (s.getAttribute("usuario") != null) {
 			s.removeAttribute("usuario");
 		}
 		return "redirect:/";
