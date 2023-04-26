@@ -4,18 +4,24 @@
             <div class="card bg-light">
                 <div class="card-body">
                     <h3 class="text-center mb-3">Actualizar Usuario</h3>
-                    <form (ngSubmit)="onSubmit()">
+                    <form (ngSubmit)="onSubmit()" #usuarioForm = "ngForm" >
                         
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="nombre" placeholder="Nombre" [(ngModel)]="usuario.nombre" name="nombre" #nombre = "ngModel" >
+                            <input type="text" class="form-control" id="nombre" placeholder="Nombre" [(ngModel)]="usuario.nombre" name="nombre" #nombre = "ngModel">
                             <label for="nombre">Nombre</label>
                         </div>
-                        
                         <div class="form-floating mb-3">
-                            <input type="date" class="form-control" id="fechaNacimiento" [(ngModel)]="usuario.fechaNac" name="fechaNac" #fechaNac = "ngModel" >
-                            <label for="fechaNacimiento">Fecha de Nacimiento</label>
+                            <input type="text" class="form-control" id="nombre" placeholder="Nombre" [(ngModel)]="usuario.password" name="password" #password = "ngModel">
+                            <label for="nombre">Password</label>
                         </div>
-                        
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="nombre" placeholder="Nombre" [(ngModel)]="usuario.correo" name="correo" #correo = "ngModel">
+                            <label for="nombre">Correo</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="nombre" placeholder="Nombre" [(ngModel)]="usuario.genero" name="genero" #genero = "ngModel">
+                            <label for="nombre">Género</label>
+                        </div>
                         <div class="form-floating mb-3">
                             <input type="number" class="form-control" id="altura" placeholder="Altura" min="0" max="250" [(ngModel)]="usuario.altura" name="altura" #altura = "ngModel">
                             <label for="altura">Altura (cm)</label>

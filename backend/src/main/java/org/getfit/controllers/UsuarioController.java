@@ -38,6 +38,15 @@ public class UsuarioController {
 	@Autowired
 	private UsuarioRepository usuarioRepository;
 
+	@Autowired
+	private PlanService planService;
+
+	@Autowired
+	private EntrenadorService entrenadorService;
+
+	@Autowired
+	private RutinaService rutinaService;
+
 	@GetMapping("c")
 	public String cGet(ModelMap m) {
 		m.put("view", "usuario/c");
@@ -106,7 +115,9 @@ public class UsuarioController {
 		Usuario usuario = usuarioRepository.findById(id).get();
 		
 		usuario.setNombre(detallesUsuario.getNombre());
-		usuario.setFechaNac(detallesUsuario.getFechaNac());
+		usuario.setPassword(detallesUsuario.getPassword());
+		usuario.setCorreo(detallesUsuario.getCorreo());
+		usuario.setGenero(detallesUsuario.getGenero());
 		usuario.setAltura(detallesUsuario.getAltura());
 		usuario.setPeso(detallesUsuario.getPeso());
 		

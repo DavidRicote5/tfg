@@ -3,5 +3,5 @@ export class Ejercicio {
     nombre: string;
     descripcion: string;
     grupomuscular: string;
-    equiponecesario: number;
+    equiponecesario: string;
 }

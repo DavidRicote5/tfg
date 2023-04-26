@@ -15,39 +15,5 @@ public class Prueba2Application {
 		SpringApplication.run(Prueba2Application.class, args);
 	}
 	
-	@Bean
-	CommandLineRunner run (UsuarioService usuarioService,RolService rolService) {
-		return (args -> crearRolesYUsuarios(rolService,usuarioService));
-	}
-
-	
-	private static void crearRolesYUsuarios(RolService rs, UsuarioService ps) {
-		try {
-
-			if (! rs.existeRol("admin") ) {
-				rs.saveRol("admin");
-			}
-
-			if (! rs.existeRol("user") ) {
-				rs.saveRol("user");
-			}
-
-		}
-		catch (Exception e) {
-			System.out.println("Error al crear roles por defecto");
-			System.out.println(e.getMessage());
-		}
-		try {
-
-			if (! ps.existeUsuario("admin")) {
-				ps.saveAdmin("admin", "admin", "admin", "getfit@getfit.org");
-			}
-		}
-		catch (Exception e) {
-			System.out.println("Error al crear usuario admin");
-			System.out.println(e.getMessage());
-		}
-
-	}
 
 }

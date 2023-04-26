@@ -72,18 +72,19 @@
     
             <!-- Contenido principal -->
             <div class="col-md-9 col-lg-10 bg-dark">
-                <h2 class="text-light">Lista de usuarios</h2>
+                <h2 class="text-light">Lista de Usuarios</h2>
                 <div class="table-responsive">
                   <table class="table table-striped table-hover">
                     <thead>
                       <tr>
                         <th class="text-light">Loginname</th>
                         <th class="text-light">Nombre</th>
-                        <th class="text-light">Contraseña</th>
+                        <th class="text-light">Password</th>
                         <th class="text-light">Correo</th>
                         <th class="text-light">Genero</th>
                         <th class="text-light">Altura</th>
                         <th class="text-light">Peso</th>
+                        <th class="text-light">Acciones</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -97,6 +98,7 @@
                         <td>{{usuario.peso}}</td>
                         <td>
                           <button class="btn btn-sm btn-info" (click)="actualizarUsuario(usuario.id)">Editar</button>
+                          |
                           <button class="btn btn-sm btn-danger" (click)="eliminarUsuario(usuario.id)">Eliminar</button>
                         </td>
                       </tr>

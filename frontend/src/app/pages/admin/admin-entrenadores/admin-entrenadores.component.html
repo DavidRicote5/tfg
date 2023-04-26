@@ -77,35 +77,38 @@
 
             <!-- Contenido principal -->
             <div class="col-md-9 col-lg-10 bg-dark">
-                <h2 class="text-light">Lista de entrenadores</h2>
+                <h2 class="text-light">Lista de Entrenadores</h2>
                 <div class="table-responsive">
-                  <table class="table table-striped table-hover">
-                    <thead>
-                      <tr>
-                        <th class="text-light">Nombre</th>
-                        <th class="text-light">Correo</th>
-                        <th class="text-light">Especialización</th>
-                        <th class="text-light">Años de experiencia</th>
-                        <th class="text-light">Acciones</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr *ngFor="let entrenador of entrenadores" class="cursor-pointer text-white">
-                        <td>{{entrenador.nombre}}</td>
-                        <td>{{entrenador.correo}}</td>
-                        <td>{{entrenador.especializacion}}</td>
-                        <td>{{entrenador.anosexperiencia}}</td>
-                        <td>
-                          <button class="btn btn-sm btn-info" (click)="actualizarEntrenador(entrenador.id)">Editar</button>
-                          <button class="btn btn-sm btn-danger" (click)="eliminarEntrenador(entrenador.id)">Eliminar</button>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th class="text-light">Nombre</th>
+                                <th class="text-light">Correo</th>
+                                <th class="text-light">Especialización</th>
+                                <th class="text-light">Años de experiencia</th>
+                                <th class="text-light">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let entrenador of entrenadores" class="cursor-pointer text-white">
+                                <td>{{entrenador.nombre}}</td>
+                                <td>{{entrenador.correo}}</td>
+                                <td>{{entrenador.especializacion}}</td>
+                                <td>{{entrenador.anosexperiencia}}</td>
+                                <td>
+                                    <button class="btn btn-sm btn-info"
+                                        (click)="actualizarEntrenador(entrenador.id)">Editar</button>
+                                    |
+                                    <button class="btn btn-sm btn-danger"
+                                        (click)="eliminarEntrenador(entrenador.id)">Eliminar</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
                 <button class="btn btn-primary" [routerLink]="['/registrar-entrenadores']">Registrar Entrenador</button>
-              </div>
-              
+            </div>
+
         </div>
     </div>
 </body>

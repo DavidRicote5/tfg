@@ -2,7 +2,6 @@ package org.getfit.services;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import org.getfit.entities.Entrenador;
 import org.getfit.entities.Plan;
@@ -69,7 +68,7 @@ public class UsuarioService {
 			String nombre,
 			String password,
 			String correo,
-			Date fechaNac,
+			
 			String genero,
 			int altura,
 			int peso
@@ -81,7 +80,7 @@ public class UsuarioService {
 				.nombre(nombre)
 				.password(new BCryptPasswordEncoder().encode(password))
 				.correo(correo)
-				.fechaNac(fechaNac)
+				
 				.genero(genero)
 				.altura(altura)
 				.peso(peso)

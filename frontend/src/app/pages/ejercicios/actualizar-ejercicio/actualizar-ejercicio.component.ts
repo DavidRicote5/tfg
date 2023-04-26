@@ -30,3 +30,4 @@ export class ActualizarEjercicioComponent {
     },error => console.log(error));
   }
 }
+
