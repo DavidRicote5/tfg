@@ -115,7 +115,6 @@ public class UsuarioController {
 		Usuario usuario = usuarioRepository.findById(id).get();
 		
 		usuario.setNombre(detallesUsuario.getNombre());
-		usuario.setFechaNac(detallesUsuario.getFechaNac());
 		usuario.setAltura(detallesUsuario.getAltura());
 		usuario.setPeso(detallesUsuario.getPeso());
 		

@@ -68,7 +68,7 @@ public class UsuarioService {
 			String nombre,
 			String password,
 			String correo,
-			LocalDate fechaNac,
+			
 			String genero,
 			int altura,
 			int peso
@@ -80,7 +80,7 @@ public class UsuarioService {
 				.nombre(nombre)
 				.password(new BCryptPasswordEncoder().encode(password))
 				.correo(correo)
-				.fechaNac(fechaNac)
+				
 				.genero(genero)
 				.altura(altura)
 				.peso(peso)

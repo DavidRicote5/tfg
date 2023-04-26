@@ -38,7 +38,6 @@ public class Usuario {
 	private String nombre;
 	private String password;
 	private String correo;
-	private LocalDate fechaNac;
 	private String genero;
 	private int altura;
 	private int peso;
