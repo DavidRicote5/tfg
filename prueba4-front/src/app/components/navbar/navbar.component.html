@@ -1,0 +1,28 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+  <span [routerLink]="['/']" style="font-size: 30px;">GetFit</span>
+    <span style="margin-right: 20px;"></span>
+
+  
+    <a mat-button [routerLink]="['/']"  style="margin-right: 10px;" routerLinkActive="active-link">Home</a>
+    <a mat-button [routerLink]="['/quienes-somos']" style="margin-right: 10px;" routerLinkActive="active-link">¿Quiénes somos?</a>
+    <a mat-button [routerLink]="['/rutinas']"  style="margin-right: 10px;" routerLinkActive="active-link">Rutinas</a>
+    <a mat-button [routerLink]="['/planes']" routerLinkActive="active-link">Planes</a>
+    
+  
+
+  <span class="example-spacer"></span>
+
+  <div *ngIf="!isLoggedIn" >
+    <span class="example-spacer"></span>
+    <a mat-button [routerLink]="'/login'" style="margin-right: 5px;">Iniciar sesión</a>
+    <a mat-button [routerLink]="'/signup'" style="margin-right: 5px;">Registrar</a>
+  </div>
+
+  <div *ngIf="isLoggedIn">
+    <button mat-button [routerLink]="'/admin/profile'" style="margin-right: 7px;">{{ user.username }}</button>
+    <button mat-button (click)="logout()" style="margin-right: 7px;">Cerrar sesión</button>
+  </div>
+</mat-toolbar-row>
+</mat-toolbar>
+

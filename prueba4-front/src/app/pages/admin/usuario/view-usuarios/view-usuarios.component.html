@@ -1,0 +1,22 @@
+<mat-card class="mt10" *ngFor = "let u of usuarios">
+      
+    <mat-card-header>  
+      <mat-card-title><mat-icon mat-list-icon>person</mat-icon>
+          {{ u.username }}
+        </mat-card-title>
+        <mat-card-subtitle>
+          {{ u.correo }}
+        </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-card-actions>
+        <button [routerLink] = "'/admin/usuario/'+u.usuarioId" mat-flat-button color="primary" class="ml20">Actualizar</button>
+        <!--<button mat-flat-button color="warn" class="ml10" (click) = "eliminarUsuario(u.usuarioId)">Eliminar</button>-->
+      </mat-card-actions>
+    </mat-card-content>
+  </mat-card>
+  
+  <div class="container text-center mt20">
+    <button routerLink="/signup" mat-raised-button color="primary">Agregar usuario</button>
+  </div>
+  

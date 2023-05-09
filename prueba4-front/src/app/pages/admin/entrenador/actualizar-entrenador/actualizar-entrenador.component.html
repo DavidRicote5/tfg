@@ -1,0 +1,69 @@
+<mat-card>
+    <h1>Actualizar Entrenador</h1>
+    <mat-card-content>
+      <div class="bootstrap-wrapper">
+        <div class="row">
+          <div class="col-md-8 offset-md-2">
+            <form *ngIf = "entrenador">
+
+              <mat-form-field class="w100" appearance="outline">
+                <mat-label>Nombre</mat-label>
+                <input
+                required
+                autofocus
+                type="text"
+                name="nombre"
+                matInput
+                placeholder="Digite el nombre del entrenador"
+                [(ngModel)] = "entrenador.nombre"
+                >
+              </mat-form-field>
+              
+              <mat-form-field class="w100" appearance="outline">
+                <mat-label>Correo</mat-label>
+                <input
+                required
+                autofocus
+                type="text"
+                name="correo"
+                matInput
+                placeholder="Digite el correo del entrenador"
+                [(ngModel)] = "entrenador.correo"
+                >
+              </mat-form-field>
+
+              <mat-form-field class="w100" appearance="outline">
+                <mat-label>Especializacion</mat-label>
+                <input
+                required
+                autofocus
+                type="text"
+                name="especializacion"
+                matInput
+                placeholder="Añada la especializacion del entrenador"
+                [(ngModel)] = "entrenador.especializacion"
+                >
+              </mat-form-field>
+
+              <mat-form-field class="w100" appearance="outline">
+                <mat-label>Años de Experiencia</mat-label>
+                <input
+                required
+                autofocus
+                type="text"
+                name="anosexperiencia"
+                matInput
+                placeholder="Añada los años de experiencia del entrenador"
+                [(ngModel)] = "entrenador.anosexperiencia"
+                >
+              </mat-form-field>
+  
+              <div class="container text-center mt15">
+                <button mat-raised-button color="primary">Guardar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
