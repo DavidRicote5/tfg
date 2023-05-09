@@ -19,25 +19,55 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sistema.examenes.modelo.Entrenador;
+import com.sistema.examenes.modelo.Pregunta;
 import com.sistema.examenes.repositorios.EntrenadorRepository;
+import com.sistema.examenes.servicios.EntrenadorService;
 
 @RestController
 @RequestMapping("/entrenador")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin("*")
 public class EntrenadorController {
 	@Autowired
-	private EntrenadorRepository entrenadorRepository;
+	private EntrenadorService entrenadorService;
 
+	@GetMapping("/")
+    public ResponseEntity<?> listarEntrenadores(){
+        return ResponseEntity.ok(entrenadorService.obtenerEntrenadores());
+    }
+	
+	@PostMapping("/")
+    public ResponseEntity<Entrenador> guardarEntrenador(@RequestBody Entrenador entrenador){
+        return ResponseEntity.ok(entrenadorService.agregarEntrenador(entrenador));
+    }
+	
+	@PutMapping("/")
+    public ResponseEntity<Entrenador> actualizarEntrenador(@RequestBody Entrenador entrenador){
+        return ResponseEntity.ok(entrenadorService.actualizarEntrenador(entrenador));
+    }
+	
+	@GetMapping("/{entrenadorId}")
+    public Entrenador listarEntrenadorPorId(@PathVariable("entrenadorId") Long entrenadorId){
+        return entrenadorService.obtenerEntrenador(entrenadorId);
+    }
+	
+	@DeleteMapping("/{entrenadorId}")
+    public void eliminarEntrenador(@PathVariable("entrenadorId") Long entrenadorId){
+		entrenadorService.eliminarEntrenador(entrenadorId);
+    }
+	
+	/*
 	@GetMapping("c")
 	public String cGet(ModelMap m) {
 		m.put("view", "entrenador/c");
 		return "_t/frame";
-	}
+	}*/
 	
+	/*
 	@PostMapping("/c")
 	public Entrenador guardarEntrenador(@RequestBody Entrenador entrenador) {
 		return entrenadorRepository.save(entrenador);
-	}
+	}*/
+	
 	/*@PostMapping("c")
 	public String cPost(@RequestParam("nombre") String nombre,
 			@RequestParam("correo") String correo,
@@ -54,11 +84,12 @@ public class EntrenadorController {
 		return "redirect:/entrenador/r";
 	}*/
 	
+	/*
 	//Listar entrenadores
 	@GetMapping("/r")
 	public List<Entrenador> entrenadores(){
 		return entrenadorRepository.findAll();
-	}
+	}*/
 	/*@GetMapping("r")
 	public String rGet(ModelMap m) {
 		List<Entrenador> entrenadores = entrenadorService.getEntrenadores();
@@ -66,12 +97,12 @@ public class EntrenadorController {
 		m.put("view", "entrenador/r");
 		return "_t/frame";
 	}*/
-
+	/*
 	@GetMapping("/u/{id}")
 	public ResponseEntity<Entrenador> obtenerEntrenadorPorId(@PathVariable Long id){
 		Entrenador entrenador = entrenadorRepository.findById(id).get();
 		return ResponseEntity.ok(entrenador);
-	}
+	}*/
 	/*@GetMapping("u")
 	public String uGet(@RequestParam("id") Long idEntrenador, ModelMap m) {
 		
@@ -83,7 +114,7 @@ public class EntrenadorController {
 		return "_t/frame";
 	}*/
 	
-	
+	/*
 	@PutMapping("/u/{id}")
 	public ResponseEntity<Entrenador> actualizarEntrenador(@PathVariable Long id, @RequestBody Entrenador detallesEntrenador){
 		Entrenador entrenador = entrenadorRepository.findById(id).get();
@@ -95,7 +126,7 @@ public class EntrenadorController {
 		
 		Entrenador entrenadorActualizado = entrenadorRepository.save(entrenador);
 		return ResponseEntity.ok(entrenadorActualizado);
-	}
+	}*/
 	/*@PostMapping("u")
 	public String uPost(@RequestParam("idEntrenador") Long idEntrenador,
 			@RequestParam("nombre") String nombre,
@@ -112,7 +143,7 @@ public class EntrenadorController {
 		return retorno;
 	}*/
 	
-	
+	/*
 	@DeleteMapping("/d/{id}")
 	public ResponseEntity<Map<String,Boolean>> eliminarEntrenador(@PathVariable Long id){
 		Entrenador entrenador = entrenadorRepository.findById(id).get();
@@ -120,7 +151,7 @@ public class EntrenadorController {
 		Map<String, Boolean> respuesta = new HashMap<>();
 		respuesta.put("eliminar",Boolean.TRUE);
 		return ResponseEntity.ok(respuesta);
-    }
+    }*/
 	/*@PostMapping("d")
 	public String d(@RequestParam("id") Long id) {
 		entrenadorService.deleteEntrenador(id);

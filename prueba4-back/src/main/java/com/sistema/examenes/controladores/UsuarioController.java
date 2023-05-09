@@ -1,10 +1,12 @@
 package com.sistema.examenes.controladores;
 
+import com.sistema.examenes.modelo.Pregunta;
 import com.sistema.examenes.modelo.Rol;
 import com.sistema.examenes.modelo.Usuario;
 import com.sistema.examenes.modelo.UsuarioRol;
 import com.sistema.examenes.servicios.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
@@ -41,7 +43,16 @@ public class UsuarioController {
         usuarioRoles.add(usuarioRol);
         return usuarioService.guardarUsuario(usuario,usuarioRoles);
     }
-
+    
+    @GetMapping("/")
+    public ResponseEntity<?> listarUsuarios(){
+        return ResponseEntity.ok(usuarioService.obtenerUsuarios());
+    }
+    
+    @PutMapping("/")
+    public ResponseEntity<Usuario> actualizarUsuario(@RequestBody Usuario usuario){
+        return ResponseEntity.ok(usuarioService.actualizarUsuario(usuario));
+    }
 
     @GetMapping("/{username}")
     public Usuario obtenerUsuario(@PathVariable("username") String username){

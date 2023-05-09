@@ -1,6 +1,7 @@
 package com.sistema.examenes.servicios.impl;
 
 import com.sistema.examenes.excepciones.UsuarioFoundException;
+import com.sistema.examenes.modelo.Categoria;
 import com.sistema.examenes.modelo.Usuario;
 import com.sistema.examenes.modelo.UsuarioRol;
 import com.sistema.examenes.repositorios.RolRepository;
@@ -9,6 +10,7 @@ import com.sistema.examenes.servicios.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 @Service
@@ -46,5 +48,15 @@ public class UsuarioServiceImpl implements UsuarioService {
     public void eliminarUsuario(Long usuarioId) {
         usuarioRepository.deleteById(usuarioId);
     }
+
+	@Override
+	public Usuario actualizarUsuario(Usuario usuario) {
+		return usuarioRepository.save(usuario);
+	}
+
+	@Override
+	public Set<Usuario> obtenerUsuarios() {
+	    return new LinkedHashSet<>(usuarioRepository.findAll());  
+	}
 
 }

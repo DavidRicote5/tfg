@@ -32,6 +32,8 @@ import { ViewEntrenadoresComponent } from './pages/admin/view-entrenadores/view-
 import { ViewRutinasComponent } from './pages/admin/view-rutinas/view-rutinas.component';
 import { ViewEjerciciosComponent } from './pages/admin/view-ejercicios/view-ejercicios.component';
 import { ViewPlanesComponent } from './pages/admin/view-planes/view-planes.component';
+import { ActualizarUsuarioComponent } from './pages/admin/actualizar-usuario/actualizar-usuario.component';
+import { ViewUsuariosComponent } from './pages/admin/view-usuarios/view-usuarios.component';
 
 const routes: Routes = [
   {
@@ -78,6 +80,10 @@ const routes: Routes = [
       {
         path:'add-examen',
         component:AddExamenComponent
+      },
+      {
+        path:'usuarios',
+        component:ViewUsuariosComponent
       },
       {
         path:'entrenadores',
@@ -142,6 +148,10 @@ const routes: Routes = [
       {
         path:'plan/:planId',
         component:ActualizarPlanComponent
+      },
+      {
+        path:'usuario/:usuarioId',
+        component:ActualizarUsuarioComponent
       }
     ]
   },

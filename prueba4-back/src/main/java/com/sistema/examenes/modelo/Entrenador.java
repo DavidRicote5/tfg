@@ -26,10 +26,10 @@ public class Entrenador {
 	private String especializacion;
 	private int anosexperiencia;
 	
-	public Long getId() {
+	public Long getEntrenadorId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setEntrenadorId(Long id) {
 		this.id = id;
 	}
 	public String getNombre() {

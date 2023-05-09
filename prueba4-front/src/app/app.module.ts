@@ -56,6 +56,7 @@ import { ViewEntrenadoresComponent } from './pages/admin/view-entrenadores/view-
 import { ViewRutinasComponent } from './pages/admin/view-rutinas/view-rutinas.component';
 import { ViewEjerciciosComponent } from './pages/admin/view-ejercicios/view-ejercicios.component';
 import { ViewPlanesComponent } from './pages/admin/view-planes/view-planes.component';
+import { ActualizarUsuarioComponent } from './pages/admin/actualizar-usuario/actualizar-usuario.component';
 
 @NgModule({
   declarations: [
@@ -94,7 +95,8 @@ import { ViewPlanesComponent } from './pages/admin/view-planes/view-planes.compo
     ViewEntrenadoresComponent,
     ViewRutinasComponent,
     ViewEjerciciosComponent,
-    ViewPlanesComponent
+    ViewPlanesComponent,
+    ActualizarUsuarioComponent
   ],
   imports: [
     BrowserModule,

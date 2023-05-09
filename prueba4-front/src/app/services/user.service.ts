@@ -14,4 +14,8 @@ export class UserService {
       return this.httpClient.post(`${baserUrl}/usuarios/`,user);
     }
 
+    public listarUsuarios(){
+      return this.httpClient.get(`${baserUrl}/usuarios/`);
+    }
+
 }

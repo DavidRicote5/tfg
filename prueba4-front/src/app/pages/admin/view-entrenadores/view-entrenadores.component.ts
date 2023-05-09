@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { EntrenadorService } from 'src/app/services/entrenador.service';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-view-entrenadores',
@@ -7,9 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewEntrenadoresComponent implements OnInit {
 
-  constructor() { }
+  entrenadores:any = [
 
-  ngOnInit(): void {
+  ]
+
+  constructor(private entrenadorService:EntrenadorService) { }
+
+   ngOnInit(): void {
+    this.entrenadorService.listarEntrenadores().subscribe(
+      (dato:any) => {
+        this.entrenadores = dato;
+        console.log(this.entrenadores);
+      },
+      (error) => {
+        console.log(error);
+        Swal.fire('Error !!','Error al cargar los usuarios','error');
+      }
+    )
   }
 
 }
