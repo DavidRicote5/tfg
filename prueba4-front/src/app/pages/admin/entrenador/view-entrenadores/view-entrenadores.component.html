@@ -7,10 +7,15 @@
         <mat-card-subtitle>
           {{ e.correo }}
         </mat-card-subtitle>
+        <mat-card-content>
+          <b>Especialización:</b> {{e.especializacion}}<br/>
+          <b>Años de experiencia:</b> {{e.anosexperiencia}} año
+        </mat-card-content>
     </mat-card-header>
     <mat-card-content>
       <mat-card-actions>
-        <button [routerLink] = "'/admin/entrenador/'+e.entrenadorId" mat-flat-button color="primary" class="ml20">Actualizar</button>
+        <button [routerLink] = "'/admin/entrenador/'+e.id" mat-flat-button color="primary" class="ml20">Actualizar</button>
+        <!--<button mat-flat-button color="primary" class="ml10" (click) = "actualizarEntrenador(e.id)">Actualizar</button>-->
         <!--<button mat-flat-button color="warn" class="ml10" (click) = "eliminarUsuario(u.usuarioId)">Eliminar</button>-->
       </mat-card-actions>
     </mat-card-content>

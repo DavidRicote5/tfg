@@ -1,14 +1,9 @@
 package com.sistema.examenes.controladores;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
+
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,62 +12,89 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.sistema.examenes.modelo.Plan;
-import com.sistema.examenes.repositorios.PlanRepository;
+import com.sistema.examenes.servicios.PlanService;
 
 @Controller
 @RequestMapping("/plan")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin("*")
 public class PlanController {
 
 	@Autowired
-	private PlanRepository planRepository;
-
-	@GetMapping("c")
-	public String cGet(ModelMap m) {
-		m.put("view", "plan/c");
-		return "_t/frame";
-	}
+	private PlanService planService;
 	
-	@PostMapping("/c")
-	public Plan guardarPlan(@RequestBody Plan plan) {
-		return planRepository.save(plan);
-	}
-	
-	@GetMapping("/r")
-	public List<Plan> planes(){
-		return planRepository.findAll();
-	}
-	
-	@GetMapping("/u/{id}")
-	public ResponseEntity<Plan> obtenerPlanPorId(@PathVariable Long id){
-		Plan plan = planRepository.findById(id).get();
-		return ResponseEntity.ok(plan);
-	}
-	
-	@PutMapping("/u/{id}")
-	public ResponseEntity<Plan> actualizarPlan(@PathVariable Long id, @RequestBody Plan detallesPlan){
-		Plan plan = planRepository.findById(id).get();
-		
-		plan.setNombre(detallesPlan.getNombre());
-		plan.setDescripcion(detallesPlan.getDescripcion());
-		plan.setDuracion(detallesPlan.getDuracion());
-		plan.setPrecio(detallesPlan.getPrecio());
-		
-		Plan planActualizado = planRepository.save(plan);
-		return ResponseEntity.ok(planActualizado);
-	}
-	
-	@DeleteMapping("/d/{id}")
-	public ResponseEntity<Map<String,Boolean>> eliminarPlan(@PathVariable Long id){
-		Plan plan = planRepository.findById(id).get();
-		planRepository.delete(plan);
-		Map<String, Boolean> respuesta = new HashMap<>();
-		respuesta.put("eliminar",Boolean.TRUE);
-		return ResponseEntity.ok(respuesta);
+	@GetMapping("/")
+    public ResponseEntity<?> listarPlanes(){
+        return ResponseEntity.ok(planService.obtenerPlanes());
     }
+	
+	@PostMapping("/")
+    public ResponseEntity<Plan> guardarPlan(@RequestBody Plan plan){
+        return ResponseEntity.ok(planService.agregarPlan(plan));
+    }
+	
+	@PutMapping("/")
+    public ResponseEntity<Plan> actualizarPlan(@RequestBody Plan plan){
+        return ResponseEntity.ok(planService.actualizarPlan(plan));
+    }
+	
+	@GetMapping("/{planId}")
+    public Plan listarPlanPorId(@PathVariable("planId") Long planId){
+        return planService.obtenerPlan(planId);
+    }
+	
+	@DeleteMapping("/{planId}")
+    public void eliminarPlan(@PathVariable("planId") Long planId){
+		planService.eliminarPlan(planId);
+    }
+	
+//	@Autowired
+//	private PlanRepository planRepository;
+//
+//	@GetMapping("c")
+//	public String cGet(ModelMap m) {
+//		m.put("view", "plan/c");
+//		return "_t/frame";
+//	}
+//	
+//	@PostMapping("/c")
+//	public Plan guardarPlan(@RequestBody Plan plan) {
+//		return planRepository.save(plan);
+//	}
+//	
+//	@GetMapping("/r")
+//	public List<Plan> planes(){
+//		return planRepository.findAll();
+//	}
+//	
+//	@GetMapping("/u/{id}")
+//	public ResponseEntity<Plan> obtenerPlanPorId(@PathVariable Long id){
+//		Plan plan = planRepository.findById(id).get();
+//		return ResponseEntity.ok(plan);
+//	}
+//	
+//	@PutMapping("/u/{id}")
+//	public ResponseEntity<Plan> actualizarPlan(@PathVariable Long id, @RequestBody Plan detallesPlan){
+//		Plan plan = planRepository.findById(id).get();
+//		
+//		plan.setNombre(detallesPlan.getNombre());
+//		plan.setDescripcion(detallesPlan.getDescripcion());
+//		plan.setDuracion(detallesPlan.getDuracion());
+//		plan.setPrecio(detallesPlan.getPrecio());
+//		
+//		Plan planActualizado = planRepository.save(plan);
+//		return ResponseEntity.ok(planActualizado);
+//	}
+//	
+//	@DeleteMapping("/d/{id}")
+//	public ResponseEntity<Map<String,Boolean>> eliminarPlan(@PathVariable Long id){
+//		Plan plan = planRepository.findById(id).get();
+//		planRepository.delete(plan);
+//		Map<String, Boolean> respuesta = new HashMap<>();
+//		respuesta.put("eliminar",Boolean.TRUE);
+//		return ResponseEntity.ok(respuesta);
+//    }
 	
 /*
 	@PostMapping("c")

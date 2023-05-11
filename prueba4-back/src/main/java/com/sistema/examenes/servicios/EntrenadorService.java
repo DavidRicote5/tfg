@@ -3,7 +3,7 @@ package com.sistema.examenes.servicios;
 import java.util.Set;
 
 import com.sistema.examenes.modelo.Entrenador;
-import com.sistema.examenes.modelo.Pregunta;
+
 
 
 public interface EntrenadorService {

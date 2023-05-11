@@ -29,10 +29,10 @@ public class Plan {
 	private int duracion;
 	private int precio;
 	
-	public Long getId() {
+	public Long getPlanId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setPlanId(Long id) {
 		this.id = id;
 	}
 	public String getNombre() {

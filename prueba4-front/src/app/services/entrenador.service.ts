@@ -26,7 +26,7 @@ export class EntrenadorService {
   }
 
   public listarEntrenadores(){
-    return this.http.get(`${baserUrl}/entrenadores/`);
+    return this.http.get(`${baserUrl}/entrenador/`);
   }
 
 }

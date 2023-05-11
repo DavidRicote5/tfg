@@ -28,10 +28,10 @@ public class Rutina {
 	private String dificultad;
 	private int duracion;
 	
-	public Long getId() {
+	public Long getRutinaId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setRutinaId(Long id) {
 		this.id = id;
 	}
 	public String getNombre() {

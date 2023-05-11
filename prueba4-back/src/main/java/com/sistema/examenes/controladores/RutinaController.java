@@ -1,14 +1,8 @@
 package com.sistema.examenes.controladores;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
+
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,33 +11,63 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+
 import org.springframework.web.bind.annotation.RestController;
 
+
 import com.sistema.examenes.modelo.Rutina;
-import com.sistema.examenes.repositorios.RutinaRepository;
+
+import com.sistema.examenes.servicios.RutinaService;
 
 @RestController
 @RequestMapping("/rutina")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin("*")
 public class RutinaController {
 
 	@Autowired
-	private RutinaRepository rutinaRepository;
+	private RutinaService rutinaService;
+	
+	@GetMapping("/")
+    public ResponseEntity<?> listarRutinas(){
+        return ResponseEntity.ok(rutinaService.obtenerRutinas());
+    }
+	
+	@PostMapping("/")
+    public ResponseEntity<Rutina> guardarRutina(@RequestBody Rutina rutina){
+        return ResponseEntity.ok(rutinaService.agregarRutina(rutina));
+    }
+	
+	@PutMapping("/")
+    public ResponseEntity<Rutina> actualizarRutina(@RequestBody Rutina rutina){
+        return ResponseEntity.ok(rutinaService.actualizarRutina(rutina));
+    }
+	
+	@GetMapping("/{rutinaId}")
+    public Rutina listarRutinaPorId(@PathVariable("rutinaId") Long rutinaId){
+        return rutinaService.obtenerRutina(rutinaId);
+    }
+	
+	@DeleteMapping("/{rutinaId}")
+    public void eliminarRutina(@PathVariable("rutinaId") Long rutinaId){
+		rutinaService.eliminarRutina(rutinaId);
+    }
+	
+//	 @Autowired private RutinaRepository rutinaRepository;
+	 
 
 	//@Autowired
 	//private EjercicioService ejercicioService;
 
-	@GetMapping("c")
-	public String cGet(ModelMap m) {
-		m.put("view", "rutina/c");
-		return "_t/frame";
-	}
+//	@GetMapping("c")
+//	public String cGet(ModelMap m) {
+//		m.put("view", "rutina/c");
+//		return "_t/frame";
+//	}
 
-	@PostMapping("/c")
-	public Rutina guardarRutina(@RequestBody Rutina rutina) {
-		return rutinaRepository.save(rutina);
-	}
+//	@PostMapping("/c")
+//	public Rutina guardarRutina(@RequestBody Rutina rutina) {
+//		return rutinaRepository.save(rutina);
+//	}
 	
 	/*
 	@PostMapping("c")
@@ -58,10 +82,10 @@ public class RutinaController {
 		return "redirect:/rutina/r";
 	}*/
 
-	@GetMapping("/r")
-	public List<Rutina> rutinas(){
-		return rutinaRepository.findAll();
-	}
+//	@GetMapping("/r")
+//	public List<Rutina> rutinas(){
+//		return rutinaRepository.findAll();
+//	}
 	
 	/*
 	@GetMapping("r")
@@ -73,11 +97,11 @@ public class RutinaController {
 	}
 	 */
 	
-	@GetMapping("/u/{id}")
-	public ResponseEntity<Rutina> obtenerRutinaPorId(@PathVariable Long id){
-		Rutina rutina = rutinaRepository.findById(id).get();
-		return ResponseEntity.ok(rutina);
-	}
+//	@GetMapping("/u/{id}")
+//	public ResponseEntity<Rutina> obtenerRutinaPorId(@PathVariable Long id){
+//		Rutina rutina = rutinaRepository.findById(id).get();
+//		return ResponseEntity.ok(rutina);
+//	}
 	
 	/*
 	@GetMapping("u")
@@ -91,18 +115,18 @@ public class RutinaController {
 		return "_t/frame";
 	}*/
 
-	@PutMapping("/u/{id}")
-	public ResponseEntity<Rutina> actualizarRutina(@PathVariable Long id, @RequestBody Rutina detallesRutina){
-		Rutina rutina = rutinaRepository.findById(id).get();
-		
-		rutina.setNombre(detallesRutina.getNombre());
-		rutina.setDescripcion(detallesRutina.getDescripcion());
-		rutina.setDificultad(detallesRutina.getDificultad());
-		rutina.setDuracion(detallesRutina.getDuracion());
-		
-		Rutina rutinaActualizado = rutinaRepository.save(rutina);
-		return ResponseEntity.ok(rutinaActualizado);
-	}
+//	@PutMapping("/u/{id}")
+//	public ResponseEntity<Rutina> actualizarRutina(@PathVariable Long id, @RequestBody Rutina detallesRutina){
+//		Rutina rutina = rutinaRepository.findById(id).get();
+//		
+//		rutina.setNombre(detallesRutina.getNombre());
+//		rutina.setDescripcion(detallesRutina.getDescripcion());
+//		rutina.setDificultad(detallesRutina.getDificultad());
+//		rutina.setDuracion(detallesRutina.getDuracion());
+//		
+//		Rutina rutinaActualizado = rutinaRepository.save(rutina);
+//		return ResponseEntity.ok(rutinaActualizado);
+//	}
 	
 	/*
 	@PostMapping("u")
@@ -120,14 +144,14 @@ public class RutinaController {
 	}*/
 
 	
-	@DeleteMapping("/d/{id}")
-	public ResponseEntity<Map<String,Boolean>> eliminarRutina(@PathVariable Long id){
-		Rutina rutina = rutinaRepository.findById(id).get();
-		rutinaRepository.delete(rutina);
-		Map<String, Boolean> respuesta = new HashMap<>();
-		respuesta.put("eliminar",Boolean.TRUE);
-		return ResponseEntity.ok(respuesta);
-    }
+//	@DeleteMapping("/d/{id}")
+//	public ResponseEntity<Map<String,Boolean>> eliminarRutina(@PathVariable Long id){
+//		Rutina rutina = rutinaRepository.findById(id).get();
+//		rutinaRepository.delete(rutina);
+//		Map<String, Boolean> respuesta = new HashMap<>();
+//		respuesta.put("eliminar",Boolean.TRUE);
+//		return ResponseEntity.ok(respuesta);
+//    }
 	
 	/*
 	@PostMapping("d")

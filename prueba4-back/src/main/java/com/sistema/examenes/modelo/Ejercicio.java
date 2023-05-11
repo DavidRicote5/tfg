@@ -25,10 +25,10 @@ public class Ejercicio {
 	private String grupomuscular;
 	private String equiponecesario;
 	
-	public Long getId() {
+	public Long getEjercicioId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setEjercicioId(Long id) {
 		this.id = id;
 	}
 	public String getNombre() {

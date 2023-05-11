@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.sistema.examenes.modelo.Entrenador;
-import com.sistema.examenes.modelo.Pregunta;
+
 import com.sistema.examenes.repositorios.EntrenadorRepository;
 import com.sistema.examenes.servicios.EntrenadorService;
 

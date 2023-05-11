@@ -1,0 +1,25 @@
+<mat-card class="mt10" *ngFor = "let p of planes">
+      
+    <mat-card-header>  
+      <mat-card-title><mat-icon mat-list-icon>person</mat-icon>
+          {{ p.nombre }}
+        </mat-card-title>
+        <mat-card-content>
+          <b>Descripcion:</b> {{p.descripcion}}<br/>
+          <b>Duracion:</b> {{p.duracion}} dias<br/>
+          <b>Precio:</b> {{p.precio}} €
+        </mat-card-content>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-card-actions>
+        <button [routerLink] = "'/admin/plan/'+p.id" mat-flat-button color="primary" class="ml20">Actualizar</button>
+        <!--<button mat-flat-button color="primary" class="ml10" (click) = "actualizarEntrenador(e.id)">Actualizar</button>-->
+        <!--<button mat-flat-button color="warn" class="ml10" (click) = "eliminarUsuario(u.usuarioId)">Eliminar</button>-->
+      </mat-card-actions>
+    </mat-card-content>
+  </mat-card>
+  
+  <div class="container text-center mt20">
+    <button routerLink="/admin/add-plan" mat-raised-button color="primary">Agregar Plan</button>
+  </div>
+

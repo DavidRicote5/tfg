@@ -43,20 +43,20 @@ import { LoadExamenComponent } from './pages/user/load-examen/load-examen.compon
 import { InstruccionesComponent } from './pages/user/instrucciones/instrucciones.component';
 import { StartComponent } from './pages/user/start/start.component';
 import { NgxUiLoaderModule , NgxUiLoaderHttpModule } from "ngx-ui-loader";
-import { AddEntrenadorComponent } from './pages/admin/add-entrenador/add-entrenador.component';
-import { AddRutinaComponent } from './pages/admin/add-rutina/add-rutina.component';
-import { AddEjercicioComponent } from './pages/admin/add-ejercicio/add-ejercicio.component';
-import { AddPlanComponent } from './pages/admin/add-plan/add-plan.component';
-import { ActualizarEntrenadorComponent } from './pages/admin/actualizar-entrenador/actualizar-entrenador.component';
-import { ActualizarRutinaComponent } from './pages/admin/actualizar-rutina/actualizar-rutina.component';
-import { ActualizarEjercicioComponent } from './pages/admin/actualizar-ejercicio/actualizar-ejercicio.component';
-import { ActualizarPlanComponent } from './pages/admin/actualizar-plan/actualizar-plan.component';
-import { ViewUsuariosComponent } from './pages/admin/view-usuarios/view-usuarios.component';
-import { ViewEntrenadoresComponent } from './pages/admin/view-entrenadores/view-entrenadores.component';
-import { ViewRutinasComponent } from './pages/admin/view-rutinas/view-rutinas.component';
-import { ViewEjerciciosComponent } from './pages/admin/view-ejercicios/view-ejercicios.component';
-import { ViewPlanesComponent } from './pages/admin/view-planes/view-planes.component';
-import { ActualizarUsuarioComponent } from './pages/admin/actualizar-usuario/actualizar-usuario.component';
+import { AddEntrenadorComponent } from './pages/admin/entrenador/add-entrenador/add-entrenador.component';
+import { AddRutinaComponent } from './pages/admin/rutina/add-rutina/add-rutina.component';
+import { AddEjercicioComponent } from './pages/admin/ejercicio/add-ejercicio/add-ejercicio.component';
+import { AddPlanComponent } from './pages/admin/plan/add-plan/add-plan.component';
+import { ActualizarEntrenadorComponent } from './pages/admin/entrenador/actualizar-entrenador/actualizar-entrenador.component';
+import { ActualizarRutinaComponent } from './pages/admin/rutina/actualizar-rutina/actualizar-rutina.component';
+import { ActualizarEjercicioComponent } from './pages/admin/ejercicio/actualizar-ejercicio/actualizar-ejercicio.component';
+import { ActualizarPlanComponent } from './pages/admin/plan/actualizar-plan/actualizar-plan.component';
+import { ViewUsuariosComponent } from './pages/admin/usuario/view-usuarios/view-usuarios.component';
+import { ViewEntrenadoresComponent } from './pages/admin/entrenador/view-entrenadores/view-entrenadores.component';
+import { ViewRutinasComponent } from './pages/admin/rutina/view-rutinas/view-rutinas.component';
+import { ViewEjerciciosComponent } from './pages/admin/ejercicio/view-ejercicios/view-ejercicios.component';
+import { ViewPlanesComponent } from './pages/admin/plan/view-planes/view-planes.component';
+import { ActualizarUsuarioComponent } from './pages/admin/usuario/actualizar-usuario/actualizar-usuario.component';
 
 @NgModule({
   declarations: [
