@@ -5,6 +5,9 @@
           {{ e.nombre }}
         </mat-card-title>
         <mat-card-subtitle>
+          {{ e.entrenadorId }}
+        </mat-card-subtitle>
+        <mat-card-subtitle>
           {{ e.correo }}
         </mat-card-subtitle>
         <mat-card-content>
@@ -16,7 +19,7 @@
       <mat-card-actions>
         <button [routerLink] = "'/admin/entrenador/'+e.id" mat-flat-button color="primary" class="ml20">Actualizar</button>
         <!--<button mat-flat-button color="primary" class="ml10" (click) = "actualizarEntrenador(e.id)">Actualizar</button>-->
-        <!--<button mat-flat-button color="warn" class="ml10" (click) = "eliminarUsuario(u.usuarioId)">Eliminar</button>-->
+        <button mat-flat-button color="warn" class="ml10" (click) = "eliminarEntrenador(e.entrenadorId)">Eliminar</button>
       </mat-card-actions>
     </mat-card-content>
   </mat-card>

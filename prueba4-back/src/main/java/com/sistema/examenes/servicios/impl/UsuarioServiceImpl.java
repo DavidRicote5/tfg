@@ -2,6 +2,7 @@ package com.sistema.examenes.servicios.impl;
 
 import com.sistema.examenes.excepciones.UsuarioFoundException;
 import com.sistema.examenes.modelo.Categoria;
+import com.sistema.examenes.modelo.Entrenador;
 import com.sistema.examenes.modelo.Usuario;
 import com.sistema.examenes.modelo.UsuarioRol;
 import com.sistema.examenes.repositorios.RolRepository;
@@ -45,9 +46,12 @@ public class UsuarioServiceImpl implements UsuarioService {
     }
 
     @Override
-    public void eliminarUsuario(Long usuarioId) {
-        usuarioRepository.deleteById(usuarioId);
-    }
+	public void eliminarUsuario(Long usuarioId) {
+		Usuario usuario = new Usuario();
+		usuario.setId(usuarioId);
+		usuarioRepository.delete(usuario);
+		
+	}
 
 	@Override
 	public Usuario actualizarUsuario(Usuario usuario) {
