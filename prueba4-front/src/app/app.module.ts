@@ -57,6 +57,8 @@ import { ViewRutinasComponent } from './pages/admin/rutina/view-rutinas/view-rut
 import { ViewEjerciciosComponent } from './pages/admin/ejercicio/view-ejercicios/view-ejercicios.component';
 import { ViewPlanesComponent } from './pages/admin/plan/view-planes/view-planes.component';
 import { ActualizarUsuarioComponent } from './pages/admin/usuario/actualizar-usuario/actualizar-usuario.component';
+import { QuienesSomosComponent } from './pages/quienes-somos/quienes-somos.component';
+import { PlanesComponent } from './pages/planes/planes.component';
 
 @NgModule({
   declarations: [
@@ -96,7 +98,9 @@ import { ActualizarUsuarioComponent } from './pages/admin/usuario/actualizar-usu
     ViewRutinasComponent,
     ViewEjerciciosComponent,
     ViewPlanesComponent,
-    ActualizarUsuarioComponent
+    ActualizarUsuarioComponent,
+    QuienesSomosComponent,
+    PlanesComponent
   ],
   imports: [
     BrowserModule,

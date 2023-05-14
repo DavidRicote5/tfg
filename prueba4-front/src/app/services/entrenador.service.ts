@@ -10,7 +10,7 @@ export class EntrenadorService {
   constructor(private http:HttpClient) { }
 
   public guardarEntrenador(entrenador:any){
-    return this.http.post(`${baserUrl}/entrenador/c`,entrenador);
+    return this.http.post(`${baserUrl}/entrenador/`,entrenador);
   }
 
   public eliminarEntrenador(entrenadorId:any){
@@ -18,15 +18,15 @@ export class EntrenadorService {
   }
 
   public actualizarEntrenador(entrenador:any){
-    return this.http.put(`${baserUrl}/entrenador/u`,entrenador);
+    return this.http.put(`${baserUrl}/entrenador/`,entrenador);
   }
 
   public obtenerEntrenador(entrenadorId:any){
-    return this.http.get(`${baserUrl}/entrenador/u/${entrenadorId}`);
+    return this.http.get(`${baserUrl}/entrenador/${entrenadorId}`);
   }
 
   public listarEntrenadores(){
-    return this.http.get(`${baserUrl}/entrenador/r`);
+    return this.http.get(`${baserUrl}/entrenador/`);
   }
 
 }

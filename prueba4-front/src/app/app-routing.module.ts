@@ -34,12 +34,22 @@ import { ViewEjerciciosComponent } from './pages/admin/ejercicio/view-ejercicios
 import { ViewPlanesComponent } from './pages/admin/plan/view-planes/view-planes.component';
 import { ActualizarUsuarioComponent } from './pages/admin/usuario/actualizar-usuario/actualizar-usuario.component';
 import { ViewUsuariosComponent } from './pages/admin/usuario/view-usuarios/view-usuarios.component';
+import { QuienesSomosComponent } from './pages/quienes-somos/quienes-somos.component';
+import { PlanesComponent } from './pages/planes/planes.component';
 
 const routes: Routes = [
   {
     path : '',
     component : HomeComponent,
     pathMatch : 'full'
+  },
+  {
+    path : 'quienes-somos',
+    component : QuienesSomosComponent
+  },
+  {
+    path : 'planes',
+    component : PlanesComponent
   },
   {
     path : 'signup',
