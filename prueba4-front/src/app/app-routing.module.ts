@@ -104,7 +104,7 @@ const routes: Routes = [
         component:AddEntrenadorComponent
       },
       {
-        path:'entrenador/:id',
+        path:'entrenador/:entrenadorId',
         component:ActualizarEntrenadorComponent
       },
       {
