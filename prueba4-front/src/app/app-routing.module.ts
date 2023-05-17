@@ -34,12 +34,22 @@ import { ViewEjerciciosComponent } from './pages/admin/ejercicio/view-ejercicios
 import { ViewPlanesComponent } from './pages/admin/plan/view-planes/view-planes.component';
 import { ActualizarUsuarioComponent } from './pages/admin/usuario/actualizar-usuario/actualizar-usuario.component';
 import { ViewUsuariosComponent } from './pages/admin/usuario/view-usuarios/view-usuarios.component';
+import { QuienesSomosComponent } from './pages/quienes-somos/quienes-somos.component';
+import { PlanesComponent } from './pages/planes/planes.component';
 
 const routes: Routes = [
   {
     path : '',
     component : HomeComponent,
     pathMatch : 'full'
+  },
+  {
+    path : 'quienes-somos',
+    component : QuienesSomosComponent
+  },
+  {
+    path : 'planes',
+    component : PlanesComponent
   },
   {
     path : 'signup',
@@ -86,6 +96,10 @@ const routes: Routes = [
         component:ViewUsuariosComponent
       },
       {
+        path:'usuario/:usuarioId',
+        component:ViewUsuariosComponent
+      },
+      {
         path:'entrenadores',
         component:ViewEntrenadoresComponent
       },
@@ -94,7 +108,7 @@ const routes: Routes = [
         component:AddEntrenadorComponent
       },
       {
-        path:'entrenador/:id',
+        path:'entrenador/:entrenadorId',
         component:ActualizarEntrenadorComponent
       },
       {
@@ -106,6 +120,10 @@ const routes: Routes = [
         component:AddRutinaComponent
       },
       {
+        path:'rutina/:rutinaId',
+        component:ActualizarRutinaComponent
+      },
+      {
         path:'ejercicios',
         component:ViewEjerciciosComponent
       },
@@ -114,12 +132,20 @@ const routes: Routes = [
         component:AddEjercicioComponent
       },
       {
+        path:'ejercicio/:ejercicioId',
+        component:ActualizarEjercicioComponent
+      },
+      {
         path:'planes',
         component:ViewPlanesComponent
       },
       {
         path:'add-plan',
         component:AddPlanComponent
+      },
+      {
+        path:'plan/:planId',
+        component:ActualizarPlanComponent
       },
       {
         path:'examen/:examenId',
@@ -154,7 +180,7 @@ const routes: Routes = [
         component:ActualizarPlanComponent
       },
       {
-        path:'usuario/:usuarioId',
+        path:'usuarios/:username',
         component:ActualizarUsuarioComponent
       }
     ]

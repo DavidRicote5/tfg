@@ -48,8 +48,7 @@ public class PlanServiceImpl implements PlanService {
 
 	@Override
 	public Plan listarPlan(Long planId) {
-		// TODO Auto-generated method stub
-		return null;
+		return this.planRepository.getOne(planId);
 	}
 
 }

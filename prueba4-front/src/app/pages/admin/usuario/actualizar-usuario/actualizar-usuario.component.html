@@ -1,1 +1,108 @@
-<p>actualizar-usuario works!</p>
+<mat-card>
+    <h1>Actualizar Entrenador</h1>
+    <mat-card-content>
+      <div class="bootstrap-wrapper">
+        <div class="row">
+          <div class="col-md-8 offset-md-2">
+            <form *ngIf = "usuario" (submit) = "actualizarDatos()">
+
+              <mat-form-field class="w100" appearance="outline">
+                <mat-label>Loginname</mat-label>
+                <input
+                required
+                autofocus
+                type="text"
+                name="username"
+                matInput
+                placeholder="Digite el loginname del usuario"
+                [(ngModel)] = "usuario.username"
+                >
+              </mat-form-field>
+
+              <mat-form-field class="w100" appearance="outline">
+                <mat-label>Contraseña</mat-label>
+                <input
+                required
+                autofocus
+                type="text"
+                name="password"
+                matInput
+                placeholder="Digite la contraseña del usuario"
+                [(ngModel)] = "usuario.password"
+                >
+              </mat-form-field>
+
+              <mat-form-field class="w100" appearance="outline">
+                <mat-label>Nombre</mat-label>
+                <input
+                required
+                autofocus
+                type="text"
+                name="nombre"
+                matInput
+                placeholder="Digite el nombre del usuario"
+                [(ngModel)] = "usuario.nombre"
+                >
+              </mat-form-field>
+
+              <mat-form-field class="w100" appearance="outline">
+                <mat-label>Correo</mat-label>
+                <input
+                required
+                autofocus
+                type="text"
+                name="correo"
+                matInput
+                placeholder="Añada el correo del usuario"
+                [(ngModel)] = "usuario.correo"
+                >
+              </mat-form-field>
+
+              <mat-form-field class="w100" appearance="outline">
+                <mat-label>Genero</mat-label>
+                <input
+                required
+                autofocus
+                type="text"
+                name="genero"
+                matInput
+                placeholder="Digite el genero del usuario"
+                [(ngModel)] = "usuario.genero"
+                >
+              </mat-form-field>
+
+              <mat-form-field class="w100" appearance="outline">
+                <mat-label>Altura</mat-label>
+                <input
+                required
+                autofocus
+                type="text"
+                name="altura"
+                matInput
+                placeholder="Digite la altura del usuario"
+                [(ngModel)] = "usuario.altura"
+                >
+              </mat-form-field>
+
+              <mat-form-field class="w100" appearance="outline">
+                <mat-label>Peso</mat-label>
+                <input
+                required
+                autofocus
+                type="text"
+                name="peso"
+                matInput
+                placeholder="Digite el peso del usuario"
+                [(ngModel)] = "usuario.peso"
+                >
+              </mat-form-field>
+  
+              <div class="container text-center mt15">
+                <button mat-raised-button color="primary">Guardar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>

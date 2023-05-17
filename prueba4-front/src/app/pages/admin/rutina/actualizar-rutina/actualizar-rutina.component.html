@@ -1,1 +1,69 @@
-<p>actualizar-rutina works!</p>
+<mat-card>
+    <h1>Actualizar Rutina</h1>
+    <mat-card-content>
+      <div class="bootstrap-wrapper">
+        <div class="row">
+          <div class="col-md-8 offset-md-2">
+            <form *ngIf = "rutina" (submit) = "actualizarDatos()">
+
+              <mat-form-field class="w100" appearance="outline">
+                <mat-label>Nombre</mat-label>
+                <input
+                required
+                autofocus
+                type="text"
+                name="nombre"
+                matInput
+                placeholder="Digite el nombre de la Rutina"
+                [(ngModel)] = "rutina.nombre"
+                >
+              </mat-form-field>
+              
+              <mat-form-field class="w100" appearance="outline">
+                <mat-label>Descripcion</mat-label>
+                <input
+                required
+                autofocus
+                type="text"
+                name="descripcion"
+                matInput
+                placeholder="Introduzca una descripcion para la rutina"
+                [(ngModel)] = "rutina.descripcion"
+                >
+              </mat-form-field>
+
+              <mat-form-field class="w100" appearance="outline">
+                <mat-label>Dificultad</mat-label>
+                <input
+                required
+                autofocus
+                type="text"
+                name="dificultad"
+                matInput
+                placeholder="Añada la dificultad de la rutina"
+                [(ngModel)] = "rutina.dificultad"
+                >
+              </mat-form-field>
+
+              <mat-form-field class="w100" appearance="outline">
+                <mat-label>Duracion</mat-label>
+                <input
+                required
+                autofocus
+                type="text"
+                name="duracion"
+                matInput
+                placeholder="Añada la duracion de la rutina"
+                [(ngModel)] = "rutina.duracion"
+                >
+              </mat-form-field>
+  
+              <div class="container text-center mt15">
+                <button mat-raised-button color="primary">Guardar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
