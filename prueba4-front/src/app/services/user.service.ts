@@ -19,11 +19,15 @@ export class UserService {
     }
 
     public eliminarUsuario(usuarioId:any){
-      return this.httpClient.delete(`${baserUrl}/usuario/${usuarioId}`);
+      return this.httpClient.delete(`${baserUrl}/usuarios/${usuarioId}`);
     }
   
-    public actualizarUsuario(usuario:any){
-      return this.httpClient.put(`${baserUrl}/usuarios/`,usuario);
+    public actualizarUsuario(user:any){
+      return this.httpClient.put(`${baserUrl}/usuarios/`,user);
+    }
+
+    public obtenerUsuario(username:any){
+      return this.httpClient.get(`${baserUrl}/usuarios/${username}`);
     }
 
 }

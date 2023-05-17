@@ -96,6 +96,10 @@ const routes: Routes = [
         component:ViewUsuariosComponent
       },
       {
+        path:'usuario/:usuarioId',
+        component:ViewUsuariosComponent
+      },
+      {
         path:'entrenadores',
         component:ViewEntrenadoresComponent
       },
@@ -116,6 +120,10 @@ const routes: Routes = [
         component:AddRutinaComponent
       },
       {
+        path:'rutina/:rutinaId',
+        component:ActualizarRutinaComponent
+      },
+      {
         path:'ejercicios',
         component:ViewEjerciciosComponent
       },
@@ -124,12 +132,20 @@ const routes: Routes = [
         component:AddEjercicioComponent
       },
       {
+        path:'ejercicio/:ejercicioId',
+        component:ActualizarEjercicioComponent
+      },
+      {
         path:'planes',
         component:ViewPlanesComponent
       },
       {
         path:'add-plan',
         component:AddPlanComponent
+      },
+      {
+        path:'plan/:planId',
+        component:ActualizarPlanComponent
       },
       {
         path:'examen/:examenId',
@@ -164,7 +180,7 @@ const routes: Routes = [
         component:ActualizarPlanComponent
       },
       {
-        path:'usuario/:usuarioId',
+        path:'usuarios/:username',
         component:ActualizarUsuarioComponent
       }
     ]
