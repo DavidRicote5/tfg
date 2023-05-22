@@ -161,4 +161,27 @@ public class Usuario implements UserDetails {
     public void setUsuarioRoles(Set<UsuarioRol> usuarioRoles) {
         this.usuarioRoles = usuarioRoles;
     }
+    
+    @ManyToMany
+    private Collection<Rutina> rutinas;
+
+	public Collection<Rutina> getRutinas() {
+		return rutinas;
+	}
+
+	public void setRutinas(Collection<Rutina> rutinas) {
+		this.rutinas = rutinas;
+	}
+	
+	@ManyToOne(fetch = FetchType.EAGER)
+    private Plan plan;
+
+	public Plan getPlan() {
+		return plan;
+	}
+
+	public void setPlan(Plan plan) {
+		this.plan = plan;
+	}
+    
 }

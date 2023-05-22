@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { EntrenadorService } from 'src/app/services/entrenador.service';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-quienes-somos',
@@ -7,9 +11,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuienesSomosComponent implements OnInit {
 
-  constructor() { }
+  entrenadores:any = [
+
+  ]
+
+  constructor(private entrenadorService:EntrenadorService,private router:Router) { }
 
   ngOnInit(): void {
+    this.entrenadorService.listarEntrenadores().subscribe(
+      (dato:any) => {
+        this.entrenadores = dato;
+      },
+      (error) => {
+        console.log(error);
+        Swal.fire('Advertencia !!','Debes iniciar sesion para ver todo el contenido','error');
+        this.router.navigate(['/login']);
+      }
+    )
   }
+
+ 
+
+  
 
 }

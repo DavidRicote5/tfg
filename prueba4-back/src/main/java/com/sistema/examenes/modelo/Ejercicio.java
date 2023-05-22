@@ -1,10 +1,13 @@
 package com.sistema.examenes.modelo;
 
+import java.util.Collection;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 import org.springframework.lang.NonNull;
 
@@ -62,6 +65,13 @@ public class Ejercicio {
 	/*======= RELACIONES ========*/
 	
 	//Lado Muchos a Muchos con rutina (mappedBy)
-	//@ManyToMany(mappedBy = "ejercicios")
-	//private Collection<Rutina> rutinas;
+	/**/@ManyToMany(mappedBy = "ejercicios")
+	private Collection<Rutina> rutinas;
+
+	public Collection<Rutina> getRutinas() {
+		return rutinas;
+	}
+	public void setRutinas(Collection<Rutina> rutinas) {
+		this.rutinas = rutinas;
+	}
 }

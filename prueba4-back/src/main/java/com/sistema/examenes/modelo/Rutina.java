@@ -1,10 +1,13 @@
 package com.sistema.examenes.modelo;
 
+import java.util.Collection;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 import org.springframework.lang.NonNull;
 
@@ -62,17 +65,41 @@ public class Rutina {
 	/*======= RELACIONES ========*/
 
 	//Lado Muchos a Muchos con ejercicios
-	//@ManyToMany
-	//private Collection<Ejercicio> ejercicios;
+	@ManyToMany
+	private Collection<Ejercicio> ejercicios;
 
+	public Collection<Ejercicio> getEjercicios() {
+		return ejercicios;
+	}
+	public void setEjercicios(Collection<Ejercicio> ejercicios) {
+		this.ejercicios = ejercicios;
+	}
+	
 	
 	//Lado Muchos a Muchos con entrenadores (mappedBy)
-	//@ManyToMany(mappedBy = "rutinas")
-	//private Collection<Entrenador> entrenadors;
+	@ManyToMany(mappedBy = "rutinas")
+	private Collection<Entrenador> entrenadores;
+	
+	
+	public Collection<Entrenador> getEntrenadores() {
+		return entrenadores;
+	}
+	public void setEntrenadores(Collection<Entrenador> entrenadores) {
+		this.entrenadores = entrenadores;
+	}
 
 	
 	//Lado Muchos a Muchos con usuarios (mappedBy)
-	//@ManyToMany(mappedBy = "rutinas")
-	//private Collection<Usuario> usuarios;
+	@ManyToMany(mappedBy = "rutinas")
+	private Collection<Usuario> usuarios;
+
+	
+	
+	public Collection<Usuario> getUsuarios() {
+		return usuarios;
+	}
+	public void setUsuarios(Collection<Usuario> usuarios) {
+		this.usuarios = usuarios;
+	}/**/
 
 }

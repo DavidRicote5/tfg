@@ -36,6 +36,7 @@ import { ActualizarUsuarioComponent } from './pages/admin/usuario/actualizar-usu
 import { ViewUsuariosComponent } from './pages/admin/usuario/view-usuarios/view-usuarios.component';
 import { QuienesSomosComponent } from './pages/quienes-somos/quienes-somos.component';
 import { PlanesComponent } from './pages/planes/planes.component';
+import { RutinasHomeComponent } from './pages/rutinas-home/rutinas-home.component';
 
 const routes: Routes = [
   {
@@ -46,6 +47,10 @@ const routes: Routes = [
   {
     path : 'quienes-somos',
     component : QuienesSomosComponent
+  },
+  {
+    path : 'rutinas',
+    component : RutinasHomeComponent
   },
   {
     path : 'planes',

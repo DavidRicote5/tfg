@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { PlanService } from 'src/app/services/plan.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-planes',
@@ -7,9 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlanesComponent implements OnInit {
 
-  constructor() { }
+  planes:any = [
+
+  ]
+
+  constructor(private planService:PlanService,private router:Router) { }
 
   ngOnInit(): void {
+    this.planService.listarPlanes().subscribe(
+      (dato:any) => {
+        this.planes = dato;
+      },
+      (error) => {
+        console.log(error);
+        Swal.fire('Advertencia !!','Debes iniciar sesion para ver todo el contenido','error');
+        this.router.navigate(['/login']);
+      }
+    )
   }
 
 }
