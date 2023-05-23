@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { EntrenadorService } from 'src/app/services/entrenador.service';
+import { RutinaService } from 'src/app/services/rutina.service';
 
 @Component({
   selector: 'app-add-entrenador',
@@ -11,18 +12,34 @@ import { EntrenadorService } from 'src/app/services/entrenador.service';
 })
 export class AddEntrenadorComponent implements OnInit {
 
-  entrenador = {
+  rutinas:any = [];
 
+  entrenador = {
     nombre : '',
     correo : '',
     especializacion:'',
-    anosexperiencia:0
-
+    anosexperiencia:0,
+    rutina:{
+      rutinaId:''
+    }
   }
 
-  constructor(private entrenadorService:EntrenadorService,private snack:MatSnackBar,private router:Router) { }
+  constructor(
+    private entrenadorService:EntrenadorService,
+    private snack:MatSnackBar,
+    private rutinaService:RutinaService,
+    private router:Router) { }
 
   ngOnInit(): void {
+    this.rutinaService.listarRutinas().subscribe(
+      (dato:any) => {
+        this.rutinas = dato;
+        console.log(this.rutinas);
+      },(error) => {
+        console.log(error);
+        Swal.fire('Error !!','Error al cargar los datos','error');
+      }
+    )
   }
 
   formSubmit(){
@@ -34,12 +51,17 @@ export class AddEntrenadorComponent implements OnInit {
     }
 
     this.entrenadorService.guardarEntrenador(this.entrenador).subscribe(
-      (dato:any) => {
-        this.entrenador.nombre = '';
-        this.entrenador.correo = '';
-        this.entrenador.especializacion = '';
-        this.entrenador.anosexperiencia = 0;
+      (dato) => {
         Swal.fire('Entrenador agregado','El entrenador ha sido agregada con éxito','success');
+        this.entrenador = {
+          nombre : '',
+          correo : '',
+          especializacion : '',
+          anosexperiencia : 0,
+          rutina:{
+            rutinaId:''
+          }
+        }
         this.router.navigate(['/admin/entrenadores']);
       },
       (error) => {

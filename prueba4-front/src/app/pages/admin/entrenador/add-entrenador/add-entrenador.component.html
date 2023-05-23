@@ -57,6 +57,14 @@
                 [(ngModel)] = "entrenador.anosexperiencia"
                 >
               </mat-form-field>
+              <mat-form-field appearance="fill" class="mt20 w100">
+                <mat-label>Rutinas</mat-label>
+                <mat-select name="rutina" [(ngModel)] = "entrenador.rutina.rutinaId">
+                  <mat-option *ngFor = "let r of rutinas" [value] = "r.rutinaId">
+                    {{ r.nombre }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
   
               <div class="container text-center mt15">
                 <button mat-raised-button color="primary">Guardar</button>

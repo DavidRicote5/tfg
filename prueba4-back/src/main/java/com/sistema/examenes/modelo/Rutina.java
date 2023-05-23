@@ -76,7 +76,7 @@ public class Rutina {
 	}
 	
 	
-	//Lado Muchos a Muchos con entrenadores (mappedBy)
+	//Lado Muchos a Muchos con entrenadores
 	@ManyToMany(mappedBy = "rutinas")
 	private Collection<Entrenador> entrenadores;
 	
