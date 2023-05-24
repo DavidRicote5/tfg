@@ -96,6 +96,32 @@
                 [(ngModel)] = "usuario.peso"
                 >
               </mat-form-field>
+
+              <mat-form-field class="w100" appearance="outline">
+                <mat-label>Perfil</mat-label>
+                <input
+                required
+                autofocus
+                type="text"
+                name="perfil"
+                matInput
+                placeholder="Digite el peso del usuario"
+                [(ngModel)] = "usuario.perfil"
+                >
+              </mat-form-field>
+
+              <mat-form-field class="w100" appearance="outline">
+                <mat-label>Rol</mat-label>
+                <input
+                required
+                autofocus
+                type="text"
+                name="rol"
+                matInput
+                placeholder="Digite el peso del usuario"
+                [(ngModel)] = "usuario.authorities[0].authority"
+                >
+              </mat-form-field>
   
               <div class="container text-center mt15">
                 <button mat-raised-button color="primary">Guardar</button>

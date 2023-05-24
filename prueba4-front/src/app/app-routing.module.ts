@@ -129,11 +129,15 @@ const routes: Routes = [
         component:ActualizarRutinaComponent
       },
       {
+        path:'ejercicios/:rutinaId/:nombre',
+        component:ViewEjerciciosComponent
+      },
+      {
         path:'ejercicios',
         component:ViewEjerciciosComponent
       },
       {
-        path:'add-ejercicio',
+        path:'add-ejercicio/:rutinaId/:nombre',
         component:AddEjercicioComponent
       },
       {

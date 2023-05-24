@@ -29,4 +29,8 @@ export class EjercicioService {
     return this.http.get(`${baserUrl}/ejercicio/`);
   }
 
+  public listarEjerciciosDeRutina(rutinaId:any){
+    return this.http.get(`${baserUrl}/ejercicio/rutina/${rutinaId}`);
+  }
+
 }

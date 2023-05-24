@@ -3,6 +3,7 @@ package com.sistema.examenes.servicios;
 import java.util.Set;
 
 import com.sistema.examenes.modelo.Ejercicio;
+import com.sistema.examenes.modelo.Rutina;
 
 public interface EjercicioService {
 
@@ -17,4 +18,6 @@ public interface EjercicioService {
 	void eliminarEjercicio(Long ejerciciorId);
 
 	Ejercicio listarEjercicio(Long ejercicioId);
+
+	Set<Ejercicio> obtenerEjerciciosDeRutina(Rutina rutina);
 }

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.sistema.examenes.modelo.Ejercicio;
 import com.sistema.examenes.modelo.Entrenador;
+import com.sistema.examenes.modelo.Rutina;
 import com.sistema.examenes.repositorios.EjercicioRepository;
 
 import com.sistema.examenes.servicios.EjercicioService;
@@ -49,6 +50,11 @@ public class EjercicioServiceImpl implements EjercicioService {
 	@Override
 	public Ejercicio listarEjercicio(Long ejercicioId) {
 		return this.ejercicioRepository.getOne(ejercicioId);
+	}
+	
+	@Override
+	public Set<Ejercicio> obtenerEjerciciosDeRutina(Rutina rutina){
+		return ejercicioRepository.findByRutina(rutina);
 	}
 
 }

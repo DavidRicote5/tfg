@@ -1,7 +1,6 @@
 package com.sistema.examenes.controladores;
 
-
-
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -18,9 +17,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sistema.examenes.modelo.Ejercicio;
-
+import com.sistema.examenes.modelo.Pregunta;
+import com.sistema.examenes.modelo.Rutina;
 import com.sistema.examenes.servicios.EjercicioService;
-
 
 @RestController
 @RequestMapping("/ejercicio")
@@ -30,6 +29,13 @@ public class EjercicioController {
 	@Autowired
 	private EjercicioService ejercicioService;
 	
+	@GetMapping("/rutina/{rutinaId}")
+    public ResponseEntity<?> listarEjerciciosDeRutina(@PathVariable("rutinaId") Long rutinaId){
+        Rutina rutina = new Rutina();
+        rutina.setRutinaId(rutinaId);
+        Set<Ejercicio> ejercicios = ejercicioService.obtenerEjerciciosDeRutina(rutina);
+		return ResponseEntity.ok(ejercicios);
+    }
 	
 	@GetMapping("/")
     public ResponseEntity<?> listarEjercicios(){
