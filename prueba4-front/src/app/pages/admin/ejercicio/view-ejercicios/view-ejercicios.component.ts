@@ -14,14 +14,14 @@ export class ViewEjerciciosComponent implements OnInit {
   nombre:any;
   ejercicios:any = [
 
-  ]
+  ];
 
   constructor(private ejercicioService:EjercicioService,private route:ActivatedRoute, private router:Router) { }
 
    ngOnInit(): void {
     this.rutinaId = this.route.snapshot.params['rutinaId'];
     this.nombre = this.route.snapshot.params['nombre'];
-    this.ejercicioService.listarEjercicios().subscribe(
+    this.ejercicioService.listarEjerciciosDeRutina(this.rutinaId).subscribe(
       (dato:any) => {
         this.ejercicios = dato;
       },
