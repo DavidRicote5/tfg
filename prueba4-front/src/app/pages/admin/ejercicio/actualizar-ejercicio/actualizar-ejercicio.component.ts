@@ -38,7 +38,7 @@ export class ActualizarEjercicioComponent implements OnInit {
       (data) => {
         Swal.fire('Ejercicio actualizado','El ejercicio ha sido actualizado con éxito','success').then(
           (e) => {
-            this.router.navigate(['/admin/ejercicios']);
+            this.router.navigate(['/admin/rutinas']);
           }
         );
       },

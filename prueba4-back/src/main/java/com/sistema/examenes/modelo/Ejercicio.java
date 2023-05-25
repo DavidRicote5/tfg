@@ -1,14 +1,21 @@
 package com.sistema.examenes.modelo;
 
+import java.util.Collection;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import org.springframework.lang.NonNull;
 
 @Entity
+@Table(name = "ejercicios")
 public class Ejercicio {
 
 	/*======= ATRIBUTOS DE LA CLASE ========*/
@@ -24,6 +31,7 @@ public class Ejercicio {
 	private String descripcion;
 	private String grupomuscular;
 	private String equiponecesario;
+	
 	
 	public Long getEjercicioId() {
 		return id;
@@ -62,6 +70,14 @@ public class Ejercicio {
 	/*======= RELACIONES ========*/
 	
 	//Lado Muchos a Muchos con rutina (mappedBy)
-	//@ManyToMany(mappedBy = "ejercicios")
-	//private Collection<Rutina> rutinas;
+	@ManyToOne(fetch = FetchType.EAGER)
+	private Rutina rutina;
+
+	public Rutina getRutina() {
+		return rutina;
+	}
+	public void setRutina(Rutina rutina) {
+		this.rutina = rutina;
+	}
+
 }

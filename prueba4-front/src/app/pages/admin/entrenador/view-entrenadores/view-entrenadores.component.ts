@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { EntrenadorService } from 'src/app/services/entrenador.service';
+import { RutinaService } from 'src/app/services/rutina.service';
 import Swal from 'sweetalert2';
 
 
@@ -15,7 +16,11 @@ export class ViewEntrenadoresComponent implements OnInit {
 
   ]
 
-  constructor(private entrenadorService:EntrenadorService,private router:Router) { }
+  rutinas:any = [
+
+  ]
+
+  constructor(private entrenadorService:EntrenadorService, private rutinaService:RutinaService,private router:Router) { }
 
    ngOnInit(): void {
     this.entrenadorService.listarEntrenadores().subscribe(
@@ -25,6 +30,15 @@ export class ViewEntrenadoresComponent implements OnInit {
       (error) => {
         console.log(error);
         Swal.fire('Error !!','Error al cargar los entrenadores','error');
+      }
+    )
+    this.rutinaService.listarRutinas().subscribe(
+      (dato:any) => {
+        this.rutinas = dato;
+      },
+      (error) => {
+        console.log(error);
+        Swal.fire('Error !!','Error al cargar las rutinas','error');
       }
     )
   }

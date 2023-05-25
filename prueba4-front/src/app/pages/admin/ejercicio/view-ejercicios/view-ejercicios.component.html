@@ -20,5 +20,5 @@
   </mat-card>
   
   <div class="container text-center mt20">
-    <button routerLink="/admin/add-ejercicio" mat-raised-button color="primary">Agregar Ejercicio</button>
+    <button [routerLink] = "'/admin/add-ejercicio/'+rutinaId+'/'+nombre" mat-raised-button color="primary">Agregar Ejercicio</button>
   </div>

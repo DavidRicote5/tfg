@@ -7,56 +7,31 @@
             <form *ngIf = "rutina" (submit) = "actualizarDatos()">
 
               <mat-form-field class="w100" appearance="outline">
-                <mat-label>Nombre</mat-label>
-                <input
-                required
-                autofocus
-                type="text"
-                name="nombre"
-                matInput
-                placeholder="Digite el nombre de la Rutina"
-                [(ngModel)] = "rutina.nombre"
-                >
-              </mat-form-field>
-              
-              <mat-form-field class="w100" appearance="outline">
-                <mat-label>Descripcion</mat-label>
-                <input
-                required
-                autofocus
-                type="text"
-                name="descripcion"
-                matInput
-                placeholder="Introduzca una descripcion para la rutina"
-                [(ngModel)] = "rutina.descripcion"
-                >
-              </mat-form-field>
+              <mat-label>Nombre</mat-label>
+              <input required autofocus type="text" name="nombre" matInput placeholder="Digite el nombre de la Rutina"
+                [(ngModel)]="rutina.nombre">
+            </mat-form-field>
 
-              <mat-form-field class="w100" appearance="outline">
-                <mat-label>Dificultad</mat-label>
-                <input
-                required
-                autofocus
-                type="text"
-                name="dificultad"
-                matInput
-                placeholder="Añada la dificultad de la rutina"
-                [(ngModel)] = "rutina.dificultad"
-                >
-              </mat-form-field>
+            <mat-form-field class="w100" appearance="outline">
+              <mat-label>Descripción</mat-label>
+              <textarea required name="descripcion" matInput placeholder="Introduzca una descripción para la rutina"
+                [(ngModel)]="rutina.descripcion"></textarea>
+            </mat-form-field>
 
-              <mat-form-field class="w100" appearance="outline">
-                <mat-label>Duracion</mat-label>
-                <input
-                required
-                autofocus
-                type="text"
-                name="duracion"
-                matInput
-                placeholder="Añada la duracion de la rutina"
-                [(ngModel)] = "rutina.duracion"
-                >
-              </mat-form-field>
+            <mat-form-field class="w100" appearance="outline">
+              <mat-label>Dificultad</mat-label>
+              <mat-select required name="dificultad" [(ngModel)]="rutina.dificultad">
+                <mat-option value="Facil">Facil</mat-option>
+                <mat-option value="Medio">Medio</mat-option>
+                <mat-option value="Dificil">Dificil</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field class="w100" appearance="outline">
+              <mat-label>Duración (h)</mat-label>
+              <input required autofocus type="number" name="duracion" matInput placeholder="Añada la duración de la rutina"
+                [(ngModel)]="rutina.duracion">
+            </mat-form-field>
   
               <div class="container text-center mt15">
                 <button mat-raised-button color="primary">Guardar</button>

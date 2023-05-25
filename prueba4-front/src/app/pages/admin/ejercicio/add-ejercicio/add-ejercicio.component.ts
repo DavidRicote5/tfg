@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { EjercicioService } from 'src/app/services/ejercicio.service';
@@ -11,8 +11,10 @@ import { EjercicioService } from 'src/app/services/ejercicio.service';
 })
 export class AddEjercicioComponent implements OnInit {
 
-  ejercicio = {
-
+  rutinaId:any;
+  nombre:any;
+  ejercicio:any = {
+    rutina : {},
     nombre: '',
     descripcion: '',
     grupomuscular: '',
@@ -20,9 +22,16 @@ export class AddEjercicioComponent implements OnInit {
 
   }
 
-  constructor(private ejercicioService: EjercicioService, private snack: MatSnackBar, private router: Router) { }
+  constructor(
+    private ejercicioService: EjercicioService,
+    private snack: MatSnackBar,
+    private route:ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit(): void {
+    this.rutinaId = this.route.snapshot.params['rutinaId'];
+    this.nombre = this.route.snapshot.params['nombre'];
+    this.ejercicio.rutina['rutinaId'] = this.rutinaId;
   }
 
   formSubmit() {
@@ -40,7 +49,7 @@ export class AddEjercicioComponent implements OnInit {
         this.ejercicio.grupomuscular = '';
         this.ejercicio.equiponecesario = '';
         Swal.fire('Ejercicio agregado', 'La ejercicio ha sido agregada con éxito', 'success');
-        this.router.navigate(['/admin/ejercicios']);
+        this.router.navigate(['/admin/ejercicios/'+ this.rutinaId+ '/'+ this.nombre]);
       },
       (error) => {
         console.log(error);

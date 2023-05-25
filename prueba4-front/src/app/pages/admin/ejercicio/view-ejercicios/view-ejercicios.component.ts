@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { EjercicioService } from 'src/app/services/ejercicio.service';
 import Swal from 'sweetalert2';
 
@@ -10,14 +10,18 @@ import Swal from 'sweetalert2';
 })
 export class ViewEjerciciosComponent implements OnInit {
 
+  rutinaId:any;
+  nombre:any;
   ejercicios:any = [
 
-  ]
+  ];
 
-  constructor(private ejercicioService:EjercicioService,private router:Router) { }
+  constructor(private ejercicioService:EjercicioService,private route:ActivatedRoute, private router:Router) { }
 
    ngOnInit(): void {
-    this.ejercicioService.listarEjercicios().subscribe(
+    this.rutinaId = this.route.snapshot.params['rutinaId'];
+    this.nombre = this.route.snapshot.params['nombre'];
+    this.ejercicioService.listarEjerciciosDeRutina(this.rutinaId).subscribe(
       (dato:any) => {
         this.ejercicios = dato;
       },

@@ -2,13 +2,22 @@ package com.sistema.examenes.modelo;
 
 
 
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 import org.springframework.lang.NonNull;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 @Entity
@@ -64,8 +73,19 @@ public class Plan {
 	
 	/*======= RELACIONES ========*/
 	
-	//Lado Uno a Muchos con usuarios 
-	//@OneToMany(mappedBy = "plan")
-	//private Collection<Usuario> usuarios;
+	//Lado Uno a Muchos con usuarios
+	
+	@OneToMany(mappedBy = "plan",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+	@JsonIgnore
+	private Set<Usuario> usuarios = new HashSet<>();
+
+	public Set<Usuario> getUsuarios() {
+		return usuarios;
+	}
+	public void setUsuarios(Set<Usuario> usuarios) {
+		this.usuarios = usuarios;
+	}
+
+	
 
 }

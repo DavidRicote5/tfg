@@ -5,15 +5,19 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 @Table(name = "usuarios")
-public class Usuario implements UserDetails {
+public class Usuario implements UserDetails, Serializable {
 
-    @Id
+    private static final long serialVersionUID = 1L;
+
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -85,6 +89,7 @@ public class Usuario implements UserDetails {
         this.usuarioRoles.forEach(usuarioRol -> {
             autoridades.add(new Authority(usuarioRol.getRol().getRolNombre()));
         });
+
         return autoridades;
     }
 
@@ -161,4 +166,27 @@ public class Usuario implements UserDetails {
     public void setUsuarioRoles(Set<UsuarioRol> usuarioRoles) {
         this.usuarioRoles = usuarioRoles;
     }
+    
+    @ManyToMany
+    private Collection<Rutina> rutinas;
+
+	public Collection<Rutina> getRutinas() {
+		return rutinas;
+	}
+
+	public void setRutinas(Collection<Rutina> rutinas) {
+		this.rutinas = rutinas;
+	}
+	
+	@ManyToOne(fetch = FetchType.EAGER)
+    private Plan plan;
+
+	public Plan getPlan() {
+		return plan;
+	}
+
+	public void setPlan(Plan plan) {
+		this.plan = plan;
+	}
+    
 }
