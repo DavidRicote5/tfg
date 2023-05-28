@@ -39,7 +39,7 @@ import { ViewExamenPreguntasComponent } from './pages/admin/view-examen-pregunta
 import { AddPreguntaComponent } from './pages/admin/add-pregunta/add-pregunta.component';
 import { ActualizarPreguntaComponent } from './pages/admin/actualizar-pregunta/actualizar-pregunta.component';
 import { SidebarComponent as UserSidebar} from './pages/user/sidebar/sidebar.component';
-import { LoadExamenComponent } from './pages/user/load-examen/load-examen.component';
+
 import { InstruccionesComponent } from './pages/user/instrucciones/instrucciones.component';
 import { StartComponent } from './pages/user/start/start.component';
 import { NgxUiLoaderModule , NgxUiLoaderHttpModule } from "ngx-ui-loader";
@@ -60,6 +60,8 @@ import { ActualizarUsuarioComponent } from './pages/admin/usuario/actualizar-usu
 import { QuienesSomosComponent } from './pages/quienes-somos/quienes-somos.component';
 import { PlanesComponent } from './pages/planes/planes.component';
 import { RutinasHomeComponent } from './pages/rutinas-home/rutinas-home.component';
+import { ViewRutinasUserComponent } from './pages/user/view-rutinas-user/view-rutinas-user.component';
+import { ViewEjerciciosUserComponent } from './pages/user/view-ejercicios-user/view-ejercicios-user.component';
 
 @NgModule({
   declarations: [
@@ -83,7 +85,7 @@ import { RutinasHomeComponent } from './pages/rutinas-home/rutinas-home.componen
     AddPreguntaComponent,
     ActualizarPreguntaComponent,
     UserSidebar,
-    LoadExamenComponent,
+    
     InstruccionesComponent,
     StartComponent,
     AddEntrenadorComponent,
@@ -102,7 +104,9 @@ import { RutinasHomeComponent } from './pages/rutinas-home/rutinas-home.componen
     ActualizarUsuarioComponent,
     QuienesSomosComponent,
     PlanesComponent,
-    RutinasHomeComponent
+    RutinasHomeComponent,
+    ViewRutinasUserComponent,
+    ViewEjerciciosUserComponent
   ],
   imports: [
     BrowserModule,

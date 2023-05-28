@@ -20,8 +20,8 @@
   </div>
 
   <div *ngIf="isLoggedIn">
-    <button mat-button [routerLink]="'/admin/profile'" style="margin-right: 5px;" class="mat-button"> {{ user.username }} </button>
-    <button mat-button (click)="logout()" class="mat-button">Cerrar sesión</button>
+    <button mat-button [routerLink]="user.username === 'admin' ? ['/admin/profile'] : ['/user-dashboard/profile']" style="margin-right: 5px;" class="mat-button"> {{ user.username }} </button>
+    <button mat-button (click)="logout()" class="mat-button" >Cerrar sesión</button>
   </div>
   
 </mat-toolbar-row>

@@ -1,0 +1,36 @@
+<div class="bootstrap-wrapper">
+  <div class="container-fluid">
+    <h1 class="mt-2 title">Ejercicios</h1>
+    <div class="row mt20">
+      <div class="col-md-6" *ngFor="let e of ejercicios">
+
+        <mat-card class="mb20">
+          <mat-card-header>
+            <mat-icon mat-card-avatar>fitness_center</mat-icon>
+            <mat-card-title class="exercise-title">{{ e.nombre }}</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <div class="exercise-details">
+              <p><b>Descripción:</b> {{ e.descripcion }}</p>
+              <p><b>Grupo Muscular:</b> {{ e.grupomuscular }}</p>
+              <p><b>Equipo Necesario:</b> {{ e.equiponecesario }}</p>
+            </div>
+          </mat-card-content>
+          <mat-card-actions class="button-container">
+            <button [routerLink]="'/user-dashboard/ejercicio/' + e.ejercicioId" mat-flat-button color="primary"
+                class="ml20">Actualizar</button>
+        
+            <button mat-flat-button color="warn" class="ml10" (click)="eliminarEjercicio(e.ejercicioId)">Eliminar</button>
+          </mat-card-actions>
+        </mat-card>
+        
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container text-center mt20">
+  <button [routerLink]="'/admin/add-ejercicio/' + rutinaId + '/' + nombre" mat-raised-button color="primary">Agregar
+    Ejercicio</button>
+</div>

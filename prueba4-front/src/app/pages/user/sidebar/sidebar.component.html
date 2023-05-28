@@ -1,15 +1,19 @@
-<mat-card>
-  <mat-action-list>
-    <button mat-list-item routerLink = "/user-dashboard/profile">
+<mat-card class="sidebar" >
+  <mat-action-list class="flex-column" >
+    <button mat-list-item routerLink="/user-dashboard/profile">
       <mat-icon mat-list-icon>account_circle</mat-icon>Perfil
     </button>
-    <div mat-subheader>Categorías disponibles</div>
-    <button routerLink="/user-dashboard/0" mat-list-item>
-      <mat-icon mat-list-icon>quiz</mat-icon>Exámenes
+
+    <div mat-subheader>Rutinas disponibles</div>
+
+    <button mat-list-item routerLink="/user-dashboard/view-rutinas-user" >
+      <mat-icon mat-list-icon>arrow_right</mat-icon>Todas las Rutinas
     </button>
+
     
-    <button [routerLink] = "'/user-dashboard/'+c.categoriaId" mat-list-item *ngFor = "let c of categorias">
-      <mat-icon mat-list-icon>build</mat-icon> {{ c.titulo }}
+    <div mat-subheader>Cerrar Sesion</div>
+    <button mat-list-item (click)="logout()">
+      <mat-icon mat-list-icon>logout</mat-icon>Salir
     </button>
   </mat-action-list>
 </mat-card>
