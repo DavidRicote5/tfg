@@ -1,0 +1,31 @@
+.example-spacer{
+  flex: 1 1 auto;
+}
+
+.mat-toolbar {
+  background-color: #4B3621; /* marrón dorado oscuro */
+  background-image: linear-gradient(to bottom, #4B3621, #9E7C37);
+}
+
+.mat-toolbar a:not(.nav-link) {
+  color: white;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+.mat-toolbar a:not(.nav-link):hover {
+  background-color: white;
+  color: #3f51b5;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.mat-button {
+  color: white;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+.mat-button:hover {
+  background-color: white;
+  color: #3f51b5;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
