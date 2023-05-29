@@ -30,8 +30,39 @@ public class Usuario implements UserDetails, Serializable {
     private int peso; 
     private boolean enabled = true;
     private String perfil;
+    
+    private String numtarjeta;
+    private String fechavalidez;
+    private int numsecretotarjeta;
 
-    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy = "usuario")
+    
+	
+
+	public String getNumtarjeta() {
+		return numtarjeta;
+	}
+
+	public void setNumtarjeta(String numtarjeta) {
+		this.numtarjeta = numtarjeta;
+	}
+
+	public String getFechavalidez() {
+		return fechavalidez;
+	}
+
+	public void setFechavalidez(String fechavalidez) {
+		this.fechavalidez = fechavalidez;
+	}
+
+	public int getNumsecretotarjeta() {
+		return numsecretotarjeta;
+	}
+
+	public void setNumsecretotarjeta(int numsecretotarjeta) {
+		this.numsecretotarjeta = numsecretotarjeta;
+	}
+
+	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy = "usuario")
     @JsonIgnore
     private Set<UsuarioRol> usuarioRoles = new HashSet<>();
 

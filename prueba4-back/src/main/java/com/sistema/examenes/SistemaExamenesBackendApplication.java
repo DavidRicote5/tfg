@@ -40,6 +40,9 @@ public class SistemaExamenesBackendApplication implements CommandLineRunner {
 				usuario.setAltura(0);
 				usuario.setPeso(0);
 				usuario.setPerfil("foto.png");
+				usuario.setNumtarjeta("");
+				usuario.setFechavalidez("");
+				usuario.setNumsecretotarjeta(0);
 
 				Rol rol = new Rol();
 				rol.setRolId(1L);
