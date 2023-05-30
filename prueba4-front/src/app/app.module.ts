@@ -12,6 +12,7 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { LoginComponent } from './pages/login/login.component';
 
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
 import {MatSelectModule} from '@angular/material/select';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatButtonModule} from '@angular/material/button';
@@ -39,7 +40,7 @@ import { ViewExamenPreguntasComponent } from './pages/admin/view-examen-pregunta
 import { AddPreguntaComponent } from './pages/admin/add-pregunta/add-pregunta.component';
 import { ActualizarPreguntaComponent } from './pages/admin/actualizar-pregunta/actualizar-pregunta.component';
 import { SidebarComponent as UserSidebar} from './pages/user/sidebar/sidebar.component';
-import { LoadExamenComponent } from './pages/user/load-examen/load-examen.component';
+
 import { InstruccionesComponent } from './pages/user/instrucciones/instrucciones.component';
 import { StartComponent } from './pages/user/start/start.component';
 import { NgxUiLoaderModule , NgxUiLoaderHttpModule } from "ngx-ui-loader";
@@ -60,6 +61,17 @@ import { ActualizarUsuarioComponent } from './pages/admin/usuario/actualizar-usu
 import { QuienesSomosComponent } from './pages/quienes-somos/quienes-somos.component';
 import { PlanesComponent } from './pages/planes/planes.component';
 import { RutinasHomeComponent } from './pages/rutinas-home/rutinas-home.component';
+import { ViewRutinasUserComponent } from './pages/user/view-rutinas-user/view-rutinas-user.component';
+import { ViewEjerciciosUserComponent } from './pages/user/view-ejercicios-user/view-ejercicios-user.component';
+
+import { MatMenuModule } from '@angular/material/menu';
+import { ViewUserRutinasComponent } from './pages/user/user-rutinas/view-user-rutinas/view-user-rutinas.component';
+import { ViewUserEjerciciosComponent } from './pages/user/user-ejercicios/view-user-ejercicios/view-user-ejercicios.component';
+import { AddUserRutinasComponent } from './pages/user/user-rutinas/add-user-rutinas/add-user-rutinas.component';
+import { ActualizarUserRutinasComponent } from './pages/user/user-rutinas/actualizar-user-rutinas/actualizar-user-rutinas.component';
+import { AddUserEjerciciosComponent } from './pages/user/user-ejercicios/add-user-ejercicios/add-user-ejercicios.component';
+import { ActualizarUserEjerciciosComponent } from './pages/user/user-ejercicios/actualizar-user-ejercicios/actualizar-user-ejercicios.component';
+
 
 @NgModule({
   declarations: [
@@ -83,7 +95,7 @@ import { RutinasHomeComponent } from './pages/rutinas-home/rutinas-home.componen
     AddPreguntaComponent,
     ActualizarPreguntaComponent,
     UserSidebar,
-    LoadExamenComponent,
+    
     InstruccionesComponent,
     StartComponent,
     AddEntrenadorComponent,
@@ -102,12 +114,21 @@ import { RutinasHomeComponent } from './pages/rutinas-home/rutinas-home.componen
     ActualizarUsuarioComponent,
     QuienesSomosComponent,
     PlanesComponent,
-    RutinasHomeComponent
+    RutinasHomeComponent,
+    ViewRutinasUserComponent,
+    ViewEjerciciosUserComponent,
+    ViewUserRutinasComponent,
+    ViewUserEjerciciosComponent,
+    AddUserRutinasComponent,
+    ActualizarUserRutinasComponent,
+    AddUserEjerciciosComponent,
+    ActualizarUserEjerciciosComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
@@ -124,7 +145,8 @@ import { RutinasHomeComponent } from './pages/rutinas-home/rutinas-home.componen
     NgxUiLoaderModule,
     NgxUiLoaderHttpModule.forRoot({
       showForeground:true
-    })
+    }),
+    MatMenuModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

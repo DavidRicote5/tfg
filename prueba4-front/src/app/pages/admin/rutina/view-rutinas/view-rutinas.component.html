@@ -1,12 +1,13 @@
 <mat-card class="mt10" *ngFor = "let r of rutinas">
       
-    <mat-card-header>  
-      <mat-card-title>
+    <mat-card-header> 
+      
+      <mat-card-title> 
           Nombre: {{ r.nombre }}
         </mat-card-title>
         <mat-card-content>
           <b>Descripcion:</b> {{r.descripcion}}<br/>
-          <b>Duracion:</b> {{r.duracion}}<br/>
+          <b>Duracion:</b> {{r.duracion}}h<br/>
           <b>Dificultad:</b> {{r.dificultad}}
         </mat-card-content>
     </mat-card-header>

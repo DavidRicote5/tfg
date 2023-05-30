@@ -1,5 +1,7 @@
 package com.sistema.examenes.controladores;
 
+import javax.annotation.security.PermitAll;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -26,6 +28,7 @@ public class PlanController {
 	private PlanService planService;
 	
 	@GetMapping("/")
+	@PermitAll
     public ResponseEntity<?> listarPlanes(){
         return ResponseEntity.ok(planService.obtenerPlanes());
     }

@@ -1,6 +1,6 @@
 package com.sistema.examenes.modelo;
 
-import java.util.Collection;
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,7 +8,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -31,7 +31,29 @@ public class Ejercicio {
 	private String descripcion;
 	private String grupomuscular;
 	private String equiponecesario;
+	private int series;
+	private int repeticiones;
+	private int peso;
 	
+	
+	public int getSeries() {
+		return series;
+	}
+	public void setSeries(int series) {
+		this.series = series;
+	}
+	public int getRepeticiones() {
+		return repeticiones;
+	}
+	public void setRepeticiones(int repeticiones) {
+		this.repeticiones = repeticiones;
+	}
+	public int getPeso() {
+		return peso;
+	}
+	public void setPeso(int peso) {
+		this.peso = peso;
+	}
 	public Long getEjercicioId() {
 		return id;
 	}

@@ -30,8 +30,39 @@ public class Usuario implements UserDetails, Serializable {
     private int peso; 
     private boolean enabled = true;
     private String perfil;
+    
+    private String numtarjeta;
+    private String fechavalidez;
+    private int numsecretotarjeta;
 
-    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy = "usuario")
+    
+	
+
+	public String getNumtarjeta() {
+		return numtarjeta;
+	}
+
+	public void setNumtarjeta(String numtarjeta) {
+		this.numtarjeta = numtarjeta;
+	}
+
+	public String getFechavalidez() {
+		return fechavalidez;
+	}
+
+	public void setFechavalidez(String fechavalidez) {
+		this.fechavalidez = fechavalidez;
+	}
+
+	public int getNumsecretotarjeta() {
+		return numsecretotarjeta;
+	}
+
+	public void setNumsecretotarjeta(int numsecretotarjeta) {
+		this.numsecretotarjeta = numsecretotarjeta;
+	}
+
+	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy = "usuario")
     @JsonIgnore
     private Set<UsuarioRol> usuarioRoles = new HashSet<>();
 
@@ -167,17 +198,18 @@ public class Usuario implements UserDetails, Serializable {
         this.usuarioRoles = usuarioRoles;
     }
     
-    @ManyToMany
-    private Collection<Rutina> rutinas;
+    @OneToMany(mappedBy = "usuario",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @JsonIgnore
+	private Set<Rutina> rutinas= new HashSet<>();
 
-	public Collection<Rutina> getRutinas() {
+	public Set<Rutina> getRutinas() {
 		return rutinas;
 	}
 
-	public void setRutinas(Collection<Rutina> rutinas) {
+	public void setRutinas(Set<Rutina> rutinas) {
 		this.rutinas = rutinas;
 	}
-	
+
 	@ManyToOne(fetch = FetchType.EAGER)
     private Plan plan;
 

@@ -2,6 +2,7 @@ import  Swal  from 'sweetalert2';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { UserService } from './../../services/user.service';
 import { Component, OnInit } from '@angular/core';
+import { PlanService } from 'src/app/services/plan.service';
 
 @Component({
   selector: 'app-signup',
@@ -10,19 +11,39 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignupComponent implements OnInit {
 
+  planes:any = [];
+
   public user = {
     username : '',
     password : '',
     nombre : '',
     correo : '',
     genero : '',
-    altura : 0,
-    peso:0
+    altura : null,
+    peso:null,
+    numtarjeta:'',
+    fechavalidez:'',
+    numsecretotarjeta:null,
+    plan:{
+      planId:''
+    }
   }
 
-  constructor(private userService:UserService,private snack:MatSnackBar) { }
+  constructor(
+    private userService:UserService,
+    private planService:PlanService,
+    private snack:MatSnackBar) { }
 
   ngOnInit(): void {
+    this.planService.listarPlanes().subscribe(
+      (dato:any) => {
+        this.planes = dato;
+        console.log(this.planes);
+      },(error) => {
+        console.log(error);
+        Swal.fire('Error !!','Error al cargar los datos','error');
+      }
+    )
   }
 
   formSubmit(){
@@ -39,7 +60,14 @@ export class SignupComponent implements OnInit {
     this.userService.añadirUsuario(this.user).subscribe(
       (data) => {
         console.log(data);
-        Swal.fire('Usuario guardado','Usuario registrado con exito en el sistema','success');
+        
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Usuario Registrado',
+          showConfirmButton: false,
+          timer: 1500
+        })
       },(error) => {
         console.log(error);
         this.snack.open('Ha ocurrido un error en el sistema !!','Aceptar',{
@@ -49,4 +77,27 @@ export class SignupComponent implements OnInit {
     )
   }
 
+  formatCreditCardNumber(event: any) {
+    // Eliminar cualquier espacio en blanco existente
+    let value = event.target.value.replace(/\s/g, '');
+  
+    // Dividir el número en bloques de 4 caracteres
+    let blocks = [];
+    for (let i = 0; i < value.length; i += 4) {
+      blocks.push(value.substr(i, 4));
+    }
+  
+    // Agregar espacios después de cada bloque de 4 caracteres
+    event.target.value = blocks.join(' ');
+  
+    // Recortar el número a un máximo de 16 dígitos
+    if (event.target.value.length > 19) {
+      event.target.value = event.target.value.substr(0, 19);
+    }
+  }
+  
+  
+  
+
+  
 }

@@ -1,6 +1,6 @@
 import { StartComponent } from './pages/user/start/start.component';
 import { InstruccionesComponent } from './pages/user/instrucciones/instrucciones.component';
-import { LoadExamenComponent } from './pages/user/load-examen/load-examen.component';
+
 import { ActualizarPreguntaComponent } from './pages/admin/actualizar-pregunta/actualizar-pregunta.component';
 import { AddPreguntaComponent } from './pages/admin/add-pregunta/add-pregunta.component';
 import { ViewExamenPreguntasComponent } from './pages/admin/view-examen-preguntas/view-examen-preguntas.component';
@@ -37,6 +37,8 @@ import { ViewUsuariosComponent } from './pages/admin/usuario/view-usuarios/view-
 import { QuienesSomosComponent } from './pages/quienes-somos/quienes-somos.component';
 import { PlanesComponent } from './pages/planes/planes.component';
 import { RutinasHomeComponent } from './pages/rutinas-home/rutinas-home.component';
+import { ViewRutinasUserComponent } from './pages/user/view-rutinas-user/view-rutinas-user.component';
+import { ViewEjerciciosUserComponent } from './pages/user/view-ejercicios-user/view-ejercicios-user.component';
 
 const routes: Routes = [
   {
@@ -200,17 +202,22 @@ const routes: Routes = [
     canActivate:[NormalGuard],
     children : [
       {
-        path:'profile',
+        path:'',
         component:ProfileComponent
-      },
-      {
-        path:':catId',
-        component:LoadExamenComponent
       },
       {
         path:'instrucciones/:examenId',
         component:InstruccionesComponent
-      }
+      },
+      {
+        path:'view-rutinas-user',
+        component:ViewRutinasUserComponent
+      },
+      {
+        path:'view-ejercicios-user/:rutinaId/:nombre',
+        component:ViewEjerciciosUserComponent
+      },
+
     ]
   },
   {

@@ -52,7 +52,7 @@ export class LoginComponent implements OnInit {
           else if(this.loginService.getUserRole() == 'NORMAL'){
             //user dashboard
             //window.location.href = '/user-dashboard';
-            this.router.navigate(['user-dashboard/0']);
+            this.router.navigate(['user-dashboard']);
             this.loginService.loginStatusSubjec.next(true);
           }
           else{

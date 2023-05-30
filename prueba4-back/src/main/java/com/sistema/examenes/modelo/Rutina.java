@@ -12,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -98,17 +99,14 @@ public class Rutina {
 	}
 
 	
-	//Lado Muchos a Muchos con usuarios (mappedBy)
-	@ManyToMany(mappedBy = "rutinas")
-	private Collection<Usuario> usuarios;
+	//Lado Muchos a Uno con usuarios (mappedBy)
+	@ManyToOne(fetch = FetchType.EAGER)
+	private Usuario usuario;
 
-	
-	
-	public Collection<Usuario> getUsuarios() {
-		return usuarios;
+	public Usuario getUsuario() {
+		return usuario;
 	}
-	public void setUsuarios(Collection<Usuario> usuarios) {
-		this.usuarios = usuarios;
-	}/**/
-
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
 }

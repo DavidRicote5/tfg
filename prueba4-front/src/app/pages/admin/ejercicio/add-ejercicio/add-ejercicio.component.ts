@@ -18,7 +18,10 @@ export class AddEjercicioComponent implements OnInit {
     nombre: '',
     descripcion: '',
     grupomuscular: '',
-    equiponecesario: ''
+    equiponecesario: '',
+    series:null,
+    repeticiones:null,
+    peso:null
 
   }
 
@@ -48,6 +51,9 @@ export class AddEjercicioComponent implements OnInit {
         this.ejercicio.descripcion = '';
         this.ejercicio.grupomuscular = '';
         this.ejercicio.equiponecesario = '';
+        this.ejercicio.series=null;
+        this.ejercicio.repeticiones=null;
+        this.ejercicio.peso = null;
         Swal.fire('Ejercicio agregado', 'La ejercicio ha sido agregada con éxito', 'success');
         this.router.navigate(['/admin/ejercicios/'+ this.rutinaId+ '/'+ this.nombre]);
       },
