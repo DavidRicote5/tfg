@@ -8,13 +8,13 @@
 
             <mat-form-field class="w100" appearance="outline">
               <mat-label>Nombre</mat-label>
-              <input required autofocus type="text" name="nombre" matInput placeholder="Digite el nombre del entrenador"
-                [(ngModel)]="entrenador.nombre">
+              <input required autofocus type="text" name="nombre" matInput placeholder="Introduzca el nombre del entrenador"
+                [(ngModel)]="entrenador.nombre"  pattern="[a-zA-Z ]*">
             </mat-form-field>
 
             <mat-form-field class="w100" appearance="outline">
               <mat-label>Correo</mat-label>
-              <input required autofocus type="text" name="correo" matInput placeholder="Digite el correo del entrenador"
+              <input required autofocus type="text" name="correo" matInput placeholder="getfit@getfit.com"
                 [(ngModel)]="entrenador.correo">
             </mat-form-field>
 
@@ -36,14 +36,14 @@
                 placeholder="Añada los años de experiencia del entrenador" [(ngModel)]="entrenador.anosexperiencia">
             </mat-form-field>
 
-            <mat-form-field appearance="fill" class="mt20 w100">
+            <!--<mat-form-field appearance="fill" class="mt20 w100">
               <mat-label>Rutinas</mat-label>
               <mat-select name="rutina" [(ngModel)]="entrenador.rutina.rutinaId">
                 <mat-option *ngFor="let r of rutinas" [value]="r.rutinaId">
                   {{ r.nombre }}
                 </mat-option>
               </mat-select>
-            </mat-form-field>
+            </mat-form-field>-->
 
             <div class="container text-center mt15">
               <button mat-raised-button color="primary">Guardar</button>

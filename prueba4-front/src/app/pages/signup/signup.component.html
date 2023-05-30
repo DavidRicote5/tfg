@@ -21,10 +21,11 @@
               <input required [(ngModel)]="user.password" name="password" type="password" matInput placeholder="Introduzca su contraseña">
             </mat-form-field>
 
-          <mat-form-field class="full-width"  appearance = "outline">
-            <mat-label>Nombre</mat-label>
-            <input required [(ngModel)] = "user.nombre" name = "nombre" matInput placeholder="Introduzca su nombre">
-          </mat-form-field>
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Nombre</mat-label>
+              <input required [(ngModel)]="user.nombre" name="nombre" matInput placeholder="Introduzca su nombre" pattern="[a-zA-Z ]*">
+              <mat-hint align="end" *ngIf="registrationForm.form.get('nombre')?.hasError('pattern')">El nombre solo puede contener letras</mat-hint>
+            </mat-form-field>
 
           <mat-form-field class="full-width"  appearance = "outline">
             <mat-label>Correo</mat-label>
@@ -55,15 +56,17 @@
 
             <mat-form-field class="full-width" appearance="outline">
               <mat-label>Numero de tarjeta</mat-label>
-              <input required [(ngModel)]="user.numtarjeta" name="numtarjeta" type="text" matInput placeholder="xxxx xxxx xxxx xxxx" pattern="[0-9]{4} [0-9]{4} [0-9]{4} [0-9]{4}">
+              <input required [(ngModel)]="user.numtarjeta" name="numtarjeta" type="text" matInput placeholder="xxxx xxxx xxxx xxxx"
+                pattern="[0-9]{4} [0-9]{4} [0-9]{4} [0-9]{4}" maxlength="19" inputmode="numeric"
+                (input)="formatCreditCardNumber($event)">
               <mat-hint align="end" *ngIf="registrationForm.form.get('numtarjeta')?.hasError('pattern')">El número de tarjeta debe tener el formato xxxx xxxx xxxx xxxx</mat-hint>
-
             </mat-form-field>
+            
+            
 
             <mat-form-field class="full-width" appearance="outline">
               <mat-label>Fecha de Validez</mat-label>
               <input required [(ngModel)]="user.fechavalidez" name="fechavalidez" type="date" matInput placeholder="dd/mm/yyyy" >
-              
             </mat-form-field>
 
             <mat-form-field class="full-width" appearance="outline">

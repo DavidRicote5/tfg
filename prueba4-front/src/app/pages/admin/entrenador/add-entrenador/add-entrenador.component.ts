@@ -18,7 +18,7 @@ export class AddEntrenadorComponent implements OnInit {
     nombre : '',
     correo : '',
     especializacion:'',
-    anosexperiencia:0,
+    anosexperiencia:null,
     rutina:{
       rutinaId:''
     }
@@ -57,7 +57,7 @@ export class AddEntrenadorComponent implements OnInit {
           nombre : '',
           correo : '',
           especializacion : '',
-          anosexperiencia : 0,
+          anosexperiencia : null,
           rutina:{
             rutinaId:''
           }

@@ -64,7 +64,8 @@ import { RutinasHomeComponent } from './pages/rutinas-home/rutinas-home.componen
 import { ViewRutinasUserComponent } from './pages/user/view-rutinas-user/view-rutinas-user.component';
 import { ViewEjerciciosUserComponent } from './pages/user/view-ejercicios-user/view-ejercicios-user.component';
 
-import {MatDatepickerModule } from '@angular/material/datepicker';
+import { MatMenuModule } from '@angular/material/menu';
+
 
 @NgModule({
   declarations: [
@@ -133,7 +134,7 @@ import {MatDatepickerModule } from '@angular/material/datepicker';
     NgxUiLoaderHttpModule.forRoot({
       showForeground:true
     }),
-    MatDatepickerModule
+    MatMenuModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

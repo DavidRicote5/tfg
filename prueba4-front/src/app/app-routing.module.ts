@@ -202,7 +202,7 @@ const routes: Routes = [
     canActivate:[NormalGuard],
     children : [
       {
-        path:'profile',
+        path:'',
         component:ProfileComponent
       },
       {

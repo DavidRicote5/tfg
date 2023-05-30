@@ -1,29 +1,43 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-  <span [routerLink]="['/']" style="font-size: 30px;">GetFit</span>
+    <button mat-icon-button [matMenuTriggerFor]="menu" class="menu-button">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span [routerLink]="['/']" style="font-size: 30px;">GetFit</span>
     <span style="margin-right: 20px;"></span>
-
-  
-    <a mat-button [routerLink]="['/']"  style="margin-right: 10px;" routerLinkActive="active-link">Home</a>
-    <a mat-button [routerLink]="['/rutinas']"  style="margin-right: 10px;" routerLinkActive="active-link">Rutinas</a>
-    <a mat-button [routerLink]="['/planes']" style="margin-right: 10px;" routerLinkActive="active-link">Planes</a>
-    <a mat-button [routerLink]="['/quienes-somos']" style="margin-right: 10px;" routerLinkActive="active-link">¿Quiénes somos?</a>
-    
-  
-
-  <span class="example-spacer"></span>
-
-  <div *ngIf="!isLoggedIn" >
     <span class="example-spacer"></span>
-    <a mat-button [routerLink]="'/login'" style="margin-right: 5px;">Iniciar sesión</a>
-    <a mat-button [routerLink]="'/signup'" style="margin-right: 5px;">Registrar</a>
-  </div>
 
-  <div *ngIf="isLoggedIn">
-    <button mat-button [routerLink]="user.username === 'admin' ? ['/admin/profile'] : ['/user-dashboard/profile']" style="margin-right: 5px;" class="mat-button"> {{ user.username }} </button>
-    <button mat-button (click)="logout()" class="mat-button" >Cerrar sesión</button>
-  </div>
-  
-</mat-toolbar-row>
+    <div class="menu-items">
+      <a mat-button [routerLink]="['/']" style="margin-right: 7px;" routerLinkActive="active-link">Home</a>
+      <a mat-button [routerLink]="['/rutinas']" style="margin-right: 7px;" routerLinkActive="active-link">Rutinas</a>
+      <a mat-button [routerLink]="['/planes']" style="margin-right: 7px;" routerLinkActive="active-link">Planes</a>
+      <a mat-button [routerLink]="['/quienes-somos']" routerLinkActive="active-link">¿Quiénes somos?</a>
+    </div>
+
+    <div class="example-spacer"></div>
+
+    <div *ngIf="!isLoggedIn">
+      <span class="example-spacer"></span>
+      <a mat-button [routerLink]="'/login'" style="margin-right: 5px;">Iniciar sesión</a>
+      <a mat-button [routerLink]="'/signup'" style="margin-right: 5px;">Registrar</a>
+    </div>
+
+    <div *ngIf="isLoggedIn">
+      <button mat-button [routerLink]="user.username === 'admin' ? ['/admin/profile'] : ['/user-dashboard/']" style="margin-right: 5px;" class="mat-button">
+        {{ user.username }}
+      </button>
+      <button mat-button (click)="logout()" class="mat-button">Cerrar sesión</button>
+    </div>
+  </mat-toolbar-row>
 </mat-toolbar>
+
+<mat-menu #menu="matMenu" class="mobile-menu">
+  <ng-template matMenuContent>
+    <a mat-menu-item [routerLink]="['/']"  routerLinkActive="active-link">Home</a>
+    <a mat-menu-item [routerLink]="['/rutinas']" routerLinkActive="active-link">Rutinas</a>
+    <a mat-menu-item [routerLink]="['/planes']" routerLinkActive="active-link">Planes</a>
+    <a mat-menu-item [routerLink]="['/quienes-somos']" routerLinkActive="active-link">¿Quiénes somos?</a>
+  </ng-template>
+</mat-menu>
+
 

@@ -15,7 +15,7 @@ export class AddRutinaComponent implements OnInit {
     nombre: '',
     descripcion: '',
     dificultad: '',
-    duracion: 0
+    duracion: null
 
   }
 
@@ -37,7 +37,7 @@ export class AddRutinaComponent implements OnInit {
         this.rutina.nombre = '';
         this.rutina.descripcion = '';
         this.rutina.dificultad = '';
-        this.rutina.duracion = 0;
+        this.rutina.duracion = null;
         Swal.fire('Rutina agregada', 'La rutina ha sido agregada con éxito', 'success');
         this.router.navigate(['/admin/rutinas']);
       },

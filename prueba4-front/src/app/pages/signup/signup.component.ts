@@ -16,11 +16,11 @@ export class SignupComponent implements OnInit {
     nombre : '',
     correo : '',
     genero : '',
-    altura : 0,
-    peso:0,
+    altura : null,
+    peso:null,
     numtarjeta:'',
     fechavalidez:'',
-    numsecretotarjeta:0
+    numsecretotarjeta:null
   }
 
   constructor(private userService:UserService,private snack:MatSnackBar) { }
@@ -42,7 +42,14 @@ export class SignupComponent implements OnInit {
     this.userService.añadirUsuario(this.user).subscribe(
       (data) => {
         console.log(data);
-        Swal.fire('Usuario guardado','Usuario registrado con exito en el sistema','success');
+        
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Usuario Registrado',
+          showConfirmButton: false,
+          timer: 1500
+        })
       },(error) => {
         console.log(error);
         this.snack.open('Ha ocurrido un error en el sistema !!','Aceptar',{
@@ -52,6 +59,24 @@ export class SignupComponent implements OnInit {
     )
   }
 
+  formatCreditCardNumber(event: any) {
+    // Eliminar cualquier espacio en blanco existente
+    let value = event.target.value.replace(/\s/g, '');
+  
+    // Dividir el número en bloques de 4 caracteres
+    let blocks = [];
+    for (let i = 0; i < value.length; i += 4) {
+      blocks.push(value.substr(i, 4));
+    }
+  
+    // Agregar espacios después de cada bloque de 4 caracteres
+    event.target.value = blocks.join(' ');
+  
+    // Recortar el número a un máximo de 16 dígitos
+    if (event.target.value.length > 19) {
+      event.target.value = event.target.value.substr(0, 19);
+    }
+  }
   
   
   
