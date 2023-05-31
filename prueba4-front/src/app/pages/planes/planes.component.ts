@@ -20,6 +20,7 @@ export class PlanesComponent implements OnInit {
     this.planService.listarPlanes().subscribe(
       (dato:any) => {
         this.planes = dato;
+        
       },
       (error) => {
         console.log(error);

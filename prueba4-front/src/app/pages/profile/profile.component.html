@@ -30,13 +30,13 @@
                 <td>Peso</td>
                 <td>{{ user.peso }}</td>
               </tr>
-              <!--<tr>
-                <td>Rol</td>
-                <td>{{ user.authorities[0].authority }}</td>
-              </tr>-->
               <tr>
                 <td>Estado</td>
                 <td>{{ user.enabled ? "Activo" : "No activo" }}</td>
+              </tr>
+              <tr *ngIf="user.nombre != 'admin'">
+                <td>Plan</td>
+                <td>{{ user.plan.nombre}}</td>
               </tr>
             </table>
           </div>

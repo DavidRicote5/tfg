@@ -2,8 +2,9 @@ package com.sistema.examenes.servicios;
 
 import java.util.Set;
 
-
+import com.sistema.examenes.modelo.Ejercicio;
 import com.sistema.examenes.modelo.Rutina;
+import com.sistema.examenes.modelo.Usuario;
 
 public interface RutinaService {
 
@@ -18,5 +19,7 @@ public interface RutinaService {
 	void eliminarRutina(Long rutinaId);
 
 	Rutina listarRutina(Long rutinaId);
+	
+	Set<Rutina> obtenerRutinasDeUsuario(Usuario usuario);
 
 }

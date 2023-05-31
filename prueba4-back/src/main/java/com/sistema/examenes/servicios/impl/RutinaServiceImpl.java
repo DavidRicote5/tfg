@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.sistema.examenes.modelo.Entrenador;
 import com.sistema.examenes.modelo.Rutina;
+import com.sistema.examenes.modelo.Usuario;
 import com.sistema.examenes.repositorios.EntrenadorRepository;
 import com.sistema.examenes.repositorios.RutinaRepository;
 import com.sistema.examenes.servicios.RutinaService;
@@ -49,6 +50,11 @@ public class RutinaServiceImpl implements RutinaService{
 	@Override
 	public Rutina listarRutina(Long rutinaId) {
 		return this.rutinaRepository.getOne(rutinaId);
+	}
+
+	@Override
+	public Set<Rutina> obtenerRutinasDeUsuario(Usuario usuario) {
+		return rutinaRepository.findByUsuario(usuario);
 	}
 
 }

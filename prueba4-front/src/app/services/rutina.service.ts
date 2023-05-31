@@ -29,4 +29,8 @@ export class RutinaService {
     return this.http.get(`${baserUrl}/rutina/`);
   }
 
+  public listarRutinasDeUsuario(usuarioId:any){
+    return this.http.get(`${baserUrl}/rutina/usuarios/${usuarioId}`);
+  }
+
 }

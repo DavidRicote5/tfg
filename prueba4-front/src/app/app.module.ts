@@ -66,6 +66,11 @@ import { ViewEjerciciosUserComponent } from './pages/user/view-ejercicios-user/v
 
 import { MatMenuModule } from '@angular/material/menu';
 
+import { MisRutinasViewComponent } from './pages/user/mis rutinas/mis-rutinas-view/mis-rutinas-view.component';
+import { MisRutinasAddComponent } from './pages/user/mis rutinas/mis-rutinas-add/mis-rutinas-add.component';
+import { MisRutinasActualizarComponent } from './pages/user/mis rutinas/mis-rutinas-actualizar/mis-rutinas-actualizar.component';
+import { MisRutinasComponent } from './pages/user/mis rutinas/mis-rutinas/mis-rutinas.component';
+
 
 @NgModule({
   declarations: [
@@ -110,7 +115,12 @@ import { MatMenuModule } from '@angular/material/menu';
     PlanesComponent,
     RutinasHomeComponent,
     ViewRutinasUserComponent,
-    ViewEjerciciosUserComponent
+    ViewEjerciciosUserComponent,
+    
+    MisRutinasViewComponent,
+    MisRutinasAddComponent,
+    MisRutinasActualizarComponent,
+    MisRutinasComponent
   ],
   imports: [
     BrowserModule,

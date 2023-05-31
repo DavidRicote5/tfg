@@ -1,5 +1,7 @@
 package com.sistema.examenes.controladores;
 
+import java.util.Set;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 
@@ -16,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 import com.sistema.examenes.modelo.Rutina;
-
+import com.sistema.examenes.modelo.Usuario;
 import com.sistema.examenes.servicios.RutinaService;
 
 @RestController
@@ -30,6 +32,14 @@ public class RutinaController {
 	@GetMapping("/")
     public ResponseEntity<?> listarRutinas(){
         return ResponseEntity.ok(rutinaService.obtenerRutinas());
+    }
+	
+	@GetMapping("/usuarios/{usuarioId}")
+    public ResponseEntity<?> listarRutinasDeUsuario(@PathVariable("usuarioId") Long usuarioId){
+        Usuario usuario = new Usuario();
+        usuario.setId(usuarioId);
+        Set<Rutina> rutinas = rutinaService.obtenerRutinasDeUsuario(usuario);
+		return ResponseEntity.ok(rutinas);
     }
 	
 	@PostMapping("/")

@@ -198,17 +198,18 @@ public class Usuario implements UserDetails, Serializable {
         this.usuarioRoles = usuarioRoles;
     }
     
-    @ManyToMany
-    private Collection<Rutina> rutinas;
+    @OneToMany(mappedBy = "usuario",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @JsonIgnore
+	private Set<Rutina> rutinas= new HashSet<>();
 
-	public Collection<Rutina> getRutinas() {
+	public Set<Rutina> getRutinas() {
 		return rutinas;
 	}
 
-	public void setRutinas(Collection<Rutina> rutinas) {
+	public void setRutinas(Set<Rutina> rutinas) {
 		this.rutinas = rutinas;
 	}
-	
+
 	@ManyToOne(fetch = FetchType.EAGER)
     private Plan plan;
 

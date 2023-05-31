@@ -51,6 +51,14 @@
             <input required [(ngModel)]="user.peso" name="peso" type="number" matInput placeholder="Introduzca su peso" min="0">
           </mat-form-field>
 
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Planes</mat-label>
+            <mat-select name="plan" [(ngModel)] = "user.plan.planId">
+              <mat-option *ngFor = "let p of planes" [value] = "p.planId">
+                {{ p.nombre }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
           <hr/>
             <h3 class="text-center">Datos Bancarios</h3>
 

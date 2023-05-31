@@ -2,6 +2,7 @@ import  Swal  from 'sweetalert2';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { UserService } from './../../services/user.service';
 import { Component, OnInit } from '@angular/core';
+import { PlanService } from 'src/app/services/plan.service';
 
 @Component({
   selector: 'app-signup',
@@ -9,6 +10,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
+
+  planes:any = [];
 
   public user = {
     username : '',
@@ -20,12 +23,27 @@ export class SignupComponent implements OnInit {
     peso:null,
     numtarjeta:'',
     fechavalidez:'',
-    numsecretotarjeta:null
+    numsecretotarjeta:null,
+    plan:{
+      planId:''
+    }
   }
 
-  constructor(private userService:UserService,private snack:MatSnackBar) { }
+  constructor(
+    private userService:UserService,
+    private planService:PlanService,
+    private snack:MatSnackBar) { }
 
   ngOnInit(): void {
+    this.planService.listarPlanes().subscribe(
+      (dato:any) => {
+        this.planes = dato;
+        console.log(this.planes);
+      },(error) => {
+        console.log(error);
+        Swal.fire('Error !!','Error al cargar los datos','error');
+      }
+    )
   }
 
   formSubmit(){
