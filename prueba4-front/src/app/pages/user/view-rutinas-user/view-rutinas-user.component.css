@@ -17,3 +17,19 @@ mat-card {
   button {
     width: 100%;
   }
+
+  .btn-dificultad-facil {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .btn-dificultad-medio {
+    background-color: #ffc107;
+    color: black;
+  }
+  
+  .btn-dificultad-dificil {
+    background-color: #dc3545;
+    color: white;
+  }
+  

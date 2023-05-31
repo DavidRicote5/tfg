@@ -35,6 +35,7 @@ export class AddEjercicioComponent implements OnInit {
     this.rutinaId = this.route.snapshot.params['rutinaId'];
     this.nombre = this.route.snapshot.params['nombre'];
     this.ejercicio.rutina['rutinaId'] = this.rutinaId;
+  
   }
 
   formSubmit() {

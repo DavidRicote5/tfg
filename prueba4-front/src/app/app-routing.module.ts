@@ -1,13 +1,7 @@
 import { StartComponent } from './pages/user/start/start.component';
 import { InstruccionesComponent } from './pages/user/instrucciones/instrucciones.component';
 
-import { ActualizarPreguntaComponent } from './pages/admin/actualizar-pregunta/actualizar-pregunta.component';
-import { AddPreguntaComponent } from './pages/admin/add-pregunta/add-pregunta.component';
-import { ViewExamenPreguntasComponent } from './pages/admin/view-examen-preguntas/view-examen-preguntas.component';
-import { AddExamenComponent } from './pages/admin/add-examen/add-examen.component';
-import { ViewExamenesComponent } from './pages/admin/view-examenes/view-examenes.component';
-import { AddCategoriaComponent } from './pages/admin/add-categoria/add-categoria.component';
-import { ViewCategoriasComponent } from './pages/admin/view-categorias/view-categorias.component';
+
 import { WelcomeComponent } from './pages/admin/welcome/welcome.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { NormalGuard } from './services/normal.guard';
@@ -19,7 +13,7 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { HomeComponent } from './pages/home/home.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ActualizarExamenComponent } from './pages/admin/actualizar-examen/actualizar-examen.component';
+
 import { AddEntrenadorComponent } from './pages/admin/entrenador/add-entrenador/add-entrenador.component';
 import { ActualizarEntrenadorComponent } from './pages/admin/entrenador/actualizar-entrenador/actualizar-entrenador.component';
 import { AddRutinaComponent } from './pages/admin/rutina/add-rutina/add-rutina.component';
@@ -40,10 +34,6 @@ import { RutinasHomeComponent } from './pages/rutinas-home/rutinas-home.componen
 import { ViewRutinasUserComponent } from './pages/user/view-rutinas-user/view-rutinas-user.component';
 import { ViewEjerciciosUserComponent } from './pages/user/view-ejercicios-user/view-ejercicios-user.component';
 
-import { MisRutinasComponent } from './pages/user/mis rutinas/mis-rutinas/mis-rutinas.component';
-import { MisRutinasViewComponent } from './pages/user/mis rutinas/mis-rutinas-view/mis-rutinas-view.component';
-import { MisRutinasAddComponent } from './pages/user/mis rutinas/mis-rutinas-add/mis-rutinas-add.component';
-import { MisRutinasActualizarComponent } from './pages/user/mis rutinas/mis-rutinas-actualizar/mis-rutinas-actualizar.component';
 
 const routes: Routes = [
   {
@@ -87,22 +77,7 @@ const routes: Routes = [
         path : '',
         component : WelcomeComponent
       },
-      {
-        path:'categorias',
-        component:ViewCategoriasComponent
-      },
-      {
-        path:'add-categoria',
-        component:AddCategoriaComponent
-      },
-      {
-        path:'examenes',
-        component:ViewExamenesComponent
-      },
-      {
-        path:'add-examen',
-        component:AddExamenComponent
-      },
+      
       {
         path:'usuarios',
         component:ViewUsuariosComponent
@@ -163,22 +138,7 @@ const routes: Routes = [
         path:'plan/:planId',
         component:ActualizarPlanComponent
       },
-      {
-        path:'examen/:examenId',
-        component:ActualizarExamenComponent
-      },
-      {
-        path:'ver-preguntas/:examenId/:titulo',
-        component:ViewExamenPreguntasComponent
-      },
-      {
-        path:'add-pregunta/:examenId/:titulo',
-        component : AddPreguntaComponent
-      },
-      {
-        path:'pregunta/:preguntaId',
-        component:ActualizarPreguntaComponent
-      },
+      
       {
         path:'entrenador/:entrenadorId',
         component:ActualizarEntrenadorComponent
@@ -222,30 +182,11 @@ const routes: Routes = [
         path:'view-ejercicios-user/:rutinaId/:nombre',
         component:ViewEjerciciosUserComponent
       },
-      {
-        path:'mis-rutinas',
-        component:MisRutinasComponent
-      },
-      {
-        path:'mis-rutinas-view/:usuarioId/:nombre',
-        component:MisRutinasViewComponent
-      },
-      {
-        path:'mis-rutinas-add/:usuarioId/:nombre',
-        component:MisRutinasAddComponent
-      },
-      {
-        path:'mis-rutinas-actualizar/:rutinaId',
-        component:MisRutinasActualizarComponent
-      },
+      
 
     ]
   },
-  {
-    path:"start/:examenId",
-    component:StartComponent,
-    canActivate:[NormalGuard]
-  }
+ 
 ];
 
 @NgModule({

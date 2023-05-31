@@ -15,8 +15,8 @@ export class AddPlanComponent implements OnInit {
 
     nombre : '',
     descripcion : '',
-    duracion:0,
-    precio:0
+    duracion:null,
+    precio:null
 
   }
 
@@ -37,8 +37,8 @@ export class AddPlanComponent implements OnInit {
       (dato:any) => {
         this.plan.nombre = '';
         this.plan.descripcion = '';
-        this.plan.duracion = 0;
-        this.plan.precio = 0;
+        this.plan.duracion = null;
+        this.plan.precio = null;
         Swal.fire('Plan agregado','El plan ha sido agregada con éxito','success');
         this.router.navigate(['/admin/planes']);
       },

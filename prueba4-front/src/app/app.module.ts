@@ -31,14 +31,7 @@ import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboa
 import { ProfileComponent } from './pages/profile/profile.component';
 import { SidebarComponent } from './pages/admin/sidebar/sidebar.component';
 import { WelcomeComponent } from './pages/admin/welcome/welcome.component';
-import { ViewCategoriasComponent } from './pages/admin/view-categorias/view-categorias.component';
-import { AddCategoriaComponent } from './pages/admin/add-categoria/add-categoria.component';
-import { ViewExamenesComponent } from './pages/admin/view-examenes/view-examenes.component';
-import { AddExamenComponent } from './pages/admin/add-examen/add-examen.component';
-import { ActualizarExamenComponent } from './pages/admin/actualizar-examen/actualizar-examen.component';
-import { ViewExamenPreguntasComponent } from './pages/admin/view-examen-preguntas/view-examen-preguntas.component';
-import { AddPreguntaComponent } from './pages/admin/add-pregunta/add-pregunta.component';
-import { ActualizarPreguntaComponent } from './pages/admin/actualizar-pregunta/actualizar-pregunta.component';
+
 import { SidebarComponent as UserSidebar} from './pages/user/sidebar/sidebar.component';
 
 import { InstruccionesComponent } from './pages/user/instrucciones/instrucciones.component';
@@ -66,10 +59,7 @@ import { ViewEjerciciosUserComponent } from './pages/user/view-ejercicios-user/v
 
 import { MatMenuModule } from '@angular/material/menu';
 
-import { MisRutinasViewComponent } from './pages/user/mis rutinas/mis-rutinas-view/mis-rutinas-view.component';
-import { MisRutinasAddComponent } from './pages/user/mis rutinas/mis-rutinas-add/mis-rutinas-add.component';
-import { MisRutinasActualizarComponent } from './pages/user/mis rutinas/mis-rutinas-actualizar/mis-rutinas-actualizar.component';
-import { MisRutinasComponent } from './pages/user/mis rutinas/mis-rutinas/mis-rutinas.component';
+
 
 
 @NgModule({
@@ -85,14 +75,7 @@ import { MisRutinasComponent } from './pages/user/mis rutinas/mis-rutinas/mis-ru
     ProfileComponent,
     SidebarComponent,
     WelcomeComponent,
-    ViewCategoriasComponent,
-    AddCategoriaComponent,
-    ViewExamenesComponent,
-    AddExamenComponent,
-    ActualizarExamenComponent,
-    ViewExamenPreguntasComponent,
-    AddPreguntaComponent,
-    ActualizarPreguntaComponent,
+
     UserSidebar,
     
     InstruccionesComponent,
@@ -117,10 +100,7 @@ import { MisRutinasComponent } from './pages/user/mis rutinas/mis-rutinas/mis-ru
     ViewRutinasUserComponent,
     ViewEjerciciosUserComponent,
     
-    MisRutinasViewComponent,
-    MisRutinasAddComponent,
-    MisRutinasActualizarComponent,
-    MisRutinasComponent
+
   ],
   imports: [
     BrowserModule,

@@ -17,16 +17,13 @@
           </mat-card-header>
           <mat-card-content>
             <mat-card-actions>
-              <button mat-flat-button color="primary" [routerLink]="'/user-dashboard/view-ejercicios-user/' + r.rutinaId + '/' + r.nombre">Ejercicios</button>
-              <!--<button [routerLink]="'/admin/rutina/' + r.rutinaId" mat-flat-button color="primary" class="ml20">Actualizar</button>-->
-              <!--<button mat-flat-button color="warn" class="ml10" (click)="eliminarRutina(r.rutinaId)">Eliminar</button>-->
+              <button mat-flat-button [class]="['btn-dificultad-' + r.dificultad.toLowerCase()]" [routerLink]="'/user-dashboard/view-ejercicios-user/' + r.rutinaId + '/' + r.nombre">Ejercicios</button>
+
             </mat-card-actions>
           </mat-card-content>
         </mat-card>
       </div>
     </div>
   </div>
-  <div class="container text-center mt20">
-    <!--<button routerLink="/user-dashboard/add-rutina-user" mat-raised-button color="primary">Agregar Rutina</button>-->
-  </div>
+  
 </div>
