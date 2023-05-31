@@ -1,6 +1,7 @@
 package com.sistema.examenes;
 
 import com.sistema.examenes.excepciones.UsuarioFoundException;
+import com.sistema.examenes.modelo.Plan;
 import com.sistema.examenes.modelo.Rol;
 import com.sistema.examenes.modelo.Usuario;
 import com.sistema.examenes.modelo.UsuarioRol;
@@ -43,6 +44,7 @@ public class SistemaExamenesBackendApplication implements CommandLineRunner {
 				usuario.setNumtarjeta("");
 				usuario.setFechavalidez("");
 				usuario.setNumsecretotarjeta(0);
+				
 
 				Rol rol = new Rol();
 				rol.setRolId(1L);

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AddUserRutinasComponent } from './add-user-rutinas.component';
+import { MisRutinasViewComponent } from './mis-rutinas-view.component';
 
-describe('AddUserRutinasComponent', () => {
-  let component: AddUserRutinasComponent;
-  let fixture: ComponentFixture<AddUserRutinasComponent>;
+describe('MisRutinasViewComponent', () => {
+  let component: MisRutinasViewComponent;
+  let fixture: ComponentFixture<MisRutinasViewComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AddUserRutinasComponent ]
+      declarations: [ MisRutinasViewComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(AddUserRutinasComponent);
+    fixture = TestBed.createComponent(MisRutinasViewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

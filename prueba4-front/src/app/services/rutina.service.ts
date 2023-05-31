@@ -13,6 +13,10 @@ export class RutinaService {
     return this.http.post(`${baserUrl}/rutina/`,rutina);
   }
 
+  public guardarRutinaDeUsuario(rutina:any, usuarioId:any){
+    return this.http.post(`${baserUrl}/rutina/usuarios/${usuarioId}`,rutina);
+  }
+
   public eliminarRutina(rutinaId:any){
     return this.http.delete(`${baserUrl}/rutina/${rutinaId}`);
   }
@@ -27,6 +31,10 @@ export class RutinaService {
 
   public listarRutinas(){
     return this.http.get(`${baserUrl}/rutina/`);
+  }
+
+  public listarRutinasDeUsuario(usuarioId:any){
+    return this.http.get(`${baserUrl}/rutina/usuarios/${usuarioId}`);
   }
 
 }

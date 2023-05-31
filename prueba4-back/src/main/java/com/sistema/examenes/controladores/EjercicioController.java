@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sistema.examenes.modelo.Ejercicio;
-import com.sistema.examenes.modelo.Pregunta;
 import com.sistema.examenes.modelo.Rutina;
 import com.sistema.examenes.servicios.EjercicioService;
 

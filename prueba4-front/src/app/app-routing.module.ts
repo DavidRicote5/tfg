@@ -40,6 +40,11 @@ import { RutinasHomeComponent } from './pages/rutinas-home/rutinas-home.componen
 import { ViewRutinasUserComponent } from './pages/user/view-rutinas-user/view-rutinas-user.component';
 import { ViewEjerciciosUserComponent } from './pages/user/view-ejercicios-user/view-ejercicios-user.component';
 
+import { MisRutinasComponent } from './pages/user/mis rutinas/mis-rutinas/mis-rutinas.component';
+import { MisRutinasViewComponent } from './pages/user/mis rutinas/mis-rutinas-view/mis-rutinas-view.component';
+import { MisRutinasAddComponent } from './pages/user/mis rutinas/mis-rutinas-add/mis-rutinas-add.component';
+import { MisRutinasActualizarComponent } from './pages/user/mis rutinas/mis-rutinas-actualizar/mis-rutinas-actualizar.component';
+
 const routes: Routes = [
   {
     path : '',
@@ -216,6 +221,22 @@ const routes: Routes = [
       {
         path:'view-ejercicios-user/:rutinaId/:nombre',
         component:ViewEjerciciosUserComponent
+      },
+      {
+        path:'mis-rutinas',
+        component:MisRutinasComponent
+      },
+      {
+        path:'mis-rutinas-view/:usuarioId/:nombre',
+        component:MisRutinasViewComponent
+      },
+      {
+        path:'mis-rutinas-add/:usuarioId/:nombre',
+        component:MisRutinasAddComponent
+      },
+      {
+        path:'mis-rutinas-actualizar/:rutinaId',
+        component:MisRutinasActualizarComponent
       },
 
     ]

@@ -65,12 +65,11 @@ import { ViewRutinasUserComponent } from './pages/user/view-rutinas-user/view-ru
 import { ViewEjerciciosUserComponent } from './pages/user/view-ejercicios-user/view-ejercicios-user.component';
 
 import { MatMenuModule } from '@angular/material/menu';
-import { ViewUserRutinasComponent } from './pages/user/user-rutinas/view-user-rutinas/view-user-rutinas.component';
-import { ViewUserEjerciciosComponent } from './pages/user/user-ejercicios/view-user-ejercicios/view-user-ejercicios.component';
-import { AddUserRutinasComponent } from './pages/user/user-rutinas/add-user-rutinas/add-user-rutinas.component';
-import { ActualizarUserRutinasComponent } from './pages/user/user-rutinas/actualizar-user-rutinas/actualizar-user-rutinas.component';
-import { AddUserEjerciciosComponent } from './pages/user/user-ejercicios/add-user-ejercicios/add-user-ejercicios.component';
-import { ActualizarUserEjerciciosComponent } from './pages/user/user-ejercicios/actualizar-user-ejercicios/actualizar-user-ejercicios.component';
+
+import { MisRutinasViewComponent } from './pages/user/mis rutinas/mis-rutinas-view/mis-rutinas-view.component';
+import { MisRutinasAddComponent } from './pages/user/mis rutinas/mis-rutinas-add/mis-rutinas-add.component';
+import { MisRutinasActualizarComponent } from './pages/user/mis rutinas/mis-rutinas-actualizar/mis-rutinas-actualizar.component';
+import { MisRutinasComponent } from './pages/user/mis rutinas/mis-rutinas/mis-rutinas.component';
 
 
 @NgModule({
@@ -117,12 +116,11 @@ import { ActualizarUserEjerciciosComponent } from './pages/user/user-ejercicios/
     RutinasHomeComponent,
     ViewRutinasUserComponent,
     ViewEjerciciosUserComponent,
-    ViewUserRutinasComponent,
-    ViewUserEjerciciosComponent,
-    AddUserRutinasComponent,
-    ActualizarUserRutinasComponent,
-    AddUserEjerciciosComponent,
-    ActualizarUserEjerciciosComponent
+    
+    MisRutinasViewComponent,
+    MisRutinasAddComponent,
+    MisRutinasActualizarComponent,
+    MisRutinasComponent
   ],
   imports: [
     BrowserModule,
