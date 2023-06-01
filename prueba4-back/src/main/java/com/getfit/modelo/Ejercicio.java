@@ -24,7 +24,7 @@ public class Ejercicio {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(unique = true)
+	@Column(unique = false)
 	@NonNull
 	private String nombre;
 
