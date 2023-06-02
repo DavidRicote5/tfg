@@ -27,7 +27,7 @@
             <div class="card-body text-center">
               <h3 class="card-subtitle mb-4"><b>Características</b></h3>
               <ul class="list-group">
-                <li class="list-group-item" *ngFor="let item of p.descripcion.split(',')">{{ item.trim() }}</li>
+                <li class="list-group-item" *ngFor="let item of p.descripcion.split(';')">{{ item.trim() }}</li>
               </ul>
 
               <hr/>

@@ -2,8 +2,8 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 31-05-2023 a las 22:27:33
+-- Servidor: 127.0.0.1:3310
+-- Tiempo de generación: 01-06-2023 a las 09:29:12
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -44,19 +44,15 @@ CREATE TABLE `ejercicios` (
 --
 
 INSERT INTO `ejercicios` (`id`, `descripcion`, `equiponecesario`, `grupomuscular`, `nombre`, `peso`, `repeticiones`, `series`, `rutina_id`) VALUES
-(1, 'Acuéstate en un banco, agarra la barra con las manos separadas a la anchura de los hombros, baja la barra hacia el pecho y luego empújala hacia arriba hasta que los brazos estén extendidos.', 'Bancos de ejercicio', 'Pectorales (pecho)', 'Press de banca', 0, 10, 4, 1),
-(2, 'Colócate entre dos barras paralelas, con los brazos extendidos, baja el cuerpo flexionando los codos y luego empuja hacia arriba hasta que los brazos estén completamente extendidos.', 'Equipos de entrenamiento de peso corporal', 'Pectorales (pecho)', 'Fondos en paralelas', 0, 12, 4, 1),
-(3, 'Siéntate en un banco inclinado, sostén una mancuerna en cada mano, baja los brazos hacia los lados hasta que los codos estén en ángulo recto, luego empuja las mancuernas hacia arriba hasta que los brazos estén extendidos.', 'Pesas libres', 'Pectorales (pecho)', 'Press inclinado con mancuernas', 0, 10, 4, 1),
-(4, 'Ponte frente a una polea alta con una cuerda de tríceps, agarra la cuerda/barra con las manos hacia abajo, estira los brazos hacia abajo y luego flexiona los codos para llevar la cuerda hacia abajo hasta que los brazos estén completamente extendidos', 'Máquinas de musculación', 'Tríceps', 'Extensiones de tríceps en polea', 0, 10, 4, 1),
-(5, '.', 'Equipos de entrenamiento de peso corporal', 'Dorsales (espalda)', 'Dominadas', 0, 8, 3, 2),
-(6, '.', 'Máquinas de musculación', 'Dorsales (espalda)', 'Remo con barra', 0, 12, 4, 2),
-(7, '.', 'Pesas libres', 'Bíceps', 'Curl de bíceps con mancuernas', 0, 12, 4, 2),
-(8, '.', 'Pesas libres', 'Dorsales (espalda)', 'Peso muerto', 0, 10, 4, 2),
-(9, '.', 'Máquinas de musculación', 'Pantorrillas', 'Sentadillas', 0, 10, 4, 3),
-(10, '.', 'Máquinas de musculación', 'Cuádriceps', 'Prensa de piernas', 0, 10, 4, 3),
-(11, '.', 'Máquinas de musculación', 'Cuádriceps', 'Zancadas', 0, 10, 4, 3),
-(12, '.', 'Máquinas de musculación', 'Pantorrillas', 'Elevación de talones', 0, 10, 4, 3),
-(13, '.', 'Máquinas de musculación', 'Pectorales (pecho)', 'Press de banca con barra', 0, 10, 4, 4);
+(3, 'Acuéstate en el banco, sostén la barra con un agarre amplio y baja lentamente hacia el pecho. Luego, empuja la barra hacia arriba hasta que los brazos estén extendidos.', 'Bancos de ejercicio', 'Pectorales (pecho)', 'Press de banca con barra', 0, 0, 0, 8),
+(4, 'Agarra la barra con las palmas hacia adelante y los brazos extendidos. Luego, levántate hasta que la barbilla esté por encima de la barra y luego baja lentamente.\nSeries y repeticiones: 3 series de 8-10 repeticiones.', 'Equipos de entrenamiento de peso corporal', 'Dorsales (espalda)', 'Dominadas', 0, 10, 3, 8),
+(5, 'Sostén una mancuerna en cada mano a la altura de los hombros. Luego, extiende los brazos hacia arriba hasta que las pesas se encuentren casi tocando y luego baja lentamente.', 'Pesas libres', 'Deltoides (hombros)', 'Press de hombros con mancuernas', 0, 12, 3, 8),
+(6, 'Ajusta la velocidad de la cinta según tu nivel de comodidad y corre a un ritmo constante durante el tiempo deseado. Tiempo estimado: 20-30 minutos.', 'Máquinas de cardio', 'Otro', 'Correr en cinta', 0, 0, 1, 9),
+(7, 'Coloca los pies en los pedales y sujeta las asas. Realiza un movimiento de balanceo simultáneo de las piernas y los brazos, manteniendo un ritmo constante. Tiempo estimado entre 20 - 30 minutos.', 'Máquinas de cardio', 'Otro', 'Máquina elíptica', 0, 0, 1, 9),
+(8, 'Sujeta las asas de la cuerda de saltar y salta con ambos pies a medida que la cuerda pasa por debajo. Intenta mantener un ritmo constante.\n3 series de 1 minuto cada una, con descanso de 30 segundos entre cada serie.', 'Máquinas de cardio', 'Otro', 'Saltos de cuerda', 0, 0, 3, 9),
+(9, 'Siéntate en el suelo con las piernas extendidas. Inclínate hacia adelante y trata de tocar tus dedos de los pies, manteniendo las piernas rectas. Mantén la posición durante 15-20 segundos.', 'Equipos de estiramiento y movilidad', 'Otro', 'Estiramientos de piernas', 0, 3, 3, 10),
+(10, 'De pie, extiende los brazos hacia los lados. Gira los hombros hacia adelante en círculos amplios durante 10 repeticiones y luego gíralos hacia atrás durante otras 10 repeticiones.', 'Equipos de estiramiento y movilidad', 'Otro', 'Rotación de hombros', 0, 10, 2, 10),
+(11, 'Acuéstate boca arriba y lleva las rodillas hacia el pecho. Envuelve tus brazos alrededor de las piernas y tira suavemente hacia el pecho para sentir un estiramiento en la espalda baja. Mantén la posición durante 20 segundos.', 'Equipos de estiramiento y movilidad', 'Otro', 'Estiramiento de espalda', 0, 3, 3, 10);
 
 -- --------------------------------------------------------
 
@@ -77,9 +73,9 @@ CREATE TABLE `entrenador` (
 --
 
 INSERT INTO `entrenador` (`id`, `anosexperiencia`, `correo`, `especializacion`, `nombre`) VALUES
-(1, 2, 'pedro@getfit.com', 'Entrenamiento de fuerza y acondicionamiento', 'Pedro'),
-(2, 2, 'ricardo@getfit.com', 'Entrenamiento deportivo', 'Ricardo'),
-(3, 5, 'pablo@getfit.com', 'Entrenamiento deportivo', 'Pablo');
+(1, 1, 'javi@getfit.com', 'Entrenamiento de fuerza y acondicionamiento', 'Javier'),
+(2, 4, 'natalia@getfit.com', 'Entrenamiento deportivo', 'Natalia'),
+(3, 6, 'pedro@getfit.com', 'Entrenamiento funcional', 'Pedro');
 
 -- --------------------------------------------------------
 
@@ -100,7 +96,7 @@ CREATE TABLE `entrenador_rutinas` (
 
 CREATE TABLE `plan` (
   `id` bigint(20) NOT NULL,
-  `descripcion` varchar(255) DEFAULT NULL,
+  `descripcion` varchar(1000) DEFAULT NULL,
   `duracion` int(11) NOT NULL,
   `nombre` varchar(255) DEFAULT NULL,
   `precio` int(11) NOT NULL
@@ -111,9 +107,9 @@ CREATE TABLE `plan` (
 --
 
 INSERT INTO `plan` (`id`, `descripcion`, `duracion`, `nombre`, `precio`) VALUES
-(1, 'Acceso ilimitado a todas las áreas de entrenamiento,\nPrograma de entrenamiento personalizado,\nClases grupales gratuitas\n', 30, 'Fitness Total', 35),
-(2, 'Acceso ilimitado a todas las áreas de entrenamiento,\nPrograma de entrenamiento básico,\nClases grupales limitadas (2 por semana)', 15, 'Express Fit', 20),
-(3, 'Acceso ilimitado a todas las áreas de entrenamiento,\nPrograma de entrenamiento avanzado,\nClases grupales ilimitadas,\nEvaluación inicial y seguimiento de condición física,\nAsesoramiento nutricional completo', 30, 'Power Pack', 40);
+(3, 'Acceso ilimitado al gimnasio durante el horario de apertura;\nUso de todas las áreas de entrenamiento, como pesas, máquinas cardiovasculares y zonas de estiramientos;\nAcceso a clases grupales estándar, como aeróbicos y yoga, de acuerdo con el horario semanal;\nConsulta con un entrenador personal una vez al mes para establecer metas y recibir orientación básica', 30, 'Basico', 25),
+(4, 'Acceso ilimitado al gimnasio durante el horario de apertura;\nUso de todas las áreas de entrenamiento, incluyendo pesas, máquinas cardiovasculares, zonas de estiramientos y áreas especializadas (como área de boxeo o sala de spinning);\nAcceso a todas las clases grupales disponibles en el gimnasio, incluyendo clases especiales y de alta intensidad;\nConsulta con un entrenador personal una vez al mes para establecer metas, recibir asesoramiento personalizado y seguimiento regular;\nDescuentos exclusivos en servicios adicionales, como masajes terapéuticos o planes nutricionales personalizados', 30, 'Premium', 35),
+(5, 'Acceso ilimitado al gimnasio durante el horario de apertura, incluyendo acceso prioritario en horarios concurridos;\nUso de todas las áreas de entrenamiento, incluyendo pesas, máquinas cardiovasculares, zonas de estiramientos y áreas especializadas;\nAcceso ilimitado a todas las clases grupales disponibles, sin restricciones;\nConsulta con un entrenador personal dos veces al mes para establecer metas, recibir asesoramiento personalizado y seguimiento regular;\nAcceso exclusivo a sesiones de entrenamiento en grupos reducidos o clases especiales VIP;\nDescuentos especiales en todos los servicios adicionales, así como acceso a eventos y talleres exclusivos del gimnasio.', 30, 'VIP', 40);
 
 -- --------------------------------------------------------
 
@@ -154,12 +150,9 @@ CREATE TABLE `rutinas` (
 --
 
 INSERT INTO `rutinas` (`id`, `descripcion`, `dificultad`, `duracion`, `nombre`, `usuario_id`) VALUES
-(1, 'Esta rutina se compone de 3 ejercicios de pectoral, y un ejercicio de triceps', 'Facil', 1, 'Pecho y tríceps (fuerza)', NULL),
-(2, 'Esta rutina se compone de 3 ejercicios de dorsal, y un ejercicio de biceps', 'Facil', 1, 'Espalda y bíceps (fuerza)', NULL),
-(3, 'Esta rutina se compone de 4 ejercicios de piernas', 'Facil', 1, 'Piernas (fuerza)', NULL),
-(4, 'En esta rutina, el enfoque principal está en desarrollar y fortalecer los músculos del pecho y los tríceps.', 'Dificil', 3, 'Pecho y tríceps (hipertrofia)', NULL),
-(6, 'En esta rutina, el objetivo es trabajar los músculos de la espalda y los bíceps para lograr un desarrollo equilibrado.', 'Dificil', 3, 'Espalda y bíceps (hipertrofia)', NULL),
-(7, 'Esta rutina se centra en el desarrollo y fortalecimiento de los músculos de las piernas. ', 'Dificil', 3, 'Piernas (hipertrofia)', NULL);
+(8, 'Esta rutina se enfoca en el desarrollo de fuerza y músculos en la parte superior del cuerpo', 'Dificil', 2, 'Fuerza y Hipertrofia (Superior)', NULL),
+(9, 'Esta rutina se centra en mejorar la resistencia cardiovascular y quemar calorías.', 'Medio', 1, 'Resistencia Cardiovascular', NULL),
+(10, 'Esta rutina se enfoca en mejorar la flexibidad y la movilidad en todo el cuerpo', 'Facil', 1, 'Flexibilidad y Movilidad', NULL);
 
 -- --------------------------------------------------------
 
@@ -189,8 +182,8 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `altura`, `correo`, `enabled`, `fechavalidez`, `genero`, `nombre`, `numsecretotarjeta`, `numtarjeta`, `password`, `perfil`, `peso`, `username`, `plan_id`) VALUES
-(1, 0, 'getfit@getfit.com', b'1', '', 'Hombre', 'admin', 0, '', '$2a$10$kK5pF31JCu1GfdBr0zScAODMJmJAQSDq.sS1rnGmWQiVAypi1QW9i', 'foto.png', 0, 'admin', NULL),
-(2, 180, 'raul@getfit.com', b'1', '2023-06-01', 'Hombre', 'raul', 340, '5465 4656 7565 6556', '$2a$10$m8/Duoi7ZMyrauuCEhFi6e6fKocdXaPI9HqnSz7snMNUrdemkNsZe', 'default.png', 66, 'raul', 2);
+(1, 0, 'getfit@getfit.com', b'1', '', 'Hombre', 'admin', 0, '', '$2a$10$d.QPRfSqzumsN8nHMYc9we2t1xgDTlML3dM8YnwkYRcdbi3pDqaGy', 'foto.png', 0, 'admin', NULL),
+(2, 177, 'raul@getfit.com', b'1', '2023-06-01', 'Hombre', 'raul', 340, '2354 6235 6324 5746', '$2a$10$eeT9LZ8mc/m7xmWnuFQY/egaJYwQqm8WsK0iD4VDlAgLuXK4s/Adq', 'default.png', 66, 'raul', 3);
 
 -- --------------------------------------------------------
 
@@ -221,7 +214,6 @@ INSERT INTO `usuario_rol` (`usuario_rol_id`, `rol_rol_id`, `usuario_id`) VALUES
 --
 ALTER TABLE `ejercicios`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `UK_ls7t5xgmssdlg1kkhm6o5926y` (`nombre`),
   ADD KEY `FK1qutlfhu4b5utydegnox6jo8l` (`rutina_id`);
 
 --
@@ -255,7 +247,6 @@ ALTER TABLE `roles`
 --
 ALTER TABLE `rutinas`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `UK_jnlna8n1k7dof9rp5fq3c9ukx` (`nombre`),
   ADD KEY `FKe3swm1g2oigxudqi4ilyfh8e0` (`usuario_id`);
 
 --
@@ -281,7 +272,7 @@ ALTER TABLE `usuario_rol`
 -- AUTO_INCREMENT de la tabla `ejercicios`
 --
 ALTER TABLE `ejercicios`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `entrenador`
@@ -293,13 +284,13 @@ ALTER TABLE `entrenador`
 -- AUTO_INCREMENT de la tabla `plan`
 --
 ALTER TABLE `plan`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `rutinas`
 --
 ALTER TABLE `rutinas`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`

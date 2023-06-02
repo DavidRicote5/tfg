@@ -2,7 +2,7 @@ package com.getfit.modelo;
 
 
 
-import javax.persistence.Column;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -24,7 +24,7 @@ public class Ejercicio {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(unique = false)
+	
 	@NonNull
 	private String nombre;
 
