@@ -213,7 +213,7 @@ public class Usuario implements UserDetails, Serializable {
 
 	//RELACION DE USUARIO CON PLAN
 	
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne
     private Plan plan;
 
 	public Plan getPlan() {

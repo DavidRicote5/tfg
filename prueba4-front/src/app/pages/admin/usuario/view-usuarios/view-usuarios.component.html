@@ -12,7 +12,7 @@
           <b>Genero:</b> {{u.genero}}<br/>
           <b>Altura:</b> {{u.altura}} cm<br/>
           <b>Peso:</b> {{u.peso}} kg<br/>
-          <span *ngIf="u.nombre != 'admin'">
+          <span *ngIf="u.nombre != 'admin' && u.plan">
             <b>Plan:</b> {{u.plan.nombre}}
           </span>
         </mat-card-content>

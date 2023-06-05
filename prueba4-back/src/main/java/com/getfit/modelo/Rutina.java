@@ -74,7 +74,7 @@ public class Rutina {
 	/*======= RELACIONES ========*/
 
 	//Lado Muchos a Muchos con ejercicios
-	@OneToMany(mappedBy = "rutina",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "rutina",fetch = FetchType.LAZY,cascade = CascadeType.ALL, orphanRemoval = true)
 	@JsonIgnore
 	private Set<Ejercicio> ejercicios = new HashSet<>();
 	

@@ -1,13 +1,16 @@
 package com.getfit.servicios.impl;
 
 import java.util.LinkedHashSet;
+import java.util.Optional;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.getfit.modelo.Plan;
+import com.getfit.modelo.Usuario;
 import com.getfit.repositorios.PlanRepository;
+import com.getfit.repositorios.UsuarioRepository;
 import com.getfit.servicios.PlanService;
 
 @Service
@@ -15,6 +18,9 @@ public class PlanServiceImpl implements PlanService {
 
 	@Autowired
 	private PlanRepository planRepository;
+	
+	@Autowired
+	private UsuarioRepository usuarioRepository;
 	
 	@Override
 	public Set<Plan> obtenerPlanes() {
@@ -38,9 +44,21 @@ public class PlanServiceImpl implements PlanService {
 
 	@Override
 	public void eliminarPlan(Long planId) {
-		Plan plan = new Plan();
-		plan.setPlanId(planId);
-		planRepository.delete(plan);
+		Optional<Plan> optionalPlan = planRepository.findById(planId);
+	    if (optionalPlan.isPresent()) {
+	        Plan plan = optionalPlan.get();
+	        
+	        for (Usuario usuario : plan.getUsuarios()) {
+	            
+	            usuario.setPlan(null);  // Establecer el plan como null
+	            usuarioRepository.save(usuario);
+	        }
+	        
+	        plan.getUsuarios().clear();
+	        planRepository.delete(plan);
+	    } else {
+	        throw new IllegalArgumentException("El plan no existe");
+	    }
 		
 	}
 
