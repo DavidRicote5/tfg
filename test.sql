@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3310
--- Tiempo de generación: 01-06-2023 a las 09:29:12
+-- Tiempo de generación: 07-06-2023 a las 12:13:19
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -183,7 +183,8 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`id`, `altura`, `correo`, `enabled`, `fechavalidez`, `genero`, `nombre`, `numsecretotarjeta`, `numtarjeta`, `password`, `perfil`, `peso`, `username`, `plan_id`) VALUES
 (1, 0, 'getfit@getfit.com', b'1', '', 'Hombre', 'admin', 0, '', '$2a$10$d.QPRfSqzumsN8nHMYc9we2t1xgDTlML3dM8YnwkYRcdbi3pDqaGy', 'foto.png', 0, 'admin', NULL),
-(2, 177, 'raul@getfit.com', b'1', '2023-06-01', 'Hombre', 'raul', 340, '2354 6235 6324 5746', '$2a$10$eeT9LZ8mc/m7xmWnuFQY/egaJYwQqm8WsK0iD4VDlAgLuXK4s/Adq', 'default.png', 66, 'raul', 3);
+(2, 177, 'raul@getfit.com', b'1', '2023-06-01', 'Hombre', 'raul', 340, '2354 6235 6324 5746', '$2a$10$eeT9LZ8mc/m7xmWnuFQY/egaJYwQqm8WsK0iD4VDlAgLuXK4s/Adq', 'default.png', 66, 'raul', 3),
+(3, 177, 'david@getfit.com', b'1', '2023-06-07', 'Hombre', 'david', 340, '1565 1615 1151 5151', '$2a$10$Bc1rOYD4QBi.coyKsuRb9OsVNqhY7HGugk0aceLfAZFUr4g23WiuG', 'default.png', 80, 'david', 3);
 
 -- --------------------------------------------------------
 
@@ -203,7 +204,8 @@ CREATE TABLE `usuario_rol` (
 
 INSERT INTO `usuario_rol` (`usuario_rol_id`, `rol_rol_id`, `usuario_id`) VALUES
 (1, 1, 1),
-(2, 2, 2);
+(2, 2, 2),
+(3, 2, 3);
 
 --
 -- Índices para tablas volcadas
@@ -296,13 +298,13 @@ ALTER TABLE `rutinas`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario_rol`
 --
 ALTER TABLE `usuario_rol`
-  MODIFY `usuario_rol_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `usuario_rol_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Restricciones para tablas volcadas
