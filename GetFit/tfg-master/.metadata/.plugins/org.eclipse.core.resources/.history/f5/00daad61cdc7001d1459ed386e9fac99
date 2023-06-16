@@ -1,0 +1,19 @@
+
+<div class="container">
+<h1>Actualizar ejercicio</h1>
+
+<form action="/ejercicio/u" method="post">
+Nombre
+<input type="text" name="nombre" required="required" th:value="${ejercicio.nombre}"/>
+<br/>
+
+<input type="hidden" name="identityMayuscula" th:value="${ejercicio.id}"/>
+
+<input type="submit"/>
+<br/>
+</form>
+
+<form action="/ejercicio/r">
+<input type="submit" value="Cancelar"/>
+</form>
+</div>

@@ -1,0 +1,41 @@
+<mat-card>
+    <h1>Actualizar Plan</h1>
+    <mat-card-content>
+      <div class="bootstrap-wrapper">
+        <div class="row">
+          <div class="col-md-8 offset-md-2">
+            <form *ngIf = "plan" (submit) = "actualizarDatos()">
+
+              <mat-form-field class="w100" appearance="outline">
+                <mat-label>Nombre</mat-label>
+                <input required autofocus type="text" name="nombre" matInput placeholder="Digite el nombre del plan"
+                  [(ngModel)]="plan.nombre">
+              </mat-form-field>
+  
+              <mat-form-field class="w100" appearance="outline">
+                <mat-label>Descripción</mat-label>
+                <textarea required name="descripcion" matInput placeholder="Introduzca una descripción"
+                  [(ngModel)]="plan.descripcion"></textarea>
+              </mat-form-field>
+  
+              <mat-form-field class="w100" appearance="outline">
+                <mat-label>Duración (dias)</mat-label>
+                <input required autofocus type="number" name="duracion" matInput placeholder="Añada la duración del plan" min="0"
+                  [(ngModel)]="plan.duracion">
+              </mat-form-field>
+  
+              <mat-form-field class="w100" appearance="outline">
+                <mat-label>Precio (€)</mat-label>
+                <input required autofocus type="number" name="precio" matInput placeholder="Introduzca el precio" min="0"
+                  [(ngModel)]="plan.precio">
+              </mat-form-field>
+  
+              <div class="container text-center mt15">
+                <button mat-raised-button color="primary">Guardar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>

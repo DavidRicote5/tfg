@@ -1,0 +1,14 @@
+package org.getfit.helpers;
+
+import org.getfit.entities.Cliente;
+
+import org.agaray.spring.pap2023.entities.Rol;
+
+public class H {
+	
+	public static void isRolOk(String nombreRol, Persona usuario) throws Exception {
+		if (!usuario.getRol().equals(new Rol(nombreRol))) {
+			throw new Exception("Rol inadecuado, rol actual: "+usuario.getRol()+", rol requerido: "+nombreRol);
+		}
+	}
+}

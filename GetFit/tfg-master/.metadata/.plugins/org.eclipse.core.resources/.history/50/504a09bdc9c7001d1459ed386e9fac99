@@ -1,0 +1,5 @@
+package org.getfit.entities;
+
+public class Plan {
+
+}

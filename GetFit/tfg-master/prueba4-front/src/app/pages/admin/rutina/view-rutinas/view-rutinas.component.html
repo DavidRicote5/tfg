@@ -1,0 +1,26 @@
+<mat-card class="mt10" *ngFor = "let r of rutinas">
+      
+    <mat-card-header> 
+      
+      <mat-card-title> 
+          Nombre: {{ r.nombre }}
+        </mat-card-title>
+        <mat-card-content>
+          <b>Descripcion:</b> {{r.descripcion}}<br/>
+          <b>Duracion:</b> {{r.duracion}}h<br/>
+          <b>Dificultad:</b> {{r.dificultad}}
+        </mat-card-content>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-card-actions>
+        <button mat-flat-button color="primary" [routerLink] = "'/admin/ejercicios/'+r.rutinaId+'/'+r.nombre">Ejercicios</button>
+        <button [routerLink] = "'/admin/rutina/'+r.rutinaId" mat-flat-button color="primary" class="ml20">Actualizar</button>
+        <!--<button mat-flat-button color="primary" class="ml10" (click) = "actualizarEntrenador(e.id)">Actualizar</button>-->
+        <button mat-flat-button color="warn" class="ml10" (click) = "eliminarRutina(r.rutinaId)">Eliminar</button>
+      </mat-card-actions>
+    </mat-card-content>
+  </mat-card>
+  
+  <div class="container text-center mt20">
+    <button routerLink="/admin/add-rutina" mat-raised-button color="primary" >Agregar Rutina</button>
+  </div>

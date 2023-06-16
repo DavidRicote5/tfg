@@ -1,0 +1,31 @@
+<mat-card class="mt10" *ngFor = "let u of usuarios">
+      
+    <mat-card-header>  
+      <mat-card-title><mat-icon mat-list-icon>account_circle</mat-icon>
+        {{ u.username }}
+        </mat-card-title>
+        <mat-card-subtitle>
+          {{ u.correo }}
+        </mat-card-subtitle>
+        <mat-card-content>
+          <b>Nombre:</b> {{u.nombre}}<br/>
+          <b>Genero:</b> {{u.genero}}<br/>
+          <b>Altura:</b> {{u.altura}} cm<br/>
+          <b>Peso:</b> {{u.peso}} kg<br/>
+          <span *ngIf="u.nombre != 'admin' && u.plan">
+            <b>Plan:</b> {{u.plan.nombre}}
+          </span>
+        </mat-card-content>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-card-actions>
+        <!--<button [routerLink] = "'/admin/usuarios/'+u.username" mat-flat-button color="primary" class="ml20">Actualizar</button>-->
+        <!--<button mat-flat-button color="warn" class="ml10" (click) = "eliminarUsuario(u.id)">Eliminar</button>-->
+      </mat-card-actions>
+    </mat-card-content>
+  </mat-card>
+  
+  <div class="container text-center mt20">
+    <button routerLink="/signup" mat-raised-button color="primary">Agregar usuario</button>
+  </div>
+  

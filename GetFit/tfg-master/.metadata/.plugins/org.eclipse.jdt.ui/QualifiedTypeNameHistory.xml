@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="org.getfit.entities.Cliente"/>
+    <fullyQualifiedTypeName name="org.agaray.spring.pap2023.exception.InfoException"/>
+    <fullyQualifiedTypeName name="org.getfit.exception.DangerException"/>
+    <fullyQualifiedTypeName name="org.getfit.entities.Usuario"/>
+    <fullyQualifiedTypeName name="org.getfit.entities.Rutina"/>
+    <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.JpaRepository"/>
+    <fullyQualifiedTypeName name="org.getfit.entities.Ejercicio"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.ManyToMany"/>
+    <fullyQualifiedTypeName name="java.util.Collection"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.ManyToOne"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.OneToMany"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+    <fullyQualifiedTypeName name="org.getfit.repositories.PlanRepository"/>
+    <fullyQualifiedTypeName name="org.getfit.entities.Plan"/>
+    <fullyQualifiedTypeName name="org.getfit.repositories.EntrenadorRepository"/>
+    <fullyQualifiedTypeName name="org.getfit.entities.Entrenador"/>
+    <fullyQualifiedTypeName name="org.getfit.repositories.RutinaRepository"/>
+    <fullyQualifiedTypeName name="org.getfit.services.EntrenadorService"/>
+    <fullyQualifiedTypeName name="org.getfit.services.PlanService"/>
+    <fullyQualifiedTypeName name="java.time.LocalDate"/>
+    <fullyQualifiedTypeName name="org.getfit.services.RutinaService"/>
+</qualifiedTypeNameHistroy>

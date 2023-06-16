@@ -1,0 +1,20 @@
+<div class="container">
+<h1>GET FIT</h1>
+
+<button>
+	<a href="/usuario/r">USUARIOS</a>
+</button>
+
+<button>
+	<a href="/entrenador/r">ENTRENADORES</a>
+</button>
+
+<button>
+	<a href="/plan/r">Partidos</a>
+</button>
+
+<button>
+	<a href="/fase/r">Fases</a>
+</button>
+
+</div>
